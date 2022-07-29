@@ -2,4 +2,4 @@
 
 Link to the Results Dashboard Tool: #soon
 
-Link to the main Project: [https://eupolis-project.eu/]
+Link to the main Project: https://eupolis-project.eu/
