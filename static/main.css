@@ -1,0 +1,21 @@
+html, body {
+     margin: 0; /*maybe these need change in the future*/
+     padding: 0;
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: 1.5vw;
+     background-color: #85dcbb;
+}
+
+.home-content-container {
+     text-align: justify;
+     margin-top: 1vw;
+     margin-left: 2vw;
+     margin-right: 2vw;
+}
+
+#copyright-text {
+     position: absolute;
+     bottom: 0%;
+     right: 1.4%;
+     font-size: 0.9vw;
+}
