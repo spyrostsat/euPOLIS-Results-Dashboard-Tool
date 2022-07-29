@@ -3,12 +3,22 @@
 {% block content %}
 
 <div class="home-content-container">
-     <p class="text-center font-weight-bold">Welcome to the EuPOLIS Results Dashboard Tool</p>
+     <p class="text-center font-weight-bold mt-2" style="font-size: 1.8vw;">EuPOLIS Results Dashboard</p>
+     <p class="text-center mt-2">Site Under Study: {{ site_name }}</p>
+     <p class="" style="text-align: justify;">
+          The study presented herein refers to a school located at the port city of Piraeus, Attica
+          (Location: [{{ site_location }}]). The simulation took place during the period {{ simulation_period }}. The total
+          surface of the site is {{ site_surface }} m2 and the total preexisting green surface (before the installation of any
+          Nature-Based Solutions) is {{ existing_green_surfaces }} m2.
+      </p>
+      <p>
+           There are 5 total different scenarios that will be taken into account in this exhibition.
+      </p>
 </div>
 
-<div class="text-center" style="width:33%; font-size:13px; position:absolute; bottom:0%; left:0%;">
-     <p style="font-size:20px; font-weight:bold;">euPOLIS Funding</p>
-     <a style="position:relative;bottom:10px;" target="_blank" href="https://european-union.europa.eu/index_en"><img src="{{ url_for('static', filename='images/euro-union.png') }}" alt="EU" style="width:9.5%;"></a>
+<div class="text-center" style="width: 33%; font-size: 1vw; position: absolute; bottom: 0%; left :0.4%;">
+     <p style="font-size: 20px; font-weight: bold;">euPOLIS Funding</p>
+     <a style="position: relative;bottom: 10px;" target="_blank" href="https://european-union.europa.eu/index_en"><img src="{{ url_for('static', filename='images/euro-union.png') }}" alt="EU" style="width:9.5%;"></a>
      <p>The euPOLIS project has received funding from the European Union’s Horizon 2020 Research & Innovation programme H2020-EU.3.5.2., under grant agreement No 869448</p>
 </div>
 
