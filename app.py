@@ -1,4 +1,20 @@
 from flask import Flask, render_template, url_for, flash, redirect, request
+import json
+
+with open("json_files/baseline_json.json", "r") as f:
+    baseline_scenario_data = json.load(f)
+
+with open("json_files/scen1_json.json", "r") as f:
+    scenario_1_data = json.load(f)
+
+with open("json_files/scen2_json.json", "r") as f:
+    scenario_2_data = json.load(f)
+
+with open("json_files/scen3_json.json", "r") as f:
+    scenario_3_data = json.load(f)
+
+with open("json_files/scen4_json.json", "r") as f:
+    scenario_4_data = json.load(f)
 
 
 app = Flask(__name__)
@@ -8,6 +24,7 @@ app.config['SECRET_KEY'] = '61eeaaa0602a3b02cf95cedfed635601'
 @app.route("/")
 @app.route("/home")
 def home():
+    # print(baseline_scenario_data["general_info"]["pilot site name"])
     return render_template('home.html', title="Home")
 
 @app.route("/baseline-scenario")
