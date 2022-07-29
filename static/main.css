@@ -16,9 +16,9 @@ html, body {
 }
 
 .nav-bar li {
-     padding-top: 30px;
-     padding-left: 5px;
-     padding-bottom: 30px;
+     margin-left: 3vw;
+     padding-top: 1.9vw;
+     padding-bottom: 1.8vw;
      display: inline-block;
 }
 
