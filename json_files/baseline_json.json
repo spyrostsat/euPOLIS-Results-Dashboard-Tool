@@ -29408,7 +29408,7 @@
    "param_unit": "m2"
   },
   "imp_surf_baseline": {
-   "param_desc": "Impervious surfaces baseline scenario (m2)",
+   "param_desc": "Impervious surfaces (m2)",
    "param_val": 2542.26,
    "param_unit": "m2"
   },
