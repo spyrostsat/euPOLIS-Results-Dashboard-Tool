@@ -6,37 +6,6 @@ html, body {
      background-color: #51e2f5;
 }
 
-.nav-bar {
-     height: 6vw; /*I specified a fixed height for the content of the home page equal to 100vh - 5.5vw so that it expands upon the whole page*/
-     list-style-type: none;
-     margin: 0;
-     text-align: center;
-     overflow: hidden;
-     background-color: #edf9f8;
-}
-
-.nav-bar li {
-     margin-left: 3vw;
-     padding-top: 1.9vw;
-     padding-bottom: 1.8vw;
-     display: inline-block;
-}
-
-.nav-bar li a {
-     /* display: block; */
-     font-weight: bold;
-     color: #444444;
-     text-align: center;
-     top: 50%;
-     padding: 1vw;
-     text-decoration: none;
-}
-
-.nav-bar li a:hover {
-     background-color: #111111;
-     color: white;
-}
-
 .home-content-container {
      text-align: justify;
      margin-top: 1vw;
@@ -57,11 +26,4 @@ html, body {
      position: absolute;
      top: 2%;
      left: 89%;
-}
-
-#copyright-text {
-     position: absolute;
-     bottom: 0%;
-     right: 1.4%;
-     font-size: 0.9vw;
 }

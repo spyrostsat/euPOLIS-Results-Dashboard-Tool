@@ -46532,29 +46532,34 @@
    "param_unit": "m2"
   },
   "imprv_permeable_pavement_id_151": {
-   "param_desc": "Impervious area (m2)",
+   "param_desc": "Green roof permeable pavement (m2)",
    "param_val": 184.0,
    "param_unit": "m2"
   },
   "imprv_rwh_roofs_id_158": {
-   "param_desc": "Impervious area (m2)",
+   "param_desc": "Rainwater Harvesting roofs (m2)",
    "param_val": 350.7,
    "param_unit": "m2"
   },
   "bg_green_roof_semintensive_id_149": {
-   "param_desc": "Area in sq.m",
+   "param_desc": "Semi-intensive green roof (m2)",
    "param_val": 45.0,
    "param_unit": "m2"
   },
   "bg_green_roof_extensive_id_120": {
-   "param_desc": "Area in sq.m",
+   "param_desc": "Extensive green roof (m2)",
    "param_val": 79.0,
    "param_unit": "m2"
   },
   "bg_planters_id_150": {
-   "param_desc": "Area in sq.m",
+   "param_desc": "Planters (m2)",
    "param_val": 6.0,
    "param_unit": "m2"
+  },
+  "rwh_tank_capacity": {
+   "param_desc": "Rainwater Harvesting Tank capacity (L)",
+   "param_val": 10000.0,
+   "param_unit": "L"
   }
  },
  "general_params": {

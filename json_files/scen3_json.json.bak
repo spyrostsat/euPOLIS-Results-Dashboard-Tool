@@ -68598,7 +68598,7 @@
    "param_val": 10000.0,
    "param_unit": "L"
   },
-  "gw_tank_capacity": {
+  "rwh_tank_capacity": {
    "param_desc": "Greywater Tank capacity (L)",
    "param_val": 2000.0,
    "param_unit": "L"
