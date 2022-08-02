@@ -257,7 +257,7 @@ def scenario_1():
 
     # Input TS
     rainfall_ts_mm = np.array(scenario_1_data["Input_TS"]["Rainfall_series_id_1633_group_id_15"][:-12], dtype=np.float64)
-    rainfall_ts_m3 = rainfall_ts_mm * (impervious_surface / 1000)
+    rainfall_ts_m3 = rainfall_ts_mm * (impervious_surface_baseline / 1000)
 
     # Output TS Baseline
     demand_ts_baseline = np.array(scenario_1_data["Output_TS_baseline"]["total_demand_logger_id_54"][:-12], dtype=np.float64)
@@ -278,7 +278,6 @@ def scenario_1():
     total_nbs_demand_ts = green_roof_demand_ts + planters_demand_ts
     potable_water_total_nbs = potable_water_green_roof_ts + potable_water_planters_ts
     green_water_total_nbs_ts = copy.deepcopy(rainwater_green_roof_ts)
-
 
     sums_green_roof_demand = np.zeros((total_months, total_years)) # (12, 8)
     sums_potable_water_green_roof = np.zeros((total_months, total_years)) # (12, 8)
@@ -360,6 +359,77 @@ def scenario_1():
         averages_monthly[i, 9] = (averages_monthly[i, 2] / averages_monthly[i, 0]) * 100
         averages_monthly[i, 10] = (averages_monthly[i, 7] / (averages_monthly[i, 5] - averages_monthly[i, 3])) * 100
 
+
+    # Calculations Annualy
+
+    total_green_water_used_ts = copy.deepcopy(green_water_total_nbs_ts)
+    total_energy_consumption_ts = copy.deepcopy(rwh_pump_energy_ts)
+
+
+    # from Calculations_annual workseet, table with columns from 'Sum of Water demand Green roof (NBS1) ' to 'Sum of Wastewater volume baseline scenario'
+    sums_annualy = np.zeros((total_years, 18)) # (8, 18)
+
+    days_years = np.array([])
+    for i in range(8): # years go from 2014 to 2021 ~ 8 years
+        days_years = np.append(days_years, len(dates_years_ts_normalized[dates_years_ts_normalized==i]))
+
+    for i in range(len(dates_ts)):
+        sums_annualy[dates_years_ts_normalized[i], 0] += green_roof_demand_ts[i]
+        sums_annualy[dates_years_ts_normalized[i], 1] += potable_water_green_roof_ts[i]
+        sums_annualy[dates_years_ts_normalized[i], 2] += rainwater_green_roof_ts[i]
+        sums_annualy[dates_years_ts_normalized[i], 3] += planters_demand_ts[i]
+        sums_annualy[dates_years_ts_normalized[i], 4] += potable_water_planters_ts[i]
+        sums_annualy[dates_years_ts_normalized[i], 5] += total_nbs_demand_ts[i]
+        sums_annualy[dates_years_ts_normalized[i], 6] += potable_water_total_nbs[i]
+        sums_annualy[dates_years_ts_normalized[i], 7] += green_water_total_nbs_ts[i]
+        sums_annualy[dates_years_ts_normalized[i], 8] += demand_ts[i]
+        sums_annualy[dates_years_ts_normalized[i], 9] += drainage_ts[i]
+        sums_annualy[dates_years_ts_normalized[i], 10] += wastewater_ts[i]
+        sums_annualy[dates_years_ts_normalized[i], 11] += total_green_water_used_ts[i]
+        sums_annualy[dates_years_ts_normalized[i], 12] += total_energy_consumption_ts[i]
+        sums_annualy[dates_years_ts_normalized[i], 13] += rainfall_ts_mm[i]
+        sums_annualy[dates_years_ts_normalized[i], 14] += rainfall_ts_m3[i]
+        sums_annualy[dates_years_ts_normalized[i], 15] += demand_ts_baseline[i]
+        sums_annualy[dates_years_ts_normalized[i], 16] += runoff_ts_baseline[i]
+        sums_annualy[dates_years_ts_normalized[i], 17] += wastewater_ts_baseline[i]
+
+    for i in range(8):
+        if days_years[i] < 364: # if it's not a full year we dont want to output anything for the specific year
+            sums_annualy[i, :] = 0
+
+    sums_annualy = sums_annualy[sums_annualy != 0].reshape(-1, 18)
+
+    # Final calculations to produce the final output table
+    average_annual_demand_green_roof = np.mean(sums_annualy[:, 0]) / 1000  # m3
+    average_annual_potable_water_green_roof = np.mean(sums_annualy[:, 1]) / 1000  # m3
+    average_annual_rainwater_green_roof = np.mean(sums_annualy[:, 2]) / 1000  # m3
+    average_annual_demand_planters = np.mean(sums_annualy[:, 3]) / 1000  # m3
+    average_annual_potable_water_planters = np.mean(sums_annualy[:, 4]) / 1000  # m3
+    average_annual_demand_total_nbs = np.mean(sums_annualy[:, 5]) / 1000  # m3
+    average_annual_potable_water_total_nbs = np.mean(sums_annualy[:, 6]) / 1000  # m3
+    average_annual_green_water_total_nbs = np.mean(sums_annualy[:, 7]) / 1000  # m3
+    nbs1_water_autonomy = (average_annual_rainwater_green_roof / average_annual_demand_green_roof) * 100
+    total_nbs_water_autonomy = (average_annual_green_water_total_nbs / (average_annual_demand_total_nbs - average_annual_demand_planters)) * 100
+    average_annual_demand = np.mean(sums_annualy[:, 8]) / 1000  # m3
+    average_annual_green_water_used = np.mean(sums_annualy[:, -7]) / 1000  # m3
+    water_reuse = (average_annual_green_water_used / average_annual_demand) * 100
+    average_annual_demand_baseline = np.mean(sums_annualy[:, -3]) / 1000  # m3
+    potable_water_savings = -(average_annual_demand - average_annual_demand_baseline) / average_annual_demand_baseline
+    average_annual_energy_consumption = np.mean(sums_annualy[:, -6]) / 1000  # m3
+    average_annual_rainfall_m3 = np.mean(sums_annualy[:, -4]) / 1000  # m3
+    average_annual_runoff = np.mean(sums_annualy[:, -9]) / 1000  # m3
+    runoff_coeff = (average_annual_runoff / average_annual_rainfall_m3) * 100
+    average_annual_runoff_baseline = np.mean(sums_annualy[:, -2]) / 1000  # m3
+    stormwater_treated_locally = ((average_annual_runoff_baseline - average_annual_runoff) / average_annual_runoff_baseline) * 100
+    average_annual_wastewater = np.mean(sums_annualy[:, -8]) / 1000  # m3
+    average_annual_wastewater_baseline = np.mean(sums_annualy[:, -1]) / 1000  # m3
+    wastewater_treated_locally = ((average_annual_wastewater_baseline - average_annual_wastewater) / average_annual_wastewater_baseline) * 100
+    total_impervious_surface = impervious_surface + green_roof_pavement_surface + rwh_roofs_area
+    impervious_surface_percentage = (total_impervious_surface / site_surface) * 100
+    total_green_nbs_surface = semi_intensive_green_roof_surface + extensive_green_roof_surface + planters_surface
+    total_green_surface = existing_green_surface + total_green_nbs_surface
+    green_surface_percentage = (total_green_surface / site_surface) * 100
+    total_nbs_surface = total_green_nbs_surface + green_roof_pavement_surface - planters_surface
 
     return render_template('scenario_1.html', title="Scenario 1")
 
