@@ -29413,12 +29413,12 @@
    "param_unit": "m2"
   },
   "NBS_surface": {
-   "param_desc": "Total NBS surfance in baseline scenario (m2)",
+   "param_desc": "Total NBS surface (m2)",
    "param_val": 0.0,
    "param_unit": "m2"
   },
   "green_water_baseline": {
-   "param_desc": "Average annual green water used in baseline scenario (m3)",
+   "param_desc": "Average annual green water used (m3)",
    "param_val": 0.0,
    "param_unit": "m3"
   },

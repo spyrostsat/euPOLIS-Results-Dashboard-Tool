@@ -16,8 +16,8 @@ html, body {
 #eupolis-img-container {
      display: block;
      position: absolute;
-     top: 1%;
-     left: 0.6%;
+     top: 2%;
+     left: 1%;
      /* display: block; */
 }
 
@@ -25,7 +25,7 @@ html, body {
      display: block;
      position: absolute;
      top: 2%;
-     left: 89%;
+     left: 85%;
 }
 
 #home-text {

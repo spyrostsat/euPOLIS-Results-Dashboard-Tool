@@ -1,6 +1,54 @@
 {% extends "layout.html" %}
 
 {% block content %}
+     <div class="text-center mt-4 mb-4">
+          <p style="font-size: 2vw;"><b>Baseline Scenario</b></p>
 
+          <p>{{ baseline_scenario_data["general_info"]["Scenario Description"] }}</p>
+
+          <p>Simulation Period: {{ baseline_scenario_data["general_info"]["Simulation period"] }}</p>
+
+          <img src="{{ url_for('static', filename='images/baseline.png') }}" alt="Baseline Scenario" style="width:25%;">
+
+          <table style="width:70%; margin:auto; font-size:1.4vw;" class="table table-hover table-bordered table-info table-sm mt-4" border="1" style="border:2px solid #000000; border-collapse:collapse">
+               <caption class="" style="caption-side:top; text-align:center; color:#000000; font-size:30px; font-weight:bold;">Key Inputs</caption>
+
+               <tbody>
+                         <tr>
+                               <th scope="row" style="vertical-align : middle;text-align:center;">{{ baseline_scenario_data["model_params"]["imprv_roofs_id_8"]["param_desc"] }}</th>
+                               <td style="vertical-align : middle;text-align:center;">{{ baseline_scenario_data["model_params"]["imprv_roofs_id_8"]["param_val"] }}</td>
+                         </tr>
+
+                         <tr>
+                               <th scope="row" style="vertical-align : middle;text-align:center;">{{ baseline_scenario_data["general_params"]["NBS_surface"]["param_desc"] }}</th>
+                               <td style="vertical-align : middle;text-align:center;">{{ baseline_scenario_data["general_params"]["NBS_surface"]["param_val"] }}</td>
+                         </tr>
+
+                         <tr>
+                              <th scope="row" style="vertical-align : middle;text-align:center;">{{ baseline_scenario_data["general_params"]["green_water_baseline"]["param_desc"] }}</th>
+                              <td style="vertical-align : middle;text-align:center;">{{ baseline_scenario_data["general_params"]["green_water_baseline"]["param_val"] }}</td>
+                         </tr>
+
+                         <tr>
+                              <th scope="row" style="vertical-align : middle;text-align:center;">{{ baseline_scenario_data["general_params"]["energy_baseline"]["param_desc"] }}</th>
+                              <td style="vertical-align : middle;text-align:center;">{{ baseline_scenario_data["general_params"]["energy_baseline"]["param_val"] }}</td>
+                         </tr>
+                </tbody>
+          </table>
+
+          <table style="width:70%; margin:auto; font-size:1.4vw;" class="table table-hover table-bordered table-info table-sm mt-4 mb-4" border="1" style="border:2px solid #000000; border-collapse:collapse">
+               <caption style="caption-side:top; text-align:center; color:#000000; font-size:30px; font-weight:bold;">Scenario Results</caption>
+               <tbody>
+                         {% for i in range(annual_calculations_categories|length) %}
+                              <tr>
+                                   <td style="vertical-align : middle;text-align:center;">{{ annual_calculations_ei[i] }}</td>
+                                   <th scope="row" style="vertical-align : middle;text-align:center;">{{ annual_calculations_categories[i] }}</th>
+                                   <td style="vertical-align : middle;text-align:center;">{{ "%.2f"|format(annual_calculations_values[i]) }}</td>
+                              </tr>
+                         {% endfor %}
+                </tbody>
+          </table>
+          <a class="btn btn-md btn-primary mt-4 mr-4" href="{{ url_for('comparisons') }}">View the comparison tables and graphs between all scenarios</a>
+     </div>
 
 {% endblock content %}
