@@ -29423,7 +29423,7 @@
    "param_unit": "m3"
   },
   "energy_baseline": {
-   "param_desc": "Average annual energy consumption for on-site water management",
+   "param_desc": "Average annual energy consumption for on-site water management (kWh)",
    "param_val": 0.0,
    "param_unit": "kWh"
   }
