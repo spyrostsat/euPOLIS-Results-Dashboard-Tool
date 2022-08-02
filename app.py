@@ -321,7 +321,7 @@ def scenario_1():
 
     counter_years = counter_years.astype('int')
 
-    averages_monthly = np.zeros((total_months, 9)) # (12, 9) Column 0 --> green_roof_demand averages... Column 8 rwh_tank_spill averages
+    averages_monthly = np.zeros((total_months, 11)) # (12, 9) Column 0 --> green_roof_demand averages... Column 8 rwh_tank_spill averages
 
     for i in range(sums_green_roof_demand.shape[0]):
 
@@ -355,6 +355,10 @@ def scenario_1():
             averages_monthly[i, 6] /= (counter_years[i] * 1000)
             averages_monthly[i, 7] /= (counter_years[i] * 1000)
             averages_monthly[i, 8] /= (counter_years[i] * 1000)
+
+    for i in range(averages_monthly.shape[0]): # THERE ARE TWO MORE COLUMNS IN THE EXCEL CALLED NB1 WATER AUTONOMY AND TOTAL NBS WATER AUTONOMY
+        averages_monthly[i, 9] = (averages_monthly[i, 2] / averages_monthly[i, 0]) * 100
+        averages_monthly[i, 10] = (averages_monthly[i, 7] / (averages_monthly[i, 5] - averages_monthly[i, 3])) * 100
 
 
     return render_template('scenario_1.html', title="Scenario 1")
