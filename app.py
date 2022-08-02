@@ -355,9 +355,9 @@ def scenario_1():
             averages_monthly[i, 7] /= (counter_years[i] * 1000)
             averages_monthly[i, 8] /= (counter_years[i] * 1000)
 
-    for i in range(averages_monthly.shape[0]): # THERE ARE TWO MORE COLUMNS IN THE EXCEL CALLED NB1 WATER AUTONOMY AND TOTAL NBS WATER AUTONOMY
-        averages_monthly[i, 9] = (averages_monthly[i, 2] / averages_monthly[i, 0]) * 100
-        averages_monthly[i, 10] = (averages_monthly[i, 7] / (averages_monthly[i, 5] - averages_monthly[i, 3])) * 100
+    for i in range(averages_monthly.shape[0]): # THERE ARE TWO MORE COLUMNS IN THE EXCEL
+        averages_monthly[i, 9] = (averages_monthly[i, 2] / averages_monthly[i, 0]) * 100 # NBS1 WATER AUTONOMY
+        averages_monthly[i, 10] = (averages_monthly[i, 7] / (averages_monthly[i, 5] - averages_monthly[i, 3])) * 100 # TOTAL NBS WATER AUTONOMY
 
 
     # Calculations Annualy
@@ -400,6 +400,7 @@ def scenario_1():
     sums_annualy = sums_annualy[sums_annualy != 0].reshape(-1, 18)
 
     # Final calculations to produce the final output table
+
     average_annual_demand_green_roof = np.mean(sums_annualy[:, 0]) / 1000  # m3
     average_annual_potable_water_green_roof = np.mean(sums_annualy[:, 1]) / 1000  # m3
     average_annual_rainwater_green_roof = np.mean(sums_annualy[:, 2]) / 1000  # m3
@@ -414,9 +415,9 @@ def scenario_1():
     average_annual_green_water_used = np.mean(sums_annualy[:, -7]) / 1000  # m3
     water_reuse = (average_annual_green_water_used / average_annual_demand) * 100
     average_annual_demand_baseline = np.mean(sums_annualy[:, -3]) / 1000  # m3
-    potable_water_savings = -(average_annual_demand - average_annual_demand_baseline) / average_annual_demand_baseline
-    average_annual_energy_consumption = np.mean(sums_annualy[:, -6]) / 1000  # m3
-    average_annual_rainfall_m3 = np.mean(sums_annualy[:, -4]) / 1000  # m3
+    potable_water_savings = -((average_annual_demand - average_annual_demand_baseline) / average_annual_demand_baseline) * 100
+    average_annual_energy_consumption = np.mean(sums_annualy[:, -6]) # m3
+    average_annual_rainfall_m3 = np.mean(sums_annualy[:, -4]) # m3
     average_annual_runoff = np.mean(sums_annualy[:, -9]) / 1000  # m3
     runoff_coeff = (average_annual_runoff / average_annual_rainfall_m3) * 100
     average_annual_runoff_baseline = np.mean(sums_annualy[:, -2]) / 1000  # m3
@@ -431,7 +432,14 @@ def scenario_1():
     green_surface_percentage = (total_green_surface / site_surface) * 100
     total_nbs_surface = total_green_nbs_surface + green_roof_pavement_surface - planters_surface
 
-    return render_template('scenario_1.html', title="Scenario 1")
+    annual_calculations_values = [total_nbs_water_autonomy, water_reuse, potable_water_savings, average_annual_energy_consumption,
+                                  runoff_coeff, stormwater_treated_locally, wastewater_treated_locally, impervious_surface_percentage,
+                                  green_surface_percentage]
+
+
+    return render_template('scenario_1.html', title="Scenario 1", scenario_1_data=scenario_1_data,
+                        annual_calculations_ei=annual_calculations_ei, annual_calculations_categories=annual_calculations_categories,
+                        annual_calculations_values=annual_calculations_values, averages_monthly=averages_monthly)
 
 
 @app.route("/scenario-2")
