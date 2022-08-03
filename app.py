@@ -1026,7 +1026,7 @@ def scenario_4():
     # There two new columns in Scenario 4 as opposed to Scenario 3 which are wc_students_demand_logger_id_65 and
     # total_shelter_wc_demand_logger_id_204
 
-    shelter_demand_ts = np.array(scenario_4_data["Output_TS"]["bg_shelter_demand_logger_id_204"][:-12], dtype=np.float64)
+    shelter_demand_ts = np.array(scenario_4_data["Output_TS"]["bg_shelter_demand_logger_id_223"][:-12], dtype=np.float64)
     wc_demand_ts = np.array(scenario_4_data["Output_TS"]["wc_students_demand_logger_id_65"][:-12], dtype=np.float64)
     shelter_wc_demand_ts = np.array(scenario_4_data["Output_TS"]["total_shelter_wc_demand_logger_id_204"][:-12], dtype=np.float64)
     gw_ts = np.array(scenario_4_data["Output_TS"]["total_gw_logger_id_108"][:-12], dtype=np.float64)
