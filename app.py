@@ -436,10 +436,21 @@ def scenario_1():
                                   runoff_coeff, stormwater_treated_locally, wastewater_treated_locally, impervious_surface_percentage,
                                   green_surface_percentage]
 
+    # Charts data to pass on the frontend
+
+    # numpy arrays are not json supported, so i turn the arrays back to python lists
+    chart_1_data_1 = averages_monthly[:, 6].tolist()
+    chart_1_data_2 = averages_monthly[:, 7].tolist()
+    chart_2_data_1 = averages_monthly[:, 8].tolist()
+    chart_3_data_1 = total_nbs_demand_ts.tolist()
+    chart_3_data_2 = rainfall_ts_mm.tolist()
 
     return render_template('scenario_1.html', title="Scenario 1", scenario_1_data=scenario_1_data,
                         annual_calculations_ei=annual_calculations_ei, annual_calculations_categories=annual_calculations_categories,
-                        annual_calculations_values=annual_calculations_values, averages_monthly=averages_monthly)
+                        annual_calculations_values=annual_calculations_values, averages_monthly=averages_monthly,
+                        chart_1_data_1=json.dumps(chart_1_data_1), chart_1_data_2=json.dumps(chart_1_data_2),
+                        chart_2_data_1=json.dumps(chart_2_data_1), chart_3_data_1=json.dumps(chart_3_data_1),
+                        chart_3_data_2=json.dumps(chart_3_data_2), dates_ts=json.dumps(dates_ts))
 
 
 @app.route("/scenario-2")

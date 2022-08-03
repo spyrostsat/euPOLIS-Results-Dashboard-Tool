@@ -79,7 +79,259 @@
                          {% endfor %}
                 </tbody>
           </table>
+     </div>
+
+     <!-- GRAPHS SECTION -->
+     <div class="mt-4 pt-4 ml-4 mr-4" style="display: inline-block; width: 45vw;">
+          <canvas id="chart1"></canvas>
+     </div>
+
+     <div class="ml-4 mt-4 pt-4" style="display: inline-block; width: 45vw;">
+          <canvas id="chart2"></canvas>
+     </div>
+
+     <div class="mt-4 pt-4 ml-3" style="width:95vw;">
+          <canvas id="chart3"></canvas>
+     </div>
+
+     <div class="text-center mt-4 mb-4">
           <a class="btn btn-md btn-primary mt-4 mr-4" href="{{ url_for('comparisons') }}">View the comparison tables and graphs between all scenarios</a>
      </div>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <script src="https://unpkg.com/chart.js-plugin-labels-dv/dist/chartjs-plugin-labels.min.js"></script>
+
+     <script>
+          // Configurations
+          // Chart.register.apply(null, Object.values(CHART).filter((chartClass) => (chartClass.id)));
+          Chart.defaults.font.size = 16;
+          Chart.defaults.font.family = 'Arial';
+
+          // Charts Data
+          chart_1_data_1 = {{ chart_1_data_1|safe }}
+          chart_1_data_2 = {{ chart_1_data_2|safe }}
+          chart_2_data_1 = {{ chart_2_data_1|safe }}
+          chart_3_data_1 = {{ chart_3_data_1|safe }}
+          chart_3_data_2 = {{ chart_3_data_2|safe }}
+          dates_ts = {{ dates_ts|safe }}
+          months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+          // Chart 1
+          const ctx1 = document.getElementById('chart1').getContext('2d');
+          const chart1 = new Chart(ctx1, {
+              type: 'bar',
+              data: {
+                  labels: months,
+                  datasets: [{
+                      label: "Potable Water Demand",
+                      data: chart_1_data_1,
+                      backgroundColor: "#0000ff",
+                      borderColor: "#0000ff",
+                      borderWidth: 1,
+                 },
+                 {
+                     label: "Green Water Demand",
+                     data: chart_1_data_2,
+                     backgroundColor: "#00ff00",
+                     borderColor: "#00ff00",
+                     borderWidth: 1,
+                     // yAxisID: "rightAxis"
+                 }]
+              },
+              options: {
+                   plugins: {
+                       legend: {
+                           display: true,
+                      },
+                      title: {
+                           display: false,
+                           text: "Chart Title",
+                           font: {size: 26}
+                      },
+                      labels: {
+                           fontSize: 0
+                     },
+                     tooltip: {
+                           callbacks: {
+                                title: function(context) {
+                                     return context[0].label
+                                },
+                                label: function(context) {
+                                  return `${context.raw.toFixed(2)}`
+                             }
+                           }
+                         }
+                    },
+                   responsive: true,
+                   scales: {
+                      y: {
+                          display: true,
+                          stacked: true,
+                          grid: {display: true},
+                          min:0,
+                          title: {
+                               display: true,
+                               text: "Average total NBS demand (m3/month)",
+                          }
+                     },
+                     x: {
+                         display: true,
+                         stacked: true,
+                         grid: {display: false},
+                         title: {
+                              display: true,
+                              text: "Month",
+                         }
+                     }
+                  }
+             }
+          });
+
+          // Chart 2
+          const ctx2 = document.getElementById('chart2').getContext('2d');
+          const chart2 = new Chart(ctx2, {
+              type: 'bar',
+              data: {
+                  labels: months,
+                  datasets: [{
+                      label: "Rainwater Tank",
+                      data: chart_2_data_1,
+                      backgroundColor: "#0000ff",
+                      borderColor: "#0000ff",
+                      borderWidth: 1,
+                 }]
+              },
+              options: {
+                   plugins: {
+                       legend: {
+                           display: true,
+                      },
+                      title: {
+                           display: false,
+                           text: "Chart Title",
+                           font: {size: 26}
+                      },
+                      labels: {
+                           fontSize: 0
+                     },
+                     tooltip: {
+                           callbacks: {
+                                title: function(context) {
+                                     return context[0].label
+                                },
+                                label: function(context) {
+                                  return `${context.raw.toFixed(2)}`
+                             }
+                           }
+                         }
+                    },
+                   scales: {
+                      y: {
+                          display: true,
+                          grid: {display: true},
+                          min:0,
+                          title: {
+                              display: true,
+                              text: "Average spill (m3/month)",
+                          }
+                     },
+                     x: {
+                         display: true,
+                         grid: {display: false},
+                         title: {
+                              display: true,
+                              text: "Month",
+                         }
+                     }
+                  }
+            }
+          });
+
+
+          // Chart 3
+          const ctx3 = document.getElementById('chart3').getContext('2d');
+          const chart3 = new Chart(ctx3, {
+              type: 'line',
+              data: {
+                  labels: dates_ts,
+                  datasets: [{
+                      label: "Total NBS Demand (L/d)",
+                      data: chart_3_data_1,
+                      backgroundColor: "#009400",
+                      borderColor: "#009400",
+                      borderWidth: 2,
+                      pointRadius: 0
+                 },
+                 {
+                     label: "Rainfall (mm/d)",
+                     data: chart_3_data_2,
+                     backgroundColor: "#0000ff",
+                     borderColor: "#0000ff",
+                     borderWidth: 2,
+                     yAxisID: "rightAxis",
+                     pointRadius: 0
+                 }]
+              },
+              options: {
+                   plugins: {
+                       legend: {
+                           display: true,
+                      },
+                      title: {
+                           display: false,
+                           text: "Chart Title",
+                           font: {size: 26}
+                      },
+                      labels: {
+                           fontSize: 0
+                     },
+                     tooltip: {
+                           callbacks: {
+                                title: function(context) {
+                                     return context[0].label
+                                },
+                                label: function(context) {
+                                  return `${context.raw.toFixed(2)}`
+                             }
+                           }
+                         }
+                    },
+                   responsive: true,
+                   scales: {
+                      y: {
+                          display: true,
+                          grid: {display: true},
+                          min:0,
+                          title: {
+                              display: true,
+                              text: "Water Demand (L/d)",
+                          }
+                     },
+                     rightAxis: {
+                         display: true,
+                         position: "right",
+                         reverse: true,
+                         grid: {display: false},
+                         min:0,
+                         title: {
+                             display: true,
+                             text: "Rainfall (mm/d)",
+                         }
+                    },
+                     x: {
+                         display: true,
+                         grid: {display: false},
+                         title: {
+                              display: false,
+                              text: "Day",
+                         }
+                     }
+                  }
+            }
+          });
+
+     </script>
+
+
 
 {% endblock content %}
