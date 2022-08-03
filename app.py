@@ -995,6 +995,8 @@ def scenario_3():
 
 @app.route("/scenario-4")
 def scenario_4():
+    # Scenario 4 is similar to Scenario 3 there some minor addings due to the Shelter WC being installed
+
     # General Parameters
     site_surface = scenario_4_data["general_params"]["total_site_surface"]["param_val"]
     existing_green_surface = scenario_4_data["general_params"]["existing_green_surfaces"]["param_val"]
@@ -1021,9 +1023,12 @@ def scenario_4():
     dates_years_ts = np.array([datetime.strptime(date, '%Y-%m-%d').year for date in dates_ts], dtype=np.int32)
     dates_months_ts = np.array([datetime.strptime(date, '%Y-%m-%d').month for date in dates_ts], dtype=np.int32)
 
-    # Fist some new columns for Scenario 3 as opposed to Scenarios 1, 2
+    # There two new columns in Scenario 4 as opposed to Scenario 3 which are wc_students_demand_logger_id_65 and
+    # total_shelter_wc_demand_logger_id_204
 
     shelter_demand_ts = np.array(scenario_4_data["Output_TS"]["bg_shelter_demand_logger_id_204"][:-12], dtype=np.float64)
+    wc_demand_ts = np.array(scenario_4_data["Output_TS"]["wc_students_demand_logger_id_65"][:-12], dtype=np.float64)
+    shelter_wc_demand_ts = np.array(scenario_4_data["Output_TS"]["total_shelter_wc_demand_logger_id_204"][:-12], dtype=np.float64)
     gw_ts = np.array(scenario_4_data["Output_TS"]["total_gw_logger_id_108"][:-12], dtype=np.float64)
     gw_treated_ts = np.array(scenario_4_data["Output_TS"]["gw_treated_logger_id_206"][:-12], dtype=np.float64)
     gw_treatment_spill_ts = np.array(scenario_4_data["Output_TS"]["gw_treatment_spill_id_212"][:-12], dtype=np.float64)
@@ -1073,9 +1078,20 @@ def scenario_4():
     rainwater_green_roof_ts = green_roof_demand_ts - potable_water_green_roof_ts
     potable_water_planters_ts = copy.deepcopy(planters_demand_ts)
 
-    # Shelter new columns
-    potable_water_shelter_ts = copy.deepcopy(gw_water_from_system_ts)
-    gw_shelter_ts = shelter_demand_ts - potable_water_shelter_ts
+    # New Columns
+    potable_water_gw_tank_ts = copy.deepcopy(gw_water_from_system_ts)
+    gw_shelter_wc_ts = shelter_wc_demand_ts - potable_water_gw_tank_ts
+
+    gw_shelter_ts = np.array([])
+    for i in range(len(gw_shelter_wc_ts)):
+        if shelter_demand_ts[i] > gw_shelter_wc_ts[i]:
+            gw_shelter_ts = np.append(gw_shelter_ts, gw_shelter_wc_ts[i])
+        else:
+            gw_shelter_ts = np.append(gw_shelter_ts, shelter_demand_ts[i])
+
+    potable_water_shelter_ts = shelter_demand_ts - gw_shelter_ts
+    gw_wc_ts = gw_shelter_wc_ts - gw_shelter_ts
+    potable_water_wc_ts = wc_demand_ts - gw_wc_ts
 
     total_nbs_demand_ts = green_roof_demand_ts + planters_demand_ts + shelter_demand_ts
     potable_water_total_nbs = potable_water_green_roof_ts + potable_water_planters_ts + potable_water_shelter_ts
@@ -1095,6 +1111,14 @@ def scenario_4():
     sums_total_nbs_potable_water = np.zeros((total_months, total_years))
     sums_green_water_total_nbs = np.zeros((total_months, total_years))
 
+    # 6 new Columns from Scenario 3
+    sums_wc_demand = np.zeros((total_months, total_years))
+    sums_gw_wc = np.zeros((total_months, total_years))
+    sums_potable_water_wc = np.zeros((total_months, total_years))
+    sums_shelter_wc_demand = np.zeros((total_months, total_years))
+    sums_gw_shelter_wc = np.zeros((total_months, total_years))
+    sums_potable_water_gw_tank = np.zeros((total_months, total_years))
+
     sums_gw_tank_spill = np.zeros((total_months, total_years))
     sums_rwh_tank_spill = np.zeros((total_months, total_years))
 
@@ -1112,6 +1136,14 @@ def scenario_4():
         sums_total_nbs_demand[dates_months_ts_normalized[i], dates_years_ts_normalized[i]] += total_nbs_demand_ts[i]
         sums_total_nbs_potable_water[dates_months_ts_normalized[i], dates_years_ts_normalized[i]] += potable_water_total_nbs[i]
         sums_green_water_total_nbs[dates_months_ts_normalized[i], dates_years_ts_normalized[i]] += green_water_total_nbs_ts[i]
+
+        # 6 new Columns from Scenario 3
+        sums_wc_demand[dates_months_ts_normalized[i], dates_years_ts_normalized[i]] += wc_demand_ts[i]
+        sums_gw_wc[dates_months_ts_normalized[i], dates_years_ts_normalized[i]] += gw_wc_ts[i]
+        sums_potable_water_wc[dates_months_ts_normalized[i], dates_years_ts_normalized[i]] += potable_water_wc_ts[i]
+        sums_shelter_wc_demand[dates_months_ts_normalized[i], dates_years_ts_normalized[i]] += shelter_wc_demand_ts[i]
+        sums_gw_shelter_wc[dates_months_ts_normalized[i], dates_years_ts_normalized[i]] += gw_shelter_wc_ts[i]
+        sums_potable_water_gw_tank[dates_months_ts_normalized[i], dates_years_ts_normalized[i]] += potable_water_gw_tank_ts[i]
 
         sums_gw_tank_spill[dates_months_ts_normalized[i], dates_years_ts_normalized[i]] += gw_tank_spill_ts[i]
         sums_rwh_tank_spill[dates_months_ts_normalized[i], dates_years_ts_normalized[i]] += rwh_tank_spill_ts[i]
@@ -1136,7 +1168,7 @@ def scenario_4():
 
     counter_years = counter_years.astype('int')
 
-    averages_monthly = np.zeros((total_months, 16)) # (12, 16) Column 0 --> green_roof_demand averages... Column 15 --> total_nbs_autonomy averages
+    averages_monthly = np.zeros((total_months, 22)) # (12, 22) Column 0 --> green_roof_demand averages... Column 21 --> total_nbs_autonomy averages
 
     for i in range(sums_green_roof_demand.shape[0]):
 
@@ -1163,9 +1195,15 @@ def scenario_4():
 
             averages_monthly[i, 10] += sums_green_water_total_nbs[i, j]
 
-            averages_monthly[i, 11] += sums_gw_tank_spill[i, j]
+            averages_monthly[i, 11] += sums_wc_demand[i, j]
+            averages_monthly[i, 12] += sums_gw_wc[i, j]
+            averages_monthly[i, 13] += sums_potable_water_wc[i, j]
+            averages_monthly[i, 14] += sums_shelter_wc_demand[i, j]
+            averages_monthly[i, 15] += sums_gw_shelter_wc[i, j]
+            averages_monthly[i, 16] += sums_potable_water_gw_tank[i, j]
 
-            averages_monthly[i, 12] += sums_rwh_tank_spill[i, j]
+            averages_monthly[i, 17] += sums_gw_tank_spill[i, j]
+            averages_monthly[i, 18] += sums_rwh_tank_spill[i, j]
 
 
         if counter_years[i] != 0:
@@ -1182,16 +1220,24 @@ def scenario_4():
             averages_monthly[i, 10] /= (counter_years[i] * 1000)
             averages_monthly[i, 11] /= (counter_years[i] * 1000)
             averages_monthly[i, 12] /= (counter_years[i] * 1000)
+            averages_monthly[i, 13] /= (counter_years[i] * 1000)
+            averages_monthly[i, 14] /= (counter_years[i] * 1000)
+            averages_monthly[i, 15] /= (counter_years[i] * 1000)
+            averages_monthly[i, 16] /= (counter_years[i] * 1000)
+            averages_monthly[i, 17] /= (counter_years[i] * 1000)
+            averages_monthly[i, 18] /= (counter_years[i] * 1000)
+
 
 
     for i in range(averages_monthly.shape[0]): # THERE ARE TWO MORE COLUMNS IN THE EXCEL
-        averages_monthly[i, 13] = (averages_monthly[i, 2] / averages_monthly[i, 0]) * 100 # NBS1 WATER AUTONOMY
-        averages_monthly[i, 14] = (averages_monthly[i, 7] / averages_monthly[i, 5]) * 100 # NBS3 WATER AUTONOMY
-        averages_monthly[i, 15] = (averages_monthly[i, 10] / (averages_monthly[i, 8] - averages_monthly[i, 3])) * 100 # TOTAL NBS WATER AUTONOMY
+        averages_monthly[i, 19] = (averages_monthly[i, 2] / averages_monthly[i, 0]) * 100 # NBS1 WATER AUTONOMY
+        averages_monthly[i, 20] = (averages_monthly[i, 7] / averages_monthly[i, 5]) * 100 # NBS3 WATER AUTONOMY
+        averages_monthly[i, 21] = (averages_monthly[i, 10] / (averages_monthly[i, 8] - averages_monthly[i, 3])) * 100 # TOTAL NBS WATER AUTONOMY
+
 
     # Calculations Annualy
 
-    total_green_water_used_ts = copy.deepcopy(green_water_total_nbs_ts)
+    total_green_water_used_ts = green_water_total_nbs_ts + gw_wc_ts
     total_energy_consumption_ts = gw_treatment_energy_ts + gw_pump_energy_ts + rwh_pump_energy_ts
 
 
@@ -1277,8 +1323,8 @@ def scenario_4():
     # numpy arrays are not json supported, so i turn the arrays back to python lists
     chart_1_data_1 = averages_monthly[:, 9].tolist()
     chart_1_data_2 = averages_monthly[:, 10].tolist()
-    chart_2_data_1 = averages_monthly[:, 11].tolist()
-    chart_2_data_2 = averages_monthly[:, 12].tolist()
+    chart_2_data_1 = averages_monthly[:, 17].tolist()
+    chart_2_data_2 = averages_monthly[:, 18].tolist()
     chart_3_data_1 = total_nbs_demand_ts.tolist()
     chart_3_data_2 = rainfall_ts_mm.tolist()
 
