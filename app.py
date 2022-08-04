@@ -2792,7 +2792,8 @@ def comparisons():
     return render_template('comparisons.html', title="Scenarios Comparisons", baseline_scenario_data=baseline_scenario_data,
                            scenario_1_data=scenario_1_data, scenario_2_data=scenario_2_data, scenario_3_data=scenario_3_data,
                            scenario_4_data=scenario_4_data, table_1_labels=table_1_labels, table_2_labels=table_2_labels,
-                           table_3_labels=table_3_labels,
+                           table_3_labels=table_3_labels, table_1_labels_js=json.dumps(table_1_labels),
+                           table_2_labels_js=json.dumps(table_2_labels), table_3_labels_js=json.dumps(table_3_labels),
 
 
                            # BASELINE SCENARIO SECTION
@@ -2802,7 +2803,9 @@ def comparisons():
                            table_1_baseline=table_1_baseline,
                            table_2_baseline=table_2_baseline,
                            table_3_baseline=table_3_baseline,
-
+                           table_1_baseline_js=json.dumps(table_1_baseline),
+                           table_2_baseline_js=json.dumps(table_2_baseline),
+                           table_3_baseline_js=json.dumps(table_3_baseline),
 
                            # SCENARIO 1 SECTION
                            annual_calculations_values_1=annual_calculations_values_1,
@@ -2810,6 +2813,9 @@ def comparisons():
                            table_1_scenario_1=table_1_scenario_1,
                            table_2_scenario_1=table_2_scenario_1,
                            table_3_scenario_1=table_3_scenario_1,
+                           table_1_scenario_1_js=json.dumps(table_1_scenario_1),
+                           table_2_scenario_1_js=json.dumps(table_2_scenario_1),
+                           table_3_scenario_1_js=json.dumps(table_3_scenario_1),
 
                            # SCENARIO 2 SECTION
                            annual_calculations_values_2=annual_calculations_values_2,
@@ -2817,6 +2823,9 @@ def comparisons():
                            table_1_scenario_2=table_1_scenario_2,
                            table_2_scenario_2=table_2_scenario_2,
                            table_3_scenario_2=table_3_scenario_2,
+                           table_1_scenario_2_js=json.dumps(table_1_scenario_2),
+                           table_2_scenario_2_js=json.dumps(table_2_scenario_2),
+                           table_3_scenario_2_js=json.dumps(table_3_scenario_2),
 
 
                            # SCENARIO 3 SECTION
@@ -2825,6 +2834,9 @@ def comparisons():
                            table_1_scenario_3=table_1_scenario_3,
                            table_2_scenario_3=table_2_scenario_3,
                            table_3_scenario_3=table_3_scenario_3,
+                           table_1_scenario_3_js=json.dumps(table_1_scenario_3),
+                           table_2_scenario_3_js=json.dumps(table_2_scenario_3),
+                           table_3_scenario_3_js=json.dumps(table_3_scenario_3),
 
 
                            # SCENARIO 4 SECTION
@@ -2832,7 +2844,10 @@ def comparisons():
                            averages_monthly_4=averages_monthly_4, sums_annualy_4=sums_annualy_4,
                            table_1_scenario_4=table_1_scenario_4,
                            table_2_scenario_4=table_2_scenario_4,
-                           table_3_scenario_4=table_3_scenario_4
+                           table_3_scenario_4=table_3_scenario_4,
+                           table_1_scenario_4_js=json.dumps(table_1_scenario_4),
+                           table_2_scenario_4_js=json.dumps(table_2_scenario_4),
+                           table_3_scenario_4_js=json.dumps(table_3_scenario_4)
                            )
 
 
