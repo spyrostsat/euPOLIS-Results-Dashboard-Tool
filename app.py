@@ -1344,16 +1344,51 @@ def comparisons():
     # be able to draw the final tables and graphs in the frontend. So I'm just going to copy and paster the codes inside
     # all these functions in here.
 
-    # This is a temporary solution just to get the page finished. If i want to have a more sophisticated solution then
-    # i need to think a better way of executing the code inside the other functions.
+    table_1_labels = ["Impervious areas and roofs (m2)", "Roof permeable pavement (m2)", "RWH Roofs (m2)",
+                      "Impervious surfaces (m2)", "Impervious surfaces baseline scenario (m2)", "Total site surface (m2)",
+                      "Impervious Surfaces (%) - CI-55 (ENV)", "Pre-existing green surfaces (m2)",
+                      "Green roof (semintensive type) area (NBS1a) (m2)", "Green roof (extensive type) area (NBS1b) (m2)",
+                      "Planters (NBS2) (m2)", "Green Shelter area (NBS3) (m2)", "Total green NBS area (m2)",
+                      "Total Green Area (m2)", "Green Surfaces/Spaces (%) EI-67 (URB) / CI-66 (ENV)", "Total NBS Area (m2)"]
 
-    # If the code runs slowly, I can consider Just manually typing the required values for the tables/graphs to be drawn.
+    table_2_labels = ["Average annual water demand Green roof (NBS1) (m3/year)",
+                      "Average annual Potable water Green roof (NBS1) (m3/year)",
+                      "Average annual Rainwater Green roof (NBS1) (m3/year)",
+                      "Average annual water demand Planters (NBS2)  (m3/year)",
+                      "Average annual Potable water Planters (NBS2) (m3/year)",
+                      "Average annual water demand Green Shelter (NBS3)  (m3/year)",
+                      "Average annual Potable water Green Shelter (NBS3) (m3/year)",
+                      "Average annual Grey water Green Shelter (NBS3) (m3/year)",
+                      "Average annual water demand Total NBS (all NBS) (m3/year)",
+                      "Average annual Potable water Total NBS (all NBS) (m3/year)",
+                      "Average annual Green water Total NBS (all NBS) (m3/year)",
+                      "NBS 1 Water Autonomy (%)",
+                      "NBS 3 Water Autonomy (%)",
+                      "Site NBS Water Autonomy (%) - EI-45 (ENV)"]
 
-    # ==================================================================================================================
+    table_3_labels = ["Average total site annual Potable Water Consumption (m3/year)",
+                      "Total  Green water used on site (m3/year)",
+                      "Water Reuse (%) - EI-46b (ENV)",
+                      "Average total site annual Potable Water Consumption baseline scenario (m3/year)",
+                      "Potable Water Savings (%) - EI-46a (ENV)",
+                      "Average annual rainfall volume (m3/year)",
+                      "Average annual runoff volume (m3/year)",
+                      "Runoff coefficient (%) - EI-50 (ENV)",
+                      "Average annual runoff volume baseline scenario (m3/year)",
+                      "Stormwater treated/managed locally (%) - EI-48b (ENV)",
+                      "Average annual wastewater volume (m3/year)",
+                      "Average annual wastewater volume baseline scenario (m3/year)",
+                      "Wastewater treated/managed locally (%) - EI-48a (ENV)",
+                      "Energy Consumption (kWh/year) - EI-44 (ENV)"]
+
+
+    #===================================================================================================================
+
 
     # BASELINE SCENARIO SECTION
 
     # General Parameters
+
     site_surface = baseline_scenario_data["general_params"]["total_site_surface"]["param_val"]
     existing_green_surface = baseline_scenario_data["general_params"]["existing_green_surfaces"]["param_val"]
     impervious_surface_baseline = baseline_scenario_data["general_params"]["imp_surf_baseline"]["param_val"]
@@ -1517,14 +1552,28 @@ def comparisons():
 
 
     # Let's put what we want from the Baseline Scenario into new variables
+
+    table_1_baseline = [impervious_surface, "-", "-", impervious_surface, impervious_surface_baseline, site_surface,
+                        impervious_surface_percentage, existing_green_surface, "-", "-", "-", "-", total_nbs_surface,
+                        total_green_surface, total_green_surface_percentage, total_nbs_surface]
+
+    table_2_baseline = ["-", "-", 0, "-", "-", "-", "-", 0, "-", "-", "-", "-", "-", nbs_water_autonomy]
+
+    tabl_3_baseline = [average_annual_demand, average_annual_green_water, water_reuse, average_annual_demand_baseline,
+                       potable_water_savings, average_annual_rainfall_m3, average_annual_runoff, runoff_coeff,
+                       average_annual_runoff_baseline, stormwater_treated_locally, average_annual_wastewater,
+                       average_annual_wastewater_baseline, wastewater_treated_locally, energy_consumption]
+
     annual_calculations_values_baseline = copy.deepcopy(annual_calculations_values)
     averages_monthly_baseline = copy.deepcopy(averages_monthly)
     sums_annualy_baseline = copy.deepcopy(sums_annualy)
 
-    # ==================================================================================================================
+
+    #===================================================================================================================
 
 
     # SCENARIO 1 SECTION
+
     # General Parameters
     site_surface = scenario_1_data["general_params"]["total_site_surface"]["param_val"]
     existing_green_surface = scenario_1_data["general_params"]["existing_green_surfaces"]["param_val"]
@@ -1745,11 +1794,30 @@ def comparisons():
 
 
     # Let's put what we want from Scenario 1 into new variables
+
+    table_1_scenario_1 = [impervious_surface, green_roof_pavement_surface, rwh_roofs_area, total_impervious_surface,
+                          impervious_surface_baseline, site_surface, impervious_surface_percentage,
+                          existing_green_surface, semi_intensive_green_roof_surface, extensive_green_roof_surface,
+                          planters_surface, "-", total_green_nbs_surface, total_green_surface, green_surface_percentage,
+                          total_nbs_surface]
+
+    table_2_scenario_1 = [average_annual_demand_green_roof, average_annual_potable_water_green_roof,
+                          average_annual_rainwater_green_roof, average_annual_demand_planters,
+                          average_annual_potable_water_planters, "-", "-", 0, average_annual_demand_total_nbs,
+                          average_annual_potable_water_total_nbs, average_annual_green_water_total_nbs,
+                          nbs1_water_autonomy, "-", total_nbs_water_autonomy]
+
+    table_3_scenario_1 = [average_annual_demand, average_annual_green_water_used, water_reuse, average_annual_demand_baseline,
+                          potable_water_savings, average_annual_rainfall_m3, average_annual_runoff, runoff_coeff,
+                          average_annual_runoff_baseline, stormwater_treated_locally, average_annual_wastewater,
+                          average_annual_wastewater_baseline, wastewater_treated_locally, average_annual_energy_consumption]
+
     annual_calculations_values_1 = copy.deepcopy(annual_calculations_values)
     averages_monthly_1 = copy.deepcopy(averages_monthly)
     sums_annualy_1 = copy.deepcopy(sums_annualy)
 
-    # ==================================================================================================================
+
+    #===================================================================================================================
 
 
     # SCENARIO 2 SECTION
@@ -1977,13 +2045,30 @@ def comparisons():
                                   green_surface_percentage]
 
     # Let's transfer all the variables we need from Scenario 2 to the frontend
+
     annual_calculations_values_2 = copy.deepcopy(annual_calculations_values)
     averages_monthly_2 = copy.deepcopy(averages_monthly)
     sums_annualy_2 = copy.deepcopy(sums_annualy)
 
+    table_1_scenario_2 = [impervious_surface, green_roof_pavement_surface, rwh_roofs_area, total_impervious_surface,
+                          impervious_surface_baseline, site_surface, impervious_surface_percentage,
+                          existing_green_surface, semi_intensive_green_roof_surface, extensive_green_roof_surface,
+                          planters_surface, "-", total_green_nbs_surface, total_green_surface, green_surface_percentage,
+                          total_nbs_surface]
 
+    table_2_scenario_2 = [average_annual_demand_green_roof, average_annual_potable_water_green_roof,
+                          average_annual_rainwater_green_roof, average_annual_demand_planters,
+                          average_annual_potable_water_planters, "-", "-", 0, average_annual_demand_total_nbs,
+                          average_annual_potable_water_total_nbs, average_annual_green_water_total_nbs,
+                          nbs1_water_autonomy, "-", total_nbs_water_autonomy]
+
+    table_3_scenario_2 = [average_annual_demand, average_annual_green_water_used, water_reuse, average_annual_demand_baseline,
+                          potable_water_savings, average_annual_rainfall_m3, average_annual_runoff, runoff_coeff,
+                          average_annual_runoff_baseline, stormwater_treated_locally, average_annual_wastewater,
+                          average_annual_wastewater_baseline, wastewater_treated_locally, average_annual_energy_consumption]
 
     #===================================================================================================================
+
 
     # SCENARIO 3 SECTION
 
@@ -2271,9 +2356,26 @@ def comparisons():
     averages_monthly_3 = copy.deepcopy(averages_monthly)
     sums_annualy_3 = copy.deepcopy(sums_annualy)
 
+    table_1_scenario_3 = [impervious_surface, green_roof_pavement_surface, rwh_roofs_area, total_impervious_surface,
+                          impervious_surface_baseline, site_surface, impervious_surface_percentage,
+                          existing_green_surface, semi_intensive_green_roof_surface, extensive_green_roof_surface,
+                          planters_surface, shelter_surface, total_green_nbs_surface, total_green_surface, green_surface_percentage,
+                          total_nbs_surface]
 
+    table_2_scenario_3 = [average_annual_demand_green_roof, average_annual_potable_water_green_roof,
+                          average_annual_rainwater_green_roof, average_annual_demand_planters,
+                          average_annual_potable_water_planters, average_annual_demand_shelter,
+                          average_annual_potable_water_shelter, average_annual_gw_shelter, average_annual_demand_total_nbs,
+                          average_annual_potable_water_total_nbs, average_annual_green_water_total_nbs,
+                          nbs1_water_autonomy, nbs3_water_autonomy, total_nbs_water_autonomy]
+
+    table_3_scenario_3 = [average_annual_demand, average_annual_green_water_used, water_reuse, average_annual_demand_baseline,
+                          potable_water_savings, average_annual_rainfall_m3, average_annual_runoff, runoff_coeff,
+                          average_annual_runoff_baseline, stormwater_treated_locally, average_annual_wastewater,
+                          average_annual_wastewater_baseline, wastewater_treated_locally, average_annual_energy_consumption]
 
     #===================================================================================================================
+
 
     # SCENARIO 4 SECTION
 
@@ -2607,36 +2709,69 @@ def comparisons():
     averages_monthly_4 = copy.deepcopy(averages_monthly)
     sums_annualy_4 = copy.deepcopy(sums_annualy)
 
+    table_1_scenario_4 = [impervious_surface, green_roof_pavement_surface, rwh_roofs_area, total_impervious_surface,
+                          impervious_surface_baseline, site_surface, impervious_surface_percentage,
+                          existing_green_surface, semi_intensive_green_roof_surface, extensive_green_roof_surface,
+                          planters_surface, shelter_surface, total_green_nbs_surface, total_green_surface, green_surface_percentage,
+                          total_nbs_surface]
+
+    table_2_scenario_4 = [average_annual_demand_green_roof, average_annual_potable_water_green_roof,
+                          average_annual_rainwater_green_roof, average_annual_demand_planters,
+                          average_annual_potable_water_planters, average_annual_demand_shelter,
+                          average_annual_potable_water_shelter, average_annual_gw_shelter, average_annual_demand_total_nbs,
+                          average_annual_potable_water_total_nbs, average_annual_green_water_total_nbs,
+                          nbs1_water_autonomy, nbs3_water_autonomy, total_nbs_water_autonomy]
+
+    table_3_scenario_4 = [average_annual_demand, average_annual_green_water_used, water_reuse, average_annual_demand_baseline,
+                          potable_water_savings, average_annual_rainfall_m3, average_annual_runoff, runoff_coeff,
+                          average_annual_runoff_baseline, stormwater_treated_locally, average_annual_wastewater,
+                          average_annual_wastewater_baseline, wastewater_treated_locally, average_annual_energy_consumption]
+
 
     return render_template('comparisons.html', title="Scenarios Comparisons", baseline_scenario_data=baseline_scenario_data,
                            scenario_1_data=scenario_1_data, scenario_2_data=scenario_2_data, scenario_3_data=scenario_3_data,
-                           scenario_4_data=scenario_4_data,
+                           scenario_4_data=scenario_4_data, table_1_labels=table_1_labels, table_2_labels=table_2_labels,
+                           table_3_labels=table_3_labels,
 
 
                            # BASELINE SCENARIO SECTION
                            annual_calculations_values_baseline=annual_calculations_values_baseline,
                            averages_monthly_baseline=averages_monthly_baseline,
                            sums_annualy_baseline=sums_annualy_baseline,
+                           table_1_baseline=table_1_baseline,
+                           table_2_baseline=table_2_baseline,
+                           tabl_3_baseline=tabl_3_baseline,
 
 
                            # SCENARIO 1 SECTION
                            annual_calculations_values_1=annual_calculations_values_1,
                            averages_monthly_1=averages_monthly_1, sums_annualy_1=sums_annualy_1,
-
+                           table_1_scenario_1=table_1_scenario_1,
+                           table_2_scenario_1=table_2_scenario_1,
+                           table_3_scenario_1=table_3_scenario_1,
 
                            # SCENARIO 2 SECTION
                            annual_calculations_values_2=annual_calculations_values_2,
                            averages_monthly_2=averages_monthly_2, sums_annualy_2=sums_annualy_2,
+                           table_1_scenario_2=table_1_scenario_2,
+                           table_2_scenario_2=table_2_scenario_2,
+                           table_3_scenario_2=table_3_scenario_2,
 
 
                            # SCENARIO 3 SECTION
                            annual_calculations_values_3=annual_calculations_values_3,
                            averages_monthly_3=averages_monthly_3, sums_annualy_3=sums_annualy_3,
+                           table_1_scenario_3=table_1_scenario_3,
+                           table_2_scenario_3=table_2_scenario_3,
+                           table_3_scenario_3=table_3_scenario_3,
 
 
                            # SCENARIO 4 SECTION
                            annual_calculations_values_4=annual_calculations_values_4,
-                           averages_monthly_4=averages_monthly_4, sums_annualy_4=sums_annualy_4
+                           averages_monthly_4=averages_monthly_4, sums_annualy_4=sums_annualy_4,
+                           table_1_scenario_4=table_1_scenario_4,
+                           table_2_scenario_4=table_2_scenario_4,
+                           table_3_scenario_4=table_3_scenario_4
                            )
 
 
