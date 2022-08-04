@@ -6,11 +6,18 @@
      <p class="text-center mt-4" style="font-size: 2.2vw;"><b>{{ general_info['pilot site name'] }}</b></p>
      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31479.809676528464!2d23.65173474675087!3d37.957901343520874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x71c164791bfc6e00!2sRalleios%20Experimental%20Schools!5e0!3m2!1sen!2sgr!4v1659360232542!5m2!1sen!2sgr" width="400" height="300" class="mb-4" style="display: block; margin: auto;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
      <p style="text-align: justify;">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          Ralleio school is one of the pilot locations in the euPolis Front Runner City of Piraeus. It is a school with a long
+          history in the City of Piraeus and operates as an Experimental School overseen by the Department of Education of the
+          University of Athens. Its innovative nature, due to experimentation with different teaching approaches in primary education
+          and its participation in various educational research programmes and other research initiatives, make it ideal as an euPolis
+          pilot site.
+          <br>
+          A range of different potential NBS interventions are currently being investigated for implementation in the
+          school; an initial analysis is presented here.
      </p>
 
-     <table style="width:70%; margin:auto; font-size:1.4vw;" class="table table-hover table-bordered table-info table-sm mt-1" border="1" style="border:2px solid #000000; border-collapse:collapse">
-          <caption class="" style="caption-side:top; text-align:center; color:#000000; font-size:30px; font-weight:bold;">Pilot Site General Information</caption>
+     <table style="width:60%; margin:auto; font-size:1.3vw;" class="table table-hover table-bordered table-info table-sm mt-1" border="1" style="border:2px solid #000000; border-collapse:collapse">
+          <caption class="" style="caption-side:top; text-align:center; color:#000000; font-size:30px; font-weight:bold;">Site General Information</caption>
 
           <tbody>
                     <tr>
@@ -31,7 +38,9 @@
                     </tr>
            </tbody>
      </table>
-     <p class="text-center mt-4 mb-4" style="font-size: 2vw;">Click on the scenarios listed below to view the resulting tables and graphs!</p>
+     <br>
+     <br>
+     <p class="text-center mt-4 mb-4" style="font-size: 2vw;">Click on the scenarios listed below to view the resulting tables and graphs</p>
 
      <div class="text-center">
           <a class="mt-4 mr-4 mb-4" href="{{ url_for('baseline_scenario') }}"><img src="{{ url_for('static', filename='images/baseline.png') }}" alt="Baseline Scenario" style="width:25%;"></a>
@@ -39,7 +48,10 @@
           <a class="mt-4 mr-4 mb-4" href="{{ url_for('scenario_2') }}"><img src="{{ url_for('static', filename='images/scenario_2.png') }}" alt="Scenario 2" style="width:25%;"></a>
           <a class="mt-4 mr-4" href="{{ url_for('scenario_3') }}"><img src="{{ url_for('static', filename='images/scenario_3.png') }}" alt="Scenario 3" style="width:25%;"></a>
           <a class="mt-4 mr-4" href="{{ url_for('scenario_4') }}"><img src="{{ url_for('static', filename='images/scenario_4.png') }}" alt="Scenario 4" style="width:25%;"></a>
-          <a class="btn btn-md btn-primary mt-4 mr-4" href="{{ url_for('comparisons') }}">View the comparison tables and graphs between all scenarios</a>
+
+          <br>
+
+          <a class="btn btn-md btn-primary mt-4 mr-4" href="{{ url_for('comparisons') }}">View the Scenarios Comparison</a>
      </div>
 </div>
 <br>

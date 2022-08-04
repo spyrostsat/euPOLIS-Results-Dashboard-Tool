@@ -53,15 +53,17 @@
                          </tr>
                 </tbody>
           </table>
+
           <br>
+
           <!-- CALCULATIONS MONTHLY TABLE -->
           <table style="width:70%; margin:auto; font-size:1.4vw;" class="table table-hover table-bordered table-info table-sm mt-4 mb-4" border="1" style="border:2px solid #000000; border-collapse:collapse">
                <thead>
                     <tr>
                          <th scope="row" style="vertical-align : middle;text-align:center;">Month</th>
-                         <th scope="row" style="vertical-align : middle;text-align:center;">NBS 1 Water Autonomy</th>
-                         <th scope="row" style="vertical-align : middle;text-align:center;">NBS 3 Water Autonomy</th>
-                         <th scope="row" style="vertical-align : middle;text-align:center;">Total NBS Water Autonomy</th>
+                         <th scope="row" style="vertical-align : middle;text-align:center;">NBS 1 Water Autonomy (%)</th>
+                         <th scope="row" style="vertical-align : middle;text-align:center;">NBS 3 Water Autonomy (%)</th>
+                         <th scope="row" style="vertical-align : middle;text-align:center;">Total NBS Water Autonomy (%)</th>
                     </tr>
                </thead>
                <tbody>
@@ -75,23 +77,9 @@
                          {% endfor %}
                 </tbody>
           </table>
-
-          <!-- CALCULATIONS ANNUALY TABLE -->
-          <table style="width:70%; margin:auto; font-size:1.4vw;" class="table table-hover table-bordered table-info table-sm mt-4 mb-4" border="1" style="border:2px solid #000000; border-collapse:collapse">
-               <caption style="caption-side:top; text-align:center; color:#000000; font-size:30px; font-weight:bold;">Useful Annual Indicators</caption>
-               <tbody>
-                         {% for i in range(annual_calculations_categories|length) %}
-                              <tr>
-                                   <td style="vertical-align : middle;text-align:center;">{{ annual_calculations_ei[i] }}</td>
-                                   <th scope="row" style="vertical-align : middle;text-align:center;">{{ annual_calculations_categories[i] }}</th>
-                                   <td style="vertical-align : middle;text-align:center;">{{ "%.2f"|format(annual_calculations_values[i]) }}</td>
-                              </tr>
-                         {% endfor %}
-                </tbody>
-          </table>
      </div>
 
-     <!-- GRAPHS SECTION -->
+     <!-- Monthly Charts -->
      <div class="mt-4 pt-4 ml-4 mr-4" style="display: inline-block; width: 45vw;">
           <canvas id="chart1"></canvas>
      </div>
@@ -104,9 +92,35 @@
           <canvas id="chart3"></canvas>
      </div>
 
-     <div class="text-center mt-4 mb-4">
-          <a class="btn btn-md btn-primary mt-4 mr-4" href="{{ url_for('comparisons') }}">View the comparison tables and graphs between all scenarios</a>
+
+     <!-- CALCULATIONS ANNUALY TABLE -->
+     <table style="width:70%; margin:auto; font-size:1.4vw;" class="table table-hover table-bordered table-info table-sm mt-4 mb-4" border="1" style="border:2px solid #000000; border-collapse:collapse">
+          <caption style="caption-side:top; text-align:center; color:#000000; font-size:30px; font-weight:bold;">Annual Indicators</caption>
+          <tbody>
+                    {% for i in range(annual_calculations_categories|length) %}
+                         <tr>
+                              <td style="vertical-align : middle;text-align:center;">{{ annual_calculations_ei[i] }}</td>
+                              <th scope="row" style="vertical-align : middle;text-align:center;">{{ annual_calculations_categories[i] }}</th>
+                              <td style="vertical-align : middle;text-align:center;">{{ "%.2f"|format(annual_calculations_values[i]) }}</td>
+                         </tr>
+                    {% endfor %}
+           </tbody>
+     </table>
+
+     <br>
+
+     <!-- Annual Chart -->
+     <div class="mt-4" style="width: 50%; margin: auto;">
+          <canvas id="chart4"></canvas>
      </div>
+
+
+     <div class="text-center mb-4">
+          <a class="btn btn-md btn-primary mr-4 mb-4" href="{{ url_for('comparisons') }}">View the Scenarios Comparison</a>
+     </div>
+
+
+     <!-- Javascript -->
 
      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
      <script src="https://unpkg.com/chart.js-plugin-labels-dv/dist/chartjs-plugin-labels.min.js"></script>
@@ -136,15 +150,15 @@
                   datasets: [{
                       label: "Potable Water Demand",
                       data: chart_1_data_1,
-                      backgroundColor: "#0000ff",
-                      borderColor: "#0000ff",
+                      backgroundColor: "#0096FF",
+                      borderColor: "#0096FF",
                       borderWidth: 1,
                  },
                  {
                      label: "Green Water Demand",
                      data: chart_1_data_2,
-                     backgroundColor: "#00ff00",
-                     borderColor: "#00ff00",
+                     backgroundColor: "#009400",
+                     borderColor: "#009400",
                      borderWidth: 1,
                      // yAxisID: "rightAxis"
                  }]
@@ -207,15 +221,15 @@
                   datasets: [{
                       label: "Greywater Tank",
                       data: chart_2_data_1,
-                      backgroundColor: "#aaaaaa",
-                      borderColor: "#aaaaaa",
+                      backgroundColor: "#cccccc",
+                      borderColor: "#cccccc",
                       borderWidth: 1,
                  },
                  {
                      label: "Rainwater Tank",
                      data: chart_2_data_2,
-                     backgroundColor: "#0000ff",
-                     borderColor: "#0000ff",
+                     backgroundColor: "#0096FF",
+                     borderColor: "#0096FF",
                      borderWidth: 1,
                      // yAxisID: "rightAxis"
                  }]
@@ -286,8 +300,8 @@
                  {
                      label: "Rainfall (mm/d)",
                      data: chart_3_data_2,
-                     backgroundColor: "#0000ff",
-                     borderColor: "#0000ff",
+                     backgroundColor: "#0096FF",
+                     borderColor: "#0096FF",
                      borderWidth: 2,
                      yAxisID: "rightAxis",
                      pointRadius: 0
@@ -349,6 +363,43 @@
                      }
                   }
             }
+          });
+
+          // Chart 4
+          const chart_4_data = {{ chart_4_data|safe }}
+
+          const ctx4 = document.getElementById('chart4').getContext('2d');
+          const chart4 = new Chart(ctx4, {
+              type: 'radar',
+              data: {
+                 labels: ["Site NBS Water Autonomy", "Water Reuse", "Runoff Coefficient", "Stormwater treated/managed locally", "Wastewater treated/managed locally", "Green Surfaces/Spaces"],
+                 datasets: [{
+                 label: "Scenario 3",
+                 data: chart_4_data,
+                 fill: true,
+                 backgroundColor: 'rgba(255, 99, 132, 0.4)',
+                borderColor: 'rgb(255, 99, 132)',
+                pointBackgroundColor: 'rgb(255, 99, 132)',
+                pointBorderColor: 'rgb(255, 99, 132)',
+                borderWidth: 1,
+            }]
+              },
+              options: {
+                elements: {
+                       line: {
+                          borderWidth: 3
+                       }
+                  },
+                  scales: {
+                      r: {
+                         angleLines: {
+                              display: false
+                         },
+                         suggestedMin: 0,
+                         suggestedMax: 100
+                      }
+                  }
+               }
           });
 
      </script>

@@ -40,7 +40,7 @@
 
           <!-- CALCULATIONS ANNUALY TABLE -->
           <table style="width:70%; margin:auto; font-size:1.4vw;" class="table table-hover table-bordered table-info table-sm mt-4 mb-4" border="1" style="border:2px solid #000000; border-collapse:collapse">
-               <caption style="caption-side:top; text-align:center; color:#000000; font-size:30px; font-weight:bold;">Useful Annual Indicators</caption>
+               <caption style="caption-side:top; text-align:center; color:#000000; font-size:30px; font-weight:bold;">Annual Indicators</caption>
                <tbody>
                          {% for i in range(annual_calculations_categories|length) %}
                               <tr>
@@ -51,7 +51,67 @@
                          {% endfor %}
                 </tbody>
           </table>
-          <a class="btn btn-md btn-primary mt-4 mr-4" href="{{ url_for('comparisons') }}">View the comparison tables and graphs between all scenarios</a>
      </div>
+
+     <br>
+
+     <div class="mt-4" style="width: 50%; margin: auto;">
+          <canvas id="chart1"></canvas>
+     </div>
+
+     <div class="text-center mb-4">
+          <a class="btn btn-md btn-primary mb-4" href="{{ url_for('comparisons') }}">View the Scenarios Comparison</a>
+     </div>
+
+
+     <!-- Javascript -->
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <script src="https://unpkg.com/chart.js-plugin-labels-dv/dist/chartjs-plugin-labels.min.js"></script>
+
+     <script>
+          // Configurations
+          // Chart.register.apply(null, Object.values(CHART).filter((chartClass) => (chartClass.id)));
+          Chart.defaults.font.size = 16;
+          Chart.defaults.font.family = 'Arial';
+
+          const chart_data = {{ chart_data|safe }}
+
+          // Chart 1
+          const ctx1 = document.getElementById('chart1').getContext('2d');
+          const chart1 = new Chart(ctx1, {
+              type: 'radar',
+              data: {
+                 labels: ["Site NBS Water Autonomy", "Water Reuse", "Runoff Coefficient", "Stormwater treated/managed locally", "Wastewater treated/managed locally", "Green Surfaces/Spaces"],
+                 datasets: [{
+                 label: "Baseline",
+                 data: chart_data,
+                 fill: true,
+                backgroundColor: 'rgba(255, 235, 59, 0.4)',
+                borderColor: 'rgb(255, 235, 59)',
+                pointBackgroundColor: 'rgb(255, 235, 59)',
+                pointBorderColor: 'rgb(255, 235, 59)',
+                 borderWidth: 1,
+             }]
+              },
+              options: {
+                elements: {
+                       line: {
+                          borderWidth: 3
+                       }
+                  },
+                  scales: {
+                      r: {
+                         angleLines: {
+                              display: false
+                         },
+                         suggestedMin: 0,
+                         suggestedMax: 100
+                      }
+                  }
+               }
+          });
+
+     </script>
 
 {% endblock content %}

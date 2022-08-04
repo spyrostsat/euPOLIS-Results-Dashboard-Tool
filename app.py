@@ -177,7 +177,7 @@ def baseline_scenario():
 
     average_annual_demand_baseline = np.mean(sums_annualy[:, -3]) / 1000 # L to m3
 
-    potable_water_savings = - (average_annual_demand - average_annual_demand_baseline) / average_annual_demand_baseline
+    potable_water_savings = (average_annual_demand - average_annual_demand_baseline) / average_annual_demand_baseline
 
     energy_consumption = baseline_scenario_data["general_params"]["energy_baseline"]["param_val"]
 
@@ -211,9 +211,16 @@ def baseline_scenario():
                                   stormwater_treated_locally, wastewater_treated_locally, impervious_surface_percentage,
                                   total_green_surface_percentage]
 
+    chart_data = [nbs_water_autonomy, water_reuse, runoff_coeff, stormwater_treated_locally, wastewater_treated_locally,
+                  total_green_surface_percentage]
+
+    for i in range(len(chart_data)):
+        if not isinstance(chart_data[i], str):
+            chart_data[i] = round(chart_data[i], 2)
+
     return render_template('baseline_scenario.html', title="Baseline Scenario", baseline_scenario_data=baseline_scenario_data,
                         annual_calculations_ei=annual_calculations_ei, annual_calculations_categories=annual_calculations_categories,
-                        annual_calculations_values=annual_calculations_values)
+                        annual_calculations_values=annual_calculations_values, chart_data=json.dumps(chart_data))
 
 
 @app.route("/scenario-1")
@@ -445,12 +452,20 @@ def scenario_1():
     chart_3_data_1 = total_nbs_demand_ts.tolist()
     chart_3_data_2 = rainfall_ts_mm.tolist()
 
+    chart_4_data = [total_nbs_water_autonomy, water_reuse, runoff_coeff, stormwater_treated_locally, wastewater_treated_locally,
+                  green_surface_percentage]
+
+    for i in range(len(chart_4_data)):
+        if not isinstance(chart_4_data[i], str):
+            chart_4_data[i] = round(chart_4_data[i], 2)
+
     return render_template('scenario_1.html', title="Scenario 1", scenario_1_data=scenario_1_data,
                         annual_calculations_ei=annual_calculations_ei, annual_calculations_categories=annual_calculations_categories,
                         annual_calculations_values=annual_calculations_values, averages_monthly=averages_monthly,
                         chart_1_data_1=json.dumps(chart_1_data_1), chart_1_data_2=json.dumps(chart_1_data_2),
                         chart_2_data_1=json.dumps(chart_2_data_1), chart_3_data_1=json.dumps(chart_3_data_1),
-                        chart_3_data_2=json.dumps(chart_3_data_2), dates_ts=json.dumps(dates_ts))
+                        chart_3_data_2=json.dumps(chart_3_data_2), dates_ts=json.dumps(dates_ts),
+                        chart_4_data=json.dumps(chart_4_data))
 
 
 @app.route("/scenario-2")
@@ -686,12 +701,20 @@ def scenario_2():
     chart_3_data_1 = total_nbs_demand_ts.tolist()
     chart_3_data_2 = rainfall_ts_mm.tolist()
 
+    chart_4_data = [total_nbs_water_autonomy, water_reuse, runoff_coeff, stormwater_treated_locally, wastewater_treated_locally,
+                  green_surface_percentage]
+
+    for i in range(len(chart_4_data)):
+        if not isinstance(chart_4_data[i], str):
+            chart_4_data[i] = round(chart_4_data[i], 2)
+
     return render_template('scenario_2.html', title="Scenario 2", scenario_2_data=scenario_2_data,
                         annual_calculations_ei=annual_calculations_ei, annual_calculations_categories=annual_calculations_categories,
                         annual_calculations_values=annual_calculations_values, averages_monthly=averages_monthly,
                         chart_1_data_1=json.dumps(chart_1_data_1), chart_1_data_2=json.dumps(chart_1_data_2),
                         chart_2_data_1=json.dumps(chart_2_data_1), chart_3_data_1=json.dumps(chart_3_data_1),
-                        chart_3_data_2=json.dumps(chart_3_data_2), dates_ts=json.dumps(dates_ts))
+                        chart_3_data_2=json.dumps(chart_3_data_2), dates_ts=json.dumps(dates_ts),
+                        chart_4_data=json.dumps(chart_4_data))
 
 
 
@@ -984,13 +1007,20 @@ def scenario_3():
     chart_3_data_1 = total_nbs_demand_ts.tolist()
     chart_3_data_2 = rainfall_ts_mm.tolist()
 
+    chart_4_data = [total_nbs_water_autonomy, water_reuse, runoff_coeff, stormwater_treated_locally, wastewater_treated_locally,
+                  green_surface_percentage]
+
+    for i in range(len(chart_4_data)):
+        if not isinstance(chart_4_data[i], str):
+            chart_4_data[i] = round(chart_4_data[i], 2)
+
     return render_template('scenario_3.html', title="Scenario 3", scenario_3_data=scenario_3_data,
                         annual_calculations_ei=annual_calculations_ei, annual_calculations_categories=annual_calculations_categories,
                         annual_calculations_values=annual_calculations_values, averages_monthly=averages_monthly,
                         chart_1_data_1=json.dumps(chart_1_data_1), chart_1_data_2=json.dumps(chart_1_data_2),
                         chart_2_data_1=json.dumps(chart_2_data_1), chart_2_data_2=json.dumps(chart_2_data_2),
                         chart_3_data_1=json.dumps(chart_3_data_1), chart_3_data_2=json.dumps(chart_3_data_2),
-                        dates_ts=json.dumps(dates_ts))
+                        dates_ts=json.dumps(dates_ts), chart_4_data=json.dumps(chart_4_data))
 
 
 @app.route("/scenario-4")
@@ -1328,13 +1358,20 @@ def scenario_4():
     chart_3_data_1 = total_nbs_demand_ts.tolist()
     chart_3_data_2 = rainfall_ts_mm.tolist()
 
+    chart_4_data = [total_nbs_water_autonomy, water_reuse, runoff_coeff, stormwater_treated_locally, wastewater_treated_locally,
+                  green_surface_percentage]
+
+    for i in range(len(chart_4_data)):
+        if not isinstance(chart_4_data[i], str):
+            chart_4_data[i] = round(chart_4_data[i], 2)
+
     return render_template('scenario_4.html', title="Scenario 4", scenario_4_data=scenario_4_data,
                         annual_calculations_ei=annual_calculations_ei, annual_calculations_categories=annual_calculations_categories,
                         annual_calculations_values=annual_calculations_values, averages_monthly=averages_monthly,
                         chart_1_data_1=json.dumps(chart_1_data_1), chart_1_data_2=json.dumps(chart_1_data_2),
                         chart_2_data_1=json.dumps(chart_2_data_1), chart_2_data_2=json.dumps(chart_2_data_2),
                         chart_3_data_1=json.dumps(chart_3_data_1), chart_3_data_2=json.dumps(chart_3_data_2),
-                        dates_ts=json.dumps(dates_ts))
+                        dates_ts=json.dumps(dates_ts), chart_4_data=json.dumps(chart_4_data))
 
 
 @app.route("/scenarios-comparisons")
@@ -1516,7 +1553,7 @@ def comparisons():
 
     average_annual_demand_baseline = np.mean(sums_annualy[:, -3]) / 1000 # L to m3
 
-    potable_water_savings = - (average_annual_demand - average_annual_demand_baseline) / average_annual_demand_baseline
+    potable_water_savings = (average_annual_demand - average_annual_demand_baseline) / average_annual_demand_baseline
 
     energy_consumption = baseline_scenario_data["general_params"]["energy_baseline"]["param_val"]
 
