@@ -93,7 +93,7 @@
 </div>
 
 
-<!-- GRAPHS SECTION -->
+<!-- GRAPHS SECTION (15 charts in total) -->
 
 <div class="mt-4 mb-4" style="width: 70%; margin: auto;">
      <canvas id="chart1"></canvas>
@@ -126,6 +126,35 @@
 <div class="mt-4 mb-4" style="width: 70%; margin: auto;">
      <canvas id="chart8"></canvas>
 </div>
+
+<div class="mt-4 mb-4 ml-4 mr-4" style="display: inline-block; width: 40%;">
+     <canvas id="chart9"></canvas>
+</div>
+
+<div class="mt-4 mb-4 ml-4" style="display: inline-block; width: 40%;">
+     <canvas id="chart10"></canvas>
+</div>
+
+<div class="mt-4 mb-4 ml-4 mr-4" style="display: inline-block; width: 40%;">
+     <canvas id="chart11"></canvas>
+</div>
+
+<div class="mt-4 mb-4 ml-4" style="display: inline-block; width: 40%;">
+     <canvas id="chart12"></canvas>
+</div>
+
+<div class="mt-4 mb-4 ml-4 mr-4" style="display: inline-block; width: 40%;">
+     <canvas id="chart13"></canvas>
+</div>
+
+<div class="mt-4 mb-4 ml-4" style="display: inline-block; width: 40%;">
+     <canvas id="chart14"></canvas>
+</div>
+
+<div class="mt-4 mb-4 ml-4 mr-4" style="display: inline-block; width: 40%;">
+     <canvas id="chart15"></canvas>
+</div>
+
 
 <!-- Javascript -->
 
@@ -522,7 +551,9 @@
                      title: {
                           display: false,
                           text: "Total annual water consumption (m3)",
-                     }
+                     },
+                     min: -10,
+                     max: 100,
                 },
                 x: {
                     display: true,
@@ -809,6 +840,303 @@
                 }
             }
         }
+     });
+
+
+     // Chart 9
+     const ctx9 = document.getElementById('chart9').getContext('2d');
+     const chart9 = new Chart(ctx9, {
+         type: 'radar',
+         data: {
+            labels: ["Site NBS Water Autonomy", "Water Reuse", "Runoff Coefficient", "Stormwater treated/managed locally", "Wastewater treated/managed locally", "Green Surfaces/Spaces"],
+            datasets: [{
+                 label: "Scenario 1",
+                 data: [table_2_scenario_1[13], table_3_scenario_1[2], table_3_scenario_1[7], table_3_scenario_1[9], table_3_scenario_1[12], table_1_scenario_1[14]],
+                 fill: true,
+                backgroundColor: 'rgba(255, 152, 0, 0.4)',
+                borderColor: 'rgb(255, 152, 0)',
+                pointBackgroundColor: 'rgb(255, 152, 0)',
+                pointBorderColor: 'rgb(255, 152, 0)',
+                borderWidth: 1,
+            },
+            {
+                label: "Scenario 2",
+                data: [table_2_scenario_2[13], table_3_scenario_2[2], table_3_scenario_2[7], table_3_scenario_2[9], table_3_scenario_2[12], table_1_scenario_2[14]],
+                fill: true,
+                backgroundColor: 'rgba(76, 175, 80, 0.4)',
+                borderColor: 'rgb(76, 175, 80)',
+                pointBackgroundColor: 'rgb(76, 175, 80)',
+                pointBorderColor: 'rgb(76, 175, 80)',
+                borderWidth: 1,
+           },
+           {
+               label: "Scenario 3",
+               data: [table_2_scenario_3[13], table_3_scenario_3[2], table_3_scenario_3[7], table_3_scenario_3[9], table_3_scenario_3[12], table_1_scenario_3[14]],
+               fill: true,
+               backgroundColor: 'rgba(255, 99, 132, 0.4)',
+               borderColor: 'rgb(255, 99, 132)',
+               pointBackgroundColor: 'rgb(255, 99, 132)',
+               pointBorderColor: 'rgb(255, 99, 132)',
+               borderWidth: 1,
+          },
+          {
+              label: "Scenario 4",
+              data: [table_2_scenario_4[13], table_3_scenario_4[2], table_3_scenario_4[7], table_3_scenario_4[9], table_3_scenario_4[12], table_1_scenario_4[14]],
+              fill: true,
+             backgroundColor: 'rgba(3, 169, 244, 0.4)',
+             borderColor: 'rgb(3, 169, 244)',
+             pointBackgroundColor: 'rgb(3, 169, 244)',
+             pointBorderColor: 'rgb(3, 169, 244)',
+              borderWidth: 1,
+         }]
+         },
+         options: {
+           elements: {
+                       line: {
+                          borderWidth: 3
+                       }
+                    },
+        scales: {
+                 r: {
+                     angleLines: {
+                         display: false
+                     },
+                     suggestedMin: 0,
+                     suggestedMax: 100
+                 }
+             }
+          }
+     });
+
+     // Chart 10
+     const ctx10 = document.getElementById('chart10').getContext('2d');
+     const chart10 = new Chart(ctx10, {
+         type: 'radar',
+         data: {
+            labels: ["Site NBS Water Autonomy", "Water Reuse", "Runoff Coefficient", "Stormwater treated/managed locally", "Wastewater treated/managed locally", "Green Surfaces/Spaces"],
+            datasets: [{
+               label: "Scenario 3",
+               data: [table_2_scenario_3[13], table_3_scenario_3[2], table_3_scenario_3[7], table_3_scenario_3[9], table_3_scenario_3[12], table_1_scenario_3[14]],
+               fill: true,
+               backgroundColor: 'rgba(255, 99, 132, 0.4)',
+               borderColor: 'rgb(255, 99, 132)',
+               pointBackgroundColor: 'rgb(255, 99, 132)',
+               pointBorderColor: 'rgb(255, 99, 132)',
+               borderWidth: 1,
+          },
+          {
+              label: "Scenario 4",
+              data: [table_2_scenario_4[13], table_3_scenario_4[2], table_3_scenario_4[7], table_3_scenario_4[9], table_3_scenario_4[12], table_1_scenario_4[14]],
+              fill: true,
+             backgroundColor: 'rgba(3, 169, 244, 0.4)',
+             borderColor: 'rgb(3, 169, 244)',
+             pointBackgroundColor: 'rgb(3, 169, 244)',
+             pointBorderColor: 'rgb(3, 169, 244)',
+              borderWidth: 1,
+         },
+         {
+            label: "Baseline",
+            data: [table_2_baseline[13], table_3_baseline[2], table_3_baseline[7], table_3_baseline[9], table_3_baseline[12], table_1_baseline[14]],
+            fill: true,
+           backgroundColor: 'rgba(255, 235, 59, 0.4)',
+           borderColor: 'rgb(255, 235, 59)',
+           pointBackgroundColor: 'rgb(255, 235, 59)',
+           pointBorderColor: 'rgb(255, 235, 59)',
+            borderWidth: 1,
+        }]
+         },
+         options: {
+           elements: {
+                  line: {
+                     borderWidth: 3
+                  }
+             },
+             scales: {
+                 r: {
+                    angleLines: {
+                         display: false
+                    },
+                    suggestedMin: 0,
+                    suggestedMax: 100
+                 }
+             }
+          }
+     });
+
+
+     // Chart 11
+     const ctx11 = document.getElementById('chart11').getContext('2d');
+     const chart11 = new Chart(ctx11, {
+         type: 'radar',
+         data: {
+            labels: ["Site NBS Water Autonomy", "Water Reuse", "Runoff Coefficient", "Stormwater treated/managed locally", "Wastewater treated/managed locally", "Green Surfaces/Spaces"],
+            datasets: [{
+            label: "Baseline",
+            data: [table_2_baseline[13], table_3_baseline[2], table_3_baseline[7], table_3_baseline[9], table_3_baseline[12], table_1_baseline[14]],
+            fill: true,
+           backgroundColor: 'rgba(255, 235, 59, 0.4)',
+           borderColor: 'rgb(255, 235, 59)',
+           pointBackgroundColor: 'rgb(255, 235, 59)',
+           pointBorderColor: 'rgb(255, 235, 59)',
+            borderWidth: 1,
+        }]
+         },
+         options: {
+           elements: {
+                  line: {
+                     borderWidth: 3
+                  }
+             },
+             scales: {
+                 r: {
+                    angleLines: {
+                         display: false
+                    },
+                    suggestedMin: 0,
+                    suggestedMax: 100
+                 }
+             }
+          }
+     });
+
+     // Chart 12
+     const ctx12 = document.getElementById('chart12').getContext('2d');
+     const chart12 = new Chart(ctx12, {
+         type: 'radar',
+         data: {
+            labels: ["Site NBS Water Autonomy", "Water Reuse", "Runoff Coefficient", "Stormwater treated/managed locally", "Wastewater treated/managed locally", "Green Surfaces/Spaces"],
+            datasets: [{
+                 label: "Scenario 1",
+                 data: [table_2_scenario_1[13], table_3_scenario_1[2], table_3_scenario_1[7], table_3_scenario_1[9], table_3_scenario_1[12], table_1_scenario_1[14]],
+                 fill: true,
+                backgroundColor: 'rgba(255, 152, 0, 0.4)',
+                borderColor: 'rgb(255, 152, 0)',
+                pointBackgroundColor: 'rgb(255, 152, 0)',
+                pointBorderColor: 'rgb(255, 152, 0)',
+                borderWidth: 1,
+            }]
+         },
+         options: {
+           elements: {
+                  line: {
+                     borderWidth: 3
+                  }
+             },
+             scales: {
+                 r: {
+                    angleLines: {
+                         display: false
+                    },
+                    suggestedMin: 0,
+                    suggestedMax: 100
+                 }
+             }
+          }
+     });
+
+     // Chart 13
+     const ctx13 = document.getElementById('chart13').getContext('2d');
+     const chart13 = new Chart(ctx13, {
+         type: 'radar',
+         data: {
+            labels: ["Site NBS Water Autonomy", "Water Reuse", "Runoff Coefficient", "Stormwater treated/managed locally", "Wastewater treated/managed locally", "Green Surfaces/Spaces"],
+            datasets: [{
+                label: "Scenario 2",
+                data: [table_2_scenario_2[13], table_3_scenario_2[2], table_3_scenario_2[7], table_3_scenario_2[9], table_3_scenario_2[12], table_1_scenario_2[14]],
+                fill: true,
+                backgroundColor: 'rgba(76, 175, 80, 0.4)',
+                borderColor: 'rgb(76, 175, 80)',
+                pointBackgroundColor: 'rgb(76, 175, 80)',
+                pointBorderColor: 'rgb(76, 175, 80)',
+                borderWidth: 1,
+           }]
+         },
+         options: {
+           elements: {
+                  line: {
+                     borderWidth: 3
+                  }
+             },
+             scales: {
+                 r: {
+                    angleLines: {
+                         display: false
+                    },
+                    suggestedMin: 0,
+                    suggestedMax: 100
+                 }
+             }
+          }
+     });
+
+     // Chart 14
+     const ctx14 = document.getElementById('chart14').getContext('2d');
+     const chart14 = new Chart(ctx14, {
+         type: 'radar',
+         data: {
+            labels: ["Site NBS Water Autonomy", "Water Reuse", "Runoff Coefficient", "Stormwater treated/managed locally", "Wastewater treated/managed locally", "Green Surfaces/Spaces"],
+            datasets: [{
+               label: "Scenario 3",
+               data: [table_2_scenario_3[13], table_3_scenario_3[2], table_3_scenario_3[7], table_3_scenario_3[9], table_3_scenario_3[12], table_1_scenario_3[14]],
+               fill: true,
+               backgroundColor: 'rgba(255, 99, 132, 0.4)',
+               borderColor: 'rgb(255, 99, 132)',
+               pointBackgroundColor: 'rgb(255, 99, 132)',
+               pointBorderColor: 'rgb(255, 99, 132)',
+               borderWidth: 1,
+          }]
+         },
+         options: {
+           elements: {
+                  line: {
+                     borderWidth: 3
+                  }
+             },
+             scales: {
+                 r: {
+                    angleLines: {
+                         display: false
+                    },
+                    suggestedMin: 0,
+                    suggestedMax: 100
+                 }
+             }
+          }
+     });
+
+     // Chart 15
+     const ctx15 = document.getElementById('chart15').getContext('2d');
+     const chart15 = new Chart(ctx15, {
+         type: 'radar',
+         data: {
+            labels: ["Site NBS Water Autonomy", "Water Reuse", "Runoff Coefficient", "Stormwater treated/managed locally", "Wastewater treated/managed locally", "Green Surfaces/Spaces"],
+            datasets: [{
+              label: "Scenario 4",
+              data: [table_2_scenario_4[13], table_3_scenario_4[2], table_3_scenario_4[7], table_3_scenario_4[9], table_3_scenario_4[12], table_1_scenario_4[14]],
+              fill: true,
+             backgroundColor: 'rgba(3, 169, 244, 0.4)',
+             borderColor: 'rgb(3, 169, 244)',
+             pointBackgroundColor: 'rgb(3, 169, 244)',
+             pointBorderColor: 'rgb(3, 169, 244)',
+              borderWidth: 1,
+         }]
+         },
+         options: {
+           elements: {
+                  line: {
+                     borderWidth: 3
+                  }
+             },
+             scales: {
+                 r: {
+                    angleLines: {
+                         display: false
+                    },
+                    suggestedMin: 0,
+                    suggestedMax: 100
+                 }
+             }
+          }
      });
 
 </script>
