@@ -1,6 +1,96 @@
+
 {% extends "layout.html" %}
 
 {% block content %}
 
+<div class="text-center mt-4 mb-4">
+     <p style="font-size: 2vw;"><b>Comparisons Between All Scenarios</b></p>
+
+     <!-- TABLE 1 -->
+     <table class="table table-hover table-bordered table-info table-sm mt-4 mb-4" border="1" style="width: 80%; margin: auto; font-size: 1vw; border:2px solid #000000; border-collapse:collapse">
+          <thead class="thead-dark">
+               <tr>
+                     <th scope="col" class="align-middle">#</th>
+                     <th scope="col" class="align-middle">Parameter</th>
+                     <th scope="col" class="align-middle">Baseline</th>
+                     <th scope="col" class="align-middle">Scenario 1</th>
+                     <th scope="col" class="align-middle">Scenario 2</th>
+                     <th scope="col" class="align-middle">Scenario 3</th>
+                     <th scope="col" class="align-middle">Scenario 4</th>
+               </tr>
+          </thead>
+          <tbody>
+               {% for i in range(table_1_labels|length) %}
+                    <tr>
+                          <td scope="row" class="align-middle">{{ i + 1 }}</td>
+                          <th style="vertical-align : middle;text-align:center;">{{ table_1_labels[i] }}</th>
+                          <td style="vertical-align : middle;text-align:center;">{{ table_1_baseline[i] }}</td>
+                          <td style="vertical-align : middle;text-align:center;">{{ table_1_scenario_1[i] }}</td>
+                          <td style="vertical-align : middle;text-align:center;">{{ table_1_scenario_2[i] }}</td>
+                          <td style="vertical-align : middle;text-align:center;">{{ table_1_scenario_3[i] }}</td>
+                          <td style="vertical-align : middle;text-align:center;">{{ table_1_scenario_4[i] }}</td>
+                    </tr>
+               {% endfor %}
+          </tbody>
+     </table>
+
+
+     <!-- TABLE 2 -->
+     <table class="table table-hover table-bordered table-info table-sm mt-4 mb-4" border="1" style="width: 80%; margin: auto; font-size: 1vw; border:2px solid #000000; border-collapse:collapse">
+          <thead class="thead-dark">
+               <tr>
+                     <th scope="col" class="align-middle">#</th>
+                     <th scope="col" class="align-middle">Parameter</th>
+                     <th scope="col" class="align-middle">Baseline</th>
+                     <th scope="col" class="align-middle">Scenario 1</th>
+                     <th scope="col" class="align-middle">Scenario 2</th>
+                     <th scope="col" class="align-middle">Scenario 3</th>
+                     <th scope="col" class="align-middle">Scenario 4</th>
+               </tr>
+          </thead>
+          <tbody>
+               {% for i in range(table_2_labels|length) %}
+                    <tr>
+                          <td scope="row" class="align-middle">{{ i + 1 }}</td>
+                          <th style="vertical-align : middle;text-align:center;">{{ table_2_labels[i] }}</th>
+                          <td style="vertical-align : middle;text-align:center;">{{ table_2_baseline[i] }}</td>
+                          <td style="vertical-align : middle;text-align:center;">{{ table_2_scenario_1[i] }}</td>
+                          <td style="vertical-align : middle;text-align:center;">{{ table_2_scenario_2[i] }}</td>
+                          <td style="vertical-align : middle;text-align:center;">{{ table_2_scenario_3[i] }}</td>
+                          <td style="vertical-align : middle;text-align:center;">{{ table_2_scenario_4[i] }}</td>
+                    </tr>
+               {% endfor %}
+          </tbody>
+     </table>
+
+     <!-- TABLE 3 -->
+     <table class="table table-hover table-bordered table-info table-sm mt-4 mb-4" border="1" style="width: 80%; margin: auto; font-size: 1vw; border:2px solid #000000; border-collapse:collapse">
+          <thead class="thead-dark">
+               <tr>
+                     <th scope="col" class="align-middle">#</th>
+                     <th scope="col" class="align-middle">Parameter</th>
+                     <th scope="col" class="align-middle">Baseline</th>
+                     <th scope="col" class="align-middle">Scenario 1</th>
+                     <th scope="col" class="align-middle">Scenario 2</th>
+                     <th scope="col" class="align-middle">Scenario 3</th>
+                     <th scope="col" class="align-middle">Scenario 4</th>
+               </tr>
+          </thead>
+          <tbody>
+               {% for i in range(table_3_labels|length) %}
+                    <tr>
+                          <td scope="row" class="align-middle">{{ i + 1 }}</td>
+                          <th style="vertical-align : middle;text-align:center;">{{ table_3_labels[i] }}</th>
+                          <td style="vertical-align : middle;text-align:center;">{{ table_3_baseline[i] }}</td>
+                          <td style="vertical-align : middle;text-align:center;">{{ table_3_scenario_1[i] }}</td>
+                          <td style="vertical-align : middle;text-align:center;">{{ table_3_scenario_2[i] }}</td>
+                          <td style="vertical-align : middle;text-align:center;">{{ table_3_scenario_3[i] }}</td>
+                          <td style="vertical-align : middle;text-align:center;">{{ table_3_scenario_4[i] }}</td>
+                    </tr>
+               {% endfor %}
+          </tbody>
+     </table>
+
+</div>
 
 {% endblock content %}

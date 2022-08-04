@@ -1557,12 +1557,24 @@ def comparisons():
                         impervious_surface_percentage, existing_green_surface, "-", "-", "-", "-", total_nbs_surface,
                         total_green_surface, total_green_surface_percentage, total_nbs_surface]
 
+    for i in range(len(table_1_baseline)):
+        if not isinstance(table_1_baseline[i], str):
+            table_1_baseline[i] = round(table_1_baseline[i], 2)
+
     table_2_baseline = ["-", "-", 0, "-", "-", "-", "-", 0, "-", "-", "-", "-", "-", nbs_water_autonomy]
 
-    tabl_3_baseline = [average_annual_demand, average_annual_green_water, water_reuse, average_annual_demand_baseline,
+    for i in range(len(table_2_baseline)):
+        if not isinstance(table_2_baseline[i], str):
+            table_2_baseline[i] = round(table_2_baseline[i], 2)
+
+    table_3_baseline = [average_annual_demand, average_annual_green_water, water_reuse, average_annual_demand_baseline,
                        potable_water_savings, average_annual_rainfall_m3, average_annual_runoff, runoff_coeff,
                        average_annual_runoff_baseline, stormwater_treated_locally, average_annual_wastewater,
                        average_annual_wastewater_baseline, wastewater_treated_locally, energy_consumption]
+
+    for i in range(len(table_3_baseline)):
+        if not isinstance(table_3_baseline[i], str):
+            table_3_baseline[i] = round(table_3_baseline[i], 2)
 
     annual_calculations_values_baseline = copy.deepcopy(annual_calculations_values)
     averages_monthly_baseline = copy.deepcopy(averages_monthly)
@@ -1801,16 +1813,28 @@ def comparisons():
                           planters_surface, "-", total_green_nbs_surface, total_green_surface, green_surface_percentage,
                           total_nbs_surface]
 
+    for i in range(len(table_1_scenario_1)):
+        if not isinstance(table_1_scenario_1[i], str):
+            table_1_scenario_1[i] = round(table_1_scenario_1[i], 2)
+
     table_2_scenario_1 = [average_annual_demand_green_roof, average_annual_potable_water_green_roof,
                           average_annual_rainwater_green_roof, average_annual_demand_planters,
                           average_annual_potable_water_planters, "-", "-", 0, average_annual_demand_total_nbs,
                           average_annual_potable_water_total_nbs, average_annual_green_water_total_nbs,
                           nbs1_water_autonomy, "-", total_nbs_water_autonomy]
 
+    for i in range(len(table_2_scenario_1)):
+        if not isinstance(table_2_scenario_1[i], str):
+            table_2_scenario_1[i] = round(table_2_scenario_1[i], 2)
+
     table_3_scenario_1 = [average_annual_demand, average_annual_green_water_used, water_reuse, average_annual_demand_baseline,
                           potable_water_savings, average_annual_rainfall_m3, average_annual_runoff, runoff_coeff,
                           average_annual_runoff_baseline, stormwater_treated_locally, average_annual_wastewater,
                           average_annual_wastewater_baseline, wastewater_treated_locally, average_annual_energy_consumption]
+
+    for i in range(len(table_3_scenario_1)):
+        if not isinstance(table_3_scenario_1[i], str):
+            table_3_scenario_1[i] = round(table_3_scenario_1[i], 2)
 
     annual_calculations_values_1 = copy.deepcopy(annual_calculations_values)
     averages_monthly_1 = copy.deepcopy(averages_monthly)
@@ -2056,16 +2080,28 @@ def comparisons():
                           planters_surface, "-", total_green_nbs_surface, total_green_surface, green_surface_percentage,
                           total_nbs_surface]
 
+    for i in range(len(table_1_scenario_2)):
+        if not isinstance(table_1_scenario_2[i], str):
+            table_1_scenario_2[i] = round(table_1_scenario_2[i], 2)
+
     table_2_scenario_2 = [average_annual_demand_green_roof, average_annual_potable_water_green_roof,
                           average_annual_rainwater_green_roof, average_annual_demand_planters,
                           average_annual_potable_water_planters, "-", "-", 0, average_annual_demand_total_nbs,
                           average_annual_potable_water_total_nbs, average_annual_green_water_total_nbs,
                           nbs1_water_autonomy, "-", total_nbs_water_autonomy]
 
+    for i in range(len(table_2_scenario_2)):
+        if not isinstance(table_2_scenario_2[i], str):
+            table_2_scenario_2[i] = round(table_2_scenario_2[i], 2)
+
     table_3_scenario_2 = [average_annual_demand, average_annual_green_water_used, water_reuse, average_annual_demand_baseline,
                           potable_water_savings, average_annual_rainfall_m3, average_annual_runoff, runoff_coeff,
                           average_annual_runoff_baseline, stormwater_treated_locally, average_annual_wastewater,
                           average_annual_wastewater_baseline, wastewater_treated_locally, average_annual_energy_consumption]
+
+    for i in range(len(table_3_scenario_2)):
+        if not isinstance(table_3_scenario_2[i], str):
+            table_3_scenario_2[i] = round(table_3_scenario_2[i], 2)
 
     #===================================================================================================================
 
@@ -2362,6 +2398,10 @@ def comparisons():
                           planters_surface, shelter_surface, total_green_nbs_surface, total_green_surface, green_surface_percentage,
                           total_nbs_surface]
 
+    for i in range(len(table_1_scenario_3)):
+        if not isinstance(table_1_scenario_3[i], str):
+            table_1_scenario_3[i] = round(table_1_scenario_3[i], 2)
+
     table_2_scenario_3 = [average_annual_demand_green_roof, average_annual_potable_water_green_roof,
                           average_annual_rainwater_green_roof, average_annual_demand_planters,
                           average_annual_potable_water_planters, average_annual_demand_shelter,
@@ -2369,10 +2409,19 @@ def comparisons():
                           average_annual_potable_water_total_nbs, average_annual_green_water_total_nbs,
                           nbs1_water_autonomy, nbs3_water_autonomy, total_nbs_water_autonomy]
 
+    for i in range(len(table_2_scenario_3)):
+        if not isinstance(table_2_scenario_3[i], str):
+            table_2_scenario_3[i] = round(table_2_scenario_3[i], 2)
+
     table_3_scenario_3 = [average_annual_demand, average_annual_green_water_used, water_reuse, average_annual_demand_baseline,
                           potable_water_savings, average_annual_rainfall_m3, average_annual_runoff, runoff_coeff,
                           average_annual_runoff_baseline, stormwater_treated_locally, average_annual_wastewater,
                           average_annual_wastewater_baseline, wastewater_treated_locally, average_annual_energy_consumption]
+
+    for i in range(len(table_3_scenario_3)):
+        if not isinstance(table_3_scenario_3[i], str):
+            table_3_scenario_3[i] = round(table_3_scenario_3[i], 2)
+
 
     #===================================================================================================================
 
@@ -2715,6 +2764,10 @@ def comparisons():
                           planters_surface, shelter_surface, total_green_nbs_surface, total_green_surface, green_surface_percentage,
                           total_nbs_surface]
 
+    for i in range(len(table_1_scenario_4)):
+        if not isinstance(table_1_scenario_4[i], str):
+            table_1_scenario_4[i] = round(table_1_scenario_4[i], 2)
+
     table_2_scenario_4 = [average_annual_demand_green_roof, average_annual_potable_water_green_roof,
                           average_annual_rainwater_green_roof, average_annual_demand_planters,
                           average_annual_potable_water_planters, average_annual_demand_shelter,
@@ -2722,10 +2775,18 @@ def comparisons():
                           average_annual_potable_water_total_nbs, average_annual_green_water_total_nbs,
                           nbs1_water_autonomy, nbs3_water_autonomy, total_nbs_water_autonomy]
 
+    for i in range(len(table_2_scenario_4)):
+        if not isinstance(table_2_scenario_4[i], str):
+            table_2_scenario_4[i] = round(table_2_scenario_4[i], 2)
+
     table_3_scenario_4 = [average_annual_demand, average_annual_green_water_used, water_reuse, average_annual_demand_baseline,
                           potable_water_savings, average_annual_rainfall_m3, average_annual_runoff, runoff_coeff,
                           average_annual_runoff_baseline, stormwater_treated_locally, average_annual_wastewater,
                           average_annual_wastewater_baseline, wastewater_treated_locally, average_annual_energy_consumption]
+
+    for i in range(len(table_3_scenario_4)):
+        if not isinstance(table_3_scenario_4[i], str):
+            table_3_scenario_4[i] = round(table_3_scenario_4[i], 2)
 
 
     return render_template('comparisons.html', title="Scenarios Comparisons", baseline_scenario_data=baseline_scenario_data,
@@ -2740,7 +2801,7 @@ def comparisons():
                            sums_annualy_baseline=sums_annualy_baseline,
                            table_1_baseline=table_1_baseline,
                            table_2_baseline=table_2_baseline,
-                           tabl_3_baseline=tabl_3_baseline,
+                           table_3_baseline=table_3_baseline,
 
 
                            # SCENARIO 1 SECTION
