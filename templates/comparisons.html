@@ -95,66 +95,69 @@
 
 <!-- GRAPHS SECTION (15 charts in total) -->
 
-<div class="mt-4 mb-4" style="width: 70%; margin: auto;">
+<div class="mt-4 mb-4" style="width: 60%; margin: auto;">
      <canvas id="chart1"></canvas>
 </div>
 
-<div class="mt-4 mb-4" style="width: 70%; margin: auto;">
+<div class="mt-4 mb-4" style="width: 60%; margin: auto;">
      <canvas id="chart2"></canvas>
 </div>
 
-<div class="mt-4 mb-4" style="width: 70%; margin: auto;">
+<div class="mt-4 mb-4" style="width: 60%; margin: auto;">
      <canvas id="chart3"></canvas>
 </div>
 
-<div class="mt-4 mb-4" style="width: 70%; margin: auto;">
+<div class="mt-4 mb-4" style="width: 60%; margin: auto;">
      <canvas id="chart4"></canvas>
 </div>
 
-<div class="mt-4 mb-4" style="width: 70%; margin: auto;">
+<div class="mt-4 mb-4" style="width: 60%; margin: auto;">
      <canvas id="chart5"></canvas>
 </div>
 
-<div class="mt-4 mb-4" style="width: 70%; margin: auto;">
+<div class="mt-4 mb-4" style="width: 60%; margin: auto;">
      <canvas id="chart6"></canvas>
 </div>
 
-<div class="mt-4 mb-4" style="width: 70%; margin: auto;">
+<div class="mt-4 mb-4" style="width: 60%; margin: auto;">
      <canvas id="chart7"></canvas>
 </div>
 
-<div class="mt-4 mb-4" style="width: 70%; margin: auto;">
+<div class="mt-4 mb-4" style="width: 60%; margin: auto;">
      <canvas id="chart8"></canvas>
 </div>
 
-<div class="mt-4 mb-4 ml-4 mr-4" style="display: inline-block; width: 40%;">
+<div class="mt-4 mb-4 ml-4" style="display: inline-block; width: 45%;">
      <canvas id="chart9"></canvas>
 </div>
 
-<div class="mt-4 mb-4 ml-4" style="display: inline-block; width: 40%;">
+<div class="mt-4 mb-4" style="display: inline-block; width: 45%;">
      <canvas id="chart10"></canvas>
 </div>
 
-<div class="mt-4 mb-4 ml-4 mr-4" style="display: inline-block; width: 40%;">
+<div class="mt-4 mb-4 ml-4" style="display: inline-block; width: 45%;">
      <canvas id="chart11"></canvas>
 </div>
 
-<div class="mt-4 mb-4 ml-4" style="display: inline-block; width: 40%;">
+<div class="mt-4 mb-4" style="display: inline-block; width: 45%;">
      <canvas id="chart12"></canvas>
 </div>
 
-<div class="mt-4 mb-4 ml-4 mr-4" style="display: inline-block; width: 40%;">
+<div class="mt-4 mb-4 ml-4" style="display: inline-block; width: 45%;">
      <canvas id="chart13"></canvas>
 </div>
 
-<div class="mt-4 mb-4 ml-4" style="display: inline-block; width: 40%;">
+<div class="mt-4 mb-4" style="display: inline-block; width: 45%;">
      <canvas id="chart14"></canvas>
 </div>
 
-<div class="mt-4 mb-4 ml-4 mr-4" style="display: inline-block; width: 40%;">
+<div class="mt-4 ml-4" style="display: inline-block; width: 45%;">
      <canvas id="chart15"></canvas>
 </div>
 
+<div class="text-center mb-4">
+     <a class="btn btn-lg btn-primary" style="font-size: 3vw; position: relative; left: 22vw; bottom: 25vw;" href="{{ url_for('home') }}">Go Back</a>
+</div>
 
 <!-- Javascript -->
 
@@ -209,16 +212,16 @@
             datasets: [{
                  label: "Green Water for NBS",
                  data: [table_2_scenario_1[10], table_2_scenario_2[10], table_2_scenario_3[10], table_2_scenario_4[10]],
-                 backgroundColor: "#00ff00",
-                 borderColor: "#00ff00",
+                 backgroundColor: 'rgb(76, 175, 80)',
+                 borderColor: 'rgb(76, 175, 80)',
                  borderWidth: 1,
                  order: 1
             },
             {
                 label: "Potable Water for NBS",
                 data: [table_2_scenario_1[9], table_2_scenario_2[9], table_2_scenario_3[9], table_2_scenario_4[9]],
-                backgroundColor: "#0000ff",
-                borderColor: "#0000ff",
+                backgroundColor: 'rgb(3, 169, 244)',
+                borderColor: 'rgb(3, 169, 244)',
                 borderWidth: 1,
                 order: 1
                 // yAxisID: "rightAxis"
@@ -227,7 +230,7 @@
                label: "Site Water Autonomy for NBS (%)",
                data: [table_2_scenario_1[13], table_2_scenario_2[13], table_2_scenario_3[13], table_2_scenario_4[13]],
                // backgroundColor: "#0000ff",
-               borderColor: "#000000",
+               borderColor: "#666666",
                borderWidth: 1,
                type: 'line',
                pointStyle: 'triangle',
@@ -323,8 +326,8 @@
            {
                label: "Greywater for NBS (m3)",
                data: [0, table_2_scenario_1[7], table_2_scenario_2[7], table_2_scenario_3[7], table_2_scenario_4[7]],
-               backgroundColor: "#bbbbbb",
-               borderColor: "#bbbbbb",
+               backgroundColor: "#dddddd",
+               borderColor: "#dddddd",
                borderWidth: 1,
                order: 1
           },
@@ -421,7 +424,7 @@
                label: "Runoff Coefficient (%)",
                data: [table_3_baseline[7], table_3_scenario_1[7], table_3_scenario_2[7], table_3_scenario_3[7], table_3_scenario_4[7]],
                // backgroundColor: "#0000ff",
-               borderColor: "#555555",
+               borderColor: "#666666",
                borderWidth: 1,
                type: 'line',
                pointStyle: 'triangle',
