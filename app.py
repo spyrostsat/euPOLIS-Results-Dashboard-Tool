@@ -22,7 +22,7 @@ with open("json_files/scen4_json.json", "r") as f:
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '61eeaaa0602a3b02cf95cedfed635601'
+app.config['SECRET_KEY'] = ''
 
 
 annual_calculations_ei = ["EI-45 (ENV)", "EI-46b (ENV)", "EI-46a (ENV)", "EI-44 (ENV)", "EI-50 (ENV)", "EI-48b (ENV)",
