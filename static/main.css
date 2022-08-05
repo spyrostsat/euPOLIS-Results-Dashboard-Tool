@@ -40,3 +40,20 @@ html, body {
 #home-text:hover {
      background-color: white;
 }
+
+table.table-bordered{
+    border:1px solid #bbbbbb;
+    margin-top:20px;
+}
+
+table.table-bordered > thead > tr > th {
+    border:1px solid #bbbbbb;
+}
+
+table.table-bordered > tbody > tr > th {
+    border:1px solid #bbbbbb;
+}
+
+table.table-bordered > tbody > tr > td {
+    border:1px solid #bbbbbb;
+}
