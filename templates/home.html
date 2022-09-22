@@ -51,34 +51,29 @@
      </p>
 </div>
 
-<div class="container mt-3">
-  <div class="row justify-content-center">
-    <div class="col col-lg-4 text-center">
-         <a href="{{ url_for('baseline_scenario') }}"><img src="{{ url_for('static', filename='images/baseline.png') }}" alt="Baseline Scenario" style="width:90%;"></a>
-    </div>
-    <div class="col col-lg-4 text-center">
-         <a href="{{ url_for('scenario_1') }}"><img src="{{ url_for('static', filename='images/scenario_1.png') }}" alt="Scenario 1" style="width:90%;"></a>
-    </div>
-    <div class="col col-lg-4 text-center">
-         <a href="{{ url_for('scenario_2') }}"><img src="{{ url_for('static', filename='images/scenario_2.png') }}" alt="Scenario 2" style="width:90%;"></a>
-    </div>
-  </div>
-</div>
-
-<div class="container my-5">
-  <div class="row justify-content-center align-items-center">
-    <div class="col col-lg-4 text-center">
-         <a href="{{ url_for('scenario_3') }}"><img src="{{ url_for('static', filename='images/scenario_3.png') }}" alt="Scenario 3" style="width:90%;"></a>
-    </div>
-    <div class="col col-lg-4 text-center">
-         <a href="{{ url_for('scenario_4') }}"><img src="{{ url_for('static', filename='images/scenario_4.png') }}" alt="Scenario 4" style="width:90%;"></a>
-    </div>
-    <div class="col col-lg-4 text-center">
-         <a class="btn btn-lg btn-outline-info my-5 " href="{{ url_for('comparisons') }}">View the Scenarios Comparison<span><i class=" ms-2 bi bi-arrow-right-circle"></i></span></a>
-    </div>
-  </div>
-</div>
-
-<br>
+<section class="min-vh-100">
+     <div class="container-lg mt-3">
+       <div class="row gy-4 row-cols-1 row-cols-lg-3">
+         <div class="col">
+              <a href="{{ url_for('baseline_scenario') }}"><img src="{{ url_for('static', filename='images/baseline.png') }}" alt="Baseline Scenario"></a>
+         </div>
+         <div class="col">
+              <a href="{{ url_for('scenario_1') }} "><img src="{{ url_for('static', filename='images/scenario_1.png') }}" alt="Scenario 1"></a>
+         </div>
+         <div class="col">
+              <a href="{{ url_for('scenario_2') }}"><img src="{{ url_for('static', filename='images/scenario_2.png') }}" alt="Scenario 2"></a>
+         </div>
+         <div class="col">
+              <a href="{{ url_for('scenario_3') }}"><img src="{{ url_for('static', filename='images/scenario_3.png') }}" alt="Scenario 3" style="width:90%;"></a>
+         </div>
+         <div class="col">
+              <a href="{{ url_for('scenario_4') }}"><img src="{{ url_for('static', filename='images/scenario_4.png') }}" alt="Scenario 4" style="width:90%;"></a>
+         </div>
+         <div class="col">
+              <a class="btn btn-lg btn-outline-info my-5" href="{{ url_for('comparisons') }}">View the Scenarios Comparison<span><i class=" ms-2 bi bi-arrow-right-circle"></i></span></a>
+         </div>
+       </div>
+     </div>
+</section>
 
 {% endblock content %}

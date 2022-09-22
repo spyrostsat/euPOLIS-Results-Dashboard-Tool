@@ -13,3 +13,7 @@ body {
 .table > tbody > tr > td {
      vertical-align: middle;
 }
+
+div a img {
+     max-width: 100%;
+}
