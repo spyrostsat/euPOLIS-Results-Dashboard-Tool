@@ -35,7 +35,7 @@ annual_calculations_categories = ["Site NBS Water Autonomy (%)", "Water Reuse (%
 
 @app.route("/")
 @app.route("/home")
-def home():
+def home_page():
     # in the Home Page i will just use the basic site's information received from the baseline_scenario json file
 
     general_info = baseline_scenario_data["general_info"]
@@ -45,6 +45,21 @@ def home():
     return render_template('home.html', title="Home", baseline_scenario_data=baseline_scenario_data,
                            baseline_scenario_data_js=json.dumps(baseline_scenario_data), general_info=general_info,
                            general_parameters=general_parameters)
+
+
+@app.route("/about")
+def about_page():
+    general_info = baseline_scenario_data["general_info"]
+    general_parameters = baseline_scenario_data["general_params"]
+
+
+    return render_template('about.html', title="About", baseline_scenario_data=baseline_scenario_data,
+                           baseline_scenario_data_js=json.dumps(baseline_scenario_data), general_info=general_info,
+                           general_parameters=general_parameters)
+
+@app.route("/contact-us")
+def contact_page():
+    return render_template('contact.html', title="Contact Us")
 
 
 @app.route("/baseline-scenario")
@@ -1378,8 +1393,8 @@ def scenario_4():
 def comparisons():
     # The Scenarios comparison page requires to have the outputs of all the 5 different scenarios. So, all functions from
     # baseline_scenario() to scenario_4() need to be executed before rendering the comparisons.html page in order to
-    # be able to draw the final tables and graphs in the frontend. So I'm just going to copy and paster the codes inside
-    # all these functions in here.
+    # be able to draw the final tables and graphs in the frontend. So I'm just going to copy and paste the codes from
+    # all the functions declared above in here
 
     table_1_labels = ["Impervious areas and roofs (m2)", "Roof permeable pavement (m2)", "RWH Roofs (m2)",
                       "Impervious surfaces (m2)", "Impervious surfaces baseline scenario (m2)", "Total site surface (m2)",

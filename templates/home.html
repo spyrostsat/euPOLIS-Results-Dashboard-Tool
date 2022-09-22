@@ -2,65 +2,83 @@
 
 {% block content %}
 
-<div class="home-content-container">
-     <p class="text-center mt-4" style="font-size: 2.2vw;"><b>{{ general_info['pilot site name'] }}</b></p>
-     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31479.809676528464!2d23.65173474675087!3d37.957901343520874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x71c164791bfc6e00!2sRalleios%20Experimental%20Schools!5e0!3m2!1sen!2sgr!4v1659360232542!5m2!1sen!2sgr" width="400" height="300" class="mb-4" style="display: block; margin: auto;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-     <p style="text-align: justify;">
-          Ralleio school is one of the pilot locations in the euPolis Front Runner City of Piraeus. It is a school with a long
-          history in the City of Piraeus and operates as an Experimental School overseen by the Department of Education of the
-          University of Athens. Its innovative nature, due to experimentation with different teaching approaches in primary education
-          and its participation in various educational research programmes and other research initiatives, make it ideal as an euPolis
-          pilot site.
-          <br>
-          A range of different potential NBS interventions are currently being investigated for implementation in the
-          school; an initial analysis is presented here.
+
+<div class="container text-center mt-5">
+     <p style="font-size: 36px;" class="lead fw-bold">euPOLIS NBS UW Metabolism Dashboard</p>
+</div>
+
+<div class="container mt-4">
+  <div class="row justify-content-center align-items-center">
+    <div class="col col-lg-6 text-center">
+         <p class="text-center mt-4 text-muted fw-bold" style="font-size: 24px;">{{ general_info['pilot site name'] }}</p>
+         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31479.809676528464!2d23.65173474675087!3d37.957901343520874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x71c164791bfc6e00!2sRalleios%20Experimental%20Schools!5e0!3m2!1sen!2sgr!4v1659360232542!5m2!1sen!2sgr" width="400" height="300" class="mb-4" style="display: block; margin: auto;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="col col-lg-6 text-center">
+         <div class="table-responsive container text-center" style="font-size: 20px;">
+              <table class="table table-hover table-bordered table-light table-sm table-striped" border="1" style="border:2px solid #000000; border-collapse:collapse">
+                   <caption class="text-muted" style="caption-side:top; text-align:center; color:#000000; font-size:24px; font-weight:bold;">Site General Information</caption>
+                   <tbody>
+                             <tr>
+                                   <td style="vertical-align : middle;text-align:center;">Location</td>
+                                   <td style="vertical-align : middle;text-align:center;">[{{ general_info['pilot site location'] }}]</td>
+                             </tr>
+                             <tr>
+                                  <td style="vertical-align : middle;text-align:center;">{{ general_parameters['total_site_surface']['param_desc'] }}</td>
+                                  <td style="vertical-align : middle;text-align:center;">{{ general_parameters['total_site_surface']['param_val'] }}</td>
+                             </tr>
+                             <tr>
+                                  <td style="vertical-align : middle;text-align:center;">{{ general_parameters['existing_green_surfaces']['param_desc'] }}</td>
+                                  <td style="vertical-align : middle;text-align:center;">{{ general_parameters['existing_green_surfaces']['param_val'] }}</td>
+                             </tr>
+                             <tr>
+                                  <td style="vertical-align : middle;text-align:center;">{{ general_parameters['imp_surf_baseline']['param_desc'] }}</td>
+                                  <td style="vertical-align : middle;text-align:center;">{{ general_parameters['imp_surf_baseline']['param_val'] }}</td>
+                             </tr>
+                    </tbody>
+              </table>
+         </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+     <p style="font-size: 20px; text-align: justify;" class="lead mt-5">
+          A range of different potential NBS interventions are being investigated for implementation in the school.
+          An initial analysis is presented here.
      </p>
-
-     <table style="width:60%; margin:auto; font-size:1.3vw;" class="table table-hover table-bordered table-light table-sm mt-1" border="1" style="border:2px solid #000000; border-collapse:collapse">
-          <caption class="" style="caption-side:top; text-align:center; color:#000000; font-size:30px; font-weight:bold;">Site General Information</caption>
-
-          <tbody>
-                    <tr>
-                          <th scope="row" style="vertical-align : middle;text-align:center;">Location</th>
-                          <td style="vertical-align : middle;text-align:center;">[{{ general_info['pilot site location'] }}]</td>
-                    </tr>
-                    <tr>
-                         <th scope="row" style="vertical-align : middle;text-align:center;">{{ general_parameters['total_site_surface']['param_desc'] }}</th>
-                         <td style="vertical-align : middle;text-align:center;">{{ general_parameters['total_site_surface']['param_val'] }}</td>
-                    </tr>
-                    <tr>
-                         <th scope="row" style="vertical-align : middle;text-align:center;">{{ general_parameters['existing_green_surfaces']['param_desc'] }}</th>
-                         <td style="vertical-align : middle;text-align:center;">{{ general_parameters['existing_green_surfaces']['param_val'] }}</td>
-                    </tr>
-                    <tr>
-                         <th scope="row" style="vertical-align : middle;text-align:center;">{{ general_parameters['imp_surf_baseline']['param_desc'] }}</th>
-                         <td style="vertical-align : middle;text-align:center;">{{ general_parameters['imp_surf_baseline']['param_val'] }}</td>
-                    </tr>
-           </tbody>
-     </table>
-     <br>
-     <br>
-     <p class="text-center mt-4 mb-4" style="font-size: 2vw;">Click on the scenarios listed below to view the resulting tables and graphs</p>
-
-     <div class="text-center">
-          <a class="mt-4 mr-4 mb-4" href="{{ url_for('baseline_scenario') }}"><img src="{{ url_for('static', filename='images/baseline.png') }}" alt="Baseline Scenario" style="width:25%;"></a>
-          <a class="mt-4 mr-4 mb-4" href="{{ url_for('scenario_1') }}"><img src="{{ url_for('static', filename='images/scenario_1.png') }}" alt="Scenario 1" style="width:25%;"></a>
-          <a class="mt-4 mr-4 mb-4" href="{{ url_for('scenario_2') }}"><img src="{{ url_for('static', filename='images/scenario_2.png') }}" alt="Scenario 2" style="width:25%;"></a>
-          <a class="mt-4 mr-4" href="{{ url_for('scenario_3') }}"><img src="{{ url_for('static', filename='images/scenario_3.png') }}" alt="Scenario 3" style="width:25%;"></a>
-          <a class="mt-4 mr-4" href="{{ url_for('scenario_4') }}"><img src="{{ url_for('static', filename='images/scenario_4.png') }}" alt="Scenario 4" style="width:25%;"></a>
-
-          <br>
-
-          <a class="btn btn-md btn-primary mt-4 mr-4" href="{{ url_for('comparisons') }}">View the Scenarios Comparison</a>
-     </div>
+     <p style="font-size: 20px;" class="lead text-center">
+          <i>Click</i> on the scenarios listed bellow to view the resulting tables and graphs.
+     </p>
 </div>
+
+<div class="container mt-3">
+  <div class="row justify-content-center">
+    <div class="col col-lg-4 text-center">
+         <a href="{{ url_for('baseline_scenario') }}"><img src="{{ url_for('static', filename='images/baseline.png') }}" alt="Baseline Scenario" style="width:90%;"></a>
+    </div>
+    <div class="col col-lg-4 text-center">
+         <a href="{{ url_for('scenario_1') }}"><img src="{{ url_for('static', filename='images/scenario_1.png') }}" alt="Scenario 1" style="width:90%;"></a>
+    </div>
+    <div class="col col-lg-4 text-center">
+         <a href="{{ url_for('scenario_2') }}"><img src="{{ url_for('static', filename='images/scenario_2.png') }}" alt="Scenario 2" style="width:90%;"></a>
+    </div>
+  </div>
+</div>
+
+<div class="container my-5">
+  <div class="row justify-content-center align-items-center">
+    <div class="col col-lg-4 text-center">
+         <a href="{{ url_for('scenario_3') }}"><img src="{{ url_for('static', filename='images/scenario_3.png') }}" alt="Scenario 3" style="width:90%;"></a>
+    </div>
+    <div class="col col-lg-4 text-center">
+         <a href="{{ url_for('scenario_4') }}"><img src="{{ url_for('static', filename='images/scenario_4.png') }}" alt="Scenario 4" style="width:90%;"></a>
+    </div>
+    <div class="col col-lg-4 text-center">
+         <a class="btn btn-lg btn-outline-info my-5 " href="{{ url_for('comparisons') }}">View the Scenarios Comparison<span><i class=" ms-2 bi bi-arrow-right-circle"></i></span></a>
+    </div>
+  </div>
+</div>
+
 <br>
-<div class="text-center mt-4" style="width: 33%; font-size: 1vw;">
-     <p style="font-size: 20px; font-weight: bold;">euPOLIS Funding</p>
-     <a style="position: relative;bottom: 10px;" target="_blank" href="https://european-union.europa.eu/index_en"><img src="{{ url_for('static', filename='images/euro-union.png') }}" alt="EU" style="width:9.5%;"></a>
-     <p>The euPOLIS project has received funding from the European Union’s Horizon 2020 Research & Innovation programme H2020-EU.3.5.2., under grant agreement No 869448</p>
-</div>
-
-<p class="mr-4" style="text-align: right; font-size: 1vw; position: relative; bottom: 2.5vw;">&copy; 2022 URBAN WATER MANAGEMENT AND HYRDROINFORMATICS GROUP</p>
 
 {% endblock content %}

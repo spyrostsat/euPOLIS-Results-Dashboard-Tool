@@ -1,59 +1,15 @@
-html, body {
-     margin: 0;
-     padding: 0;
+html {
+     height: 100%;
+}
+
+body {
      font-family: Arial, Helvetica, sans-serif;
-     font-size: 1.5vw;
-     background-color: #ADD8E6;
+     min-height: 100%;
+     display: flex;
+     flex-direction: column;
 }
 
-.home-content-container {
-     text-align: justify;
-     margin-top: 1vw;
-     margin-left: 2vw;
-     margin-right: 2vw;
-}
 
-#eupolis-img-container {
-     display: block;
-     position: absolute;
-     top: 2%;
-     left: 1%;
-     /* display: block; */
-}
-
-#uwmh-img-container {
-     display: block;
-     position: absolute;
-     top: 2%;
-     left: 85%;
-}
-
-#home-text {
-     display: block;
-     font-size: 2.4vw;
-     color: black;
-     text-decoration: none;
-     width: 55%;
-     margin: auto;
-}
-
-#home-text:hover {
-     background-color: white;
-}
-
-table.table-bordered{
-    border:1px solid #bbbbbb;
-    margin-top:20px;
-}
-
-table.table-bordered > thead > tr > th {
-    border:1px solid #bbbbbb;
-}
-
-table.table-bordered > tbody > tr > th {
-    border:1px solid #bbbbbb;
-}
-
-table.table-bordered > tbody > tr > td {
-    border:1px solid #bbbbbb;
+.table > tbody > tr > td {
+     vertical-align: middle;
 }
