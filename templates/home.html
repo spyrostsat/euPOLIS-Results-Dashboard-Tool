@@ -41,8 +41,8 @@
   </div>
 </div>
 
-<div class="container">
-     <p style="font-size: 20px; text-align: justify;" class="lead mt-5">
+<div class="container bg-light my-5">
+     <p style="font-size: 20px; text-align: justify;" class="lead pt-3">
           A range of different potential NBS interventions are being investigated for implementation in the school.
           An initial analysis is presented here.
      </p>
@@ -52,7 +52,7 @@
 </div>
 
 <section class="min-vh-100">
-     <div class="container-lg mt-3">
+     <div class="container-lg">
        <div class="row gy-4 row-cols-1 row-cols-lg-3">
          <div class="col">
               <a href="{{ url_for('baseline_scenario') }}"><img src="{{ url_for('static', filename='images/baseline.png') }}" alt="Baseline Scenario"></a>
@@ -70,7 +70,7 @@
               <a href="{{ url_for('scenario_4') }}"><img src="{{ url_for('static', filename='images/scenario_4.png') }}" alt="Scenario 4" style="width:90%;"></a>
          </div>
          <div class="col">
-              <a class="btn btn-lg btn-outline-info my-5" href="{{ url_for('comparisons') }}">View the Scenarios Comparison<span><i class=" ms-2 bi bi-arrow-right-circle"></i></span></a>
+              <a class="btn btn-lg btn-outline-info my-5" href="{{ url_for('comparisons') }}" style="position: relative; top: 25px;">View the Scenarios Comparison<span><i class=" ms-2 bi bi-arrow-right-circle"></i></span></a>
          </div>
        </div>
      </div>
