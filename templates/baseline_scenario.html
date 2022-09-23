@@ -8,10 +8,18 @@
 
           <p style="font-size: 20px;">Simulation Period: {{ baseline_scenario_data["general_info"]["Simulation period"] }}</p>
 
-          <img src="{{ url_for('static', filename='images/baseline.png') }}" alt="Baseline Scenario" style="width:30%;">
+          <section class="min-vh-100 mt-5">
+               <div class="container-lg">
+                 <div class="row row-cols-1 row-cols-lg-8">
+                   <div class="col">
+                        <img src="{{ url_for('static', filename='images/baseline.png') }}" alt="Baseline Scenario">
+                   </div>
+                 </div>
+               </div>
+          </section>
 
           <!-- MODEL PARAMETERS TABLE -->
-          <div class="row justify-content-center align-items-center mt-5">
+          <div class="row justify-content-center align-items-center">
             <div class="col col-lg-8">
                <div class="table-responsive container text-center" style="font-size: 20px;">
                    <table class="table table-hover table-bordered table-light table-sm table-striped" border="1" style="border:2px solid #000000; border-collapse:collapse">

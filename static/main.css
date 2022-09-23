@@ -17,3 +17,7 @@ body {
 div a img {
      max-width: 100%;
 }
+
+div img {
+     max-width: 100%;
+}

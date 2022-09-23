@@ -1,121 +1,148 @@
 {% extends "layout.html" %}
 
 {% block content %}
-     <div class="text-center mt-4 mb-4">
-          <p style="font-size: 2vw;"><b>Scenario 4</b></p>
+     <div class="container text-center mt-5">
+          <p class="mb-5" style="font-size: 35px;"><b>Scenario 4</b></p>
 
-          <p>{{ scenario_4_data["general_info"]["Scenario Description"] }}</p>
+          <p style="font-size: 20px;">{{ scenario_4_data["general_info"]["Scenario Description"] }}</p>
 
-          <p>Simulation Period: {{ scenario_4_data["general_info"]["Simulation period"] }}</p>
+          <p style="font-size: 20px;">Simulation Period: {{ scenario_4_data["general_info"]["Simulation period"] }}</p>
 
-          <img src="{{ url_for('static', filename='images/scenario_4.png') }}" alt="Scenario 4" style="width:25%;">
+          <section class="min-vh-100 mt-5">
+               <div class="container-lg">
+                 <div class="row row-cols-1 row-cols-lg-8">
+                   <div class="col">
+                        <img src="{{ url_for('static', filename='images/scenario_4.png') }}" alt="Scenario 4">
+                   </div>
+                 </div>
+               </div>
+          </section>
 
-          <!-- KEY INPUTS TABLE -->
-          <table style="width:70%; margin:auto; font-size:1.4vw;" class="table table-hover table-bordered table-light table-sm mt-4 mb-4" border="1" style="border:2px solid #000000; border-collapse:collapse">
-               <caption class="" style="caption-side:top; text-align:center; color:#000000; font-size:30px; font-weight:bold;">Key Inputs</caption>
+          <div class="row justify-content-center align-items-center">
+            <div class="col col-lg-8">
+               <div class="table-responsive container text-center" style="font-size: 20px;">
+                   <table class="table table-hover table-bordered table-light table-sm table-striped" border="1" style="border:2px solid #000000; border-collapse:collapse">
+                        <caption class="text-muted" style="caption-side:top; text-align:center; color:#000000; font-size:24px; font-weight:bold;">Key Inputs</caption>
+                         <tbody>
+                                   <tr>
+                                         <td style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["imprv_roofs_id_8"]["param_desc"] }}</td>
+                                         <td style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["imprv_roofs_id_8"]["param_val"] }}</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["imprv_permeable_pavement_id_151"]["param_desc"] }}</td>
+                                        <td style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["imprv_permeable_pavement_id_151"]["param_val"] }}</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["imprv_rwh_roofs_id_158"]["param_desc"] }}</td>
+                                        <td style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["imprv_rwh_roofs_id_158"]["param_val"] }}</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["bg_green_roof_semintensive_id_149"]["param_desc"] }}</td>
+                                        <td style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["bg_green_roof_semintensive_id_149"]["param_val"] }}</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["bg_green_roof_extensive_id_120"]["param_desc"] }}</td>
+                                        <td style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["bg_green_roof_extensive_id_120"]["param_val"] }}</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["bg_planters_id_150"]["param_desc"] }}</td>
+                                        <td style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["bg_planters_id_150"]["param_val"] }}</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["bg_shelter_id_200"]["param_desc"] }}</td>
+                                        <td style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["bg_shelter_id_200"]["param_val"] }}</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["rwh_tank_capacity"]["param_desc"] }}</td>
+                                        <td style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["rwh_tank_capacity"]["param_val"] }}</td>
+                                   </tr>
+                                   <tr>
+                                        <td style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["gw_tank_capacity"]["param_desc"] }}</td>
+                                        <td style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["gw_tank_capacity"]["param_val"] }}</td>
+                                   </tr>
+                          </tbody>
+                     </table>
+                </div>
+             </div>
+           </div>
 
-               <tbody>
-                         <tr>
-                               <th scope="row" style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["imprv_roofs_id_8"]["param_desc"] }}</th>
-                               <td style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["imprv_roofs_id_8"]["param_val"] }}</td>
-                         </tr>
-                         <tr>
-                              <th scope="row" style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["imprv_permeable_pavement_id_151"]["param_desc"] }}</th>
-                              <td style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["imprv_permeable_pavement_id_151"]["param_val"] }}</td>
-                         </tr>
-                         <tr>
-                              <th scope="row" style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["imprv_rwh_roofs_id_158"]["param_desc"] }}</th>
-                              <td style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["imprv_rwh_roofs_id_158"]["param_val"] }}</td>
-                         </tr>
-                         <tr>
-                              <th scope="row" style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["bg_green_roof_semintensive_id_149"]["param_desc"] }}</th>
-                              <td style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["bg_green_roof_semintensive_id_149"]["param_val"] }}</td>
-                         </tr>
-                         <tr>
-                              <th scope="row" style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["bg_green_roof_extensive_id_120"]["param_desc"] }}</th>
-                              <td style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["bg_green_roof_extensive_id_120"]["param_val"] }}</td>
-                         </tr>
-                         <tr>
-                              <th scope="row" style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["bg_planters_id_150"]["param_desc"] }}</th>
-                              <td style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["bg_planters_id_150"]["param_val"] }}</td>
-                         </tr>
-                         <tr>
-                              <th scope="row" style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["bg_shelter_id_200"]["param_desc"] }}</th>
-                              <td style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["bg_shelter_id_200"]["param_val"] }}</td>
-                         </tr>
-                         <tr>
-                              <th scope="row" style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["rwh_tank_capacity"]["param_desc"] }}</th>
-                              <td style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["rwh_tank_capacity"]["param_val"] }}</td>
-                         </tr>
-                         <tr>
-                              <th scope="row" style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["gw_tank_capacity"]["param_desc"] }}</th>
-                              <td style="vertical-align : middle;text-align:center;">{{ scenario_4_data["model_params"]["gw_tank_capacity"]["param_val"] }}</td>
-                         </tr>
-                </tbody>
-          </table>
-          <br>
-          <!-- CALCULATIONS MONTHLY TABLE -->
-          <table style="width:70%; margin:auto; font-size:1.4vw;" class="table table-hover table-bordered table-light table-sm mt-4 mb-4" border="1" style="border:2px solid #000000; border-collapse:collapse">
-               <thead>
-                    <tr>
-                         <th scope="row" style="vertical-align : middle;text-align:center;">Month</th>
-                         <th scope="row" style="vertical-align : middle;text-align:center;">NBS 1 Water Autonomy (%)</th>
-                         <th scope="row" style="vertical-align : middle;text-align:center;">NBS 3 Water Autonomy (%)</th>
-                         <th scope="row" style="vertical-align : middle;text-align:center;">Total NBS Water Autonomy (%)</th>
-                    </tr>
-               </thead>
-               <tbody>
-                         {% for i in range(averages_monthly|length) %}
+           <!-- CALCULATIONS MONTHLY TABLE -->
+           <div class="row justify-content-center align-items-center mt-5">
+             <div class="col col-lg-8">
+                <div class="table-responsive container text-center" style="font-size: 20px;">
+                    <table class="table table-hover table-bordered table-light table-sm table-striped" border="1" style="border:2px solid #000000; border-collapse:collapse">
+                         <thead>
                               <tr>
-                                   <td style="vertical-align : middle;text-align:center;">{{ i + 1 }}</td>
-                                   <td style="vertical-align : middle;text-align:center;">{{ "%.2f"|format(averages_monthly[i, 19]) }}</td>
-                                   <td style="vertical-align : middle;text-align:center;">{{ "%.2f"|format(averages_monthly[i, 20]) }}</td>
-                                   <td style="vertical-align : middle;text-align:center;">{{ "%.2f"|format(averages_monthly[i, 21]) }}</td>
+                                   <td style="vertical-align : middle;text-align:center;">Month</td>
+                                   <td style="vertical-align : middle;text-align:center;">NBS 1 Water Autonomy (%)</td>
+                                   <td style="vertical-align : middle;text-align:center;">NBS 3 Water Autonomy (%)</td>
+                                   <td style="vertical-align : middle;text-align:center;">Total NBS Water Autonomy (%)</td>
                               </tr>
-                         {% endfor %}
-                </tbody>
-          </table>
+                         </thead>
+                         <tbody>
+                              {% for i in range(averages_monthly|length) %}
+                                   <tr>
+                                        <td style="vertical-align : middle;text-align:center;">{{ i + 1 }}</td>
+                                        <td style="vertical-align : middle;text-align:center;">{{ "%.2f"|format(averages_monthly[i, 19]) }}</td>
+                                        <td style="vertical-align : middle;text-align:center;">{{ "%.2f"|format(averages_monthly[i, 20]) }}</td>
+                                        <td style="vertical-align : middle;text-align:center;">{{ "%.2f"|format(averages_monthly[i, 21]) }}</td>
+                                   </tr>
+                              {% endfor %}
+                          </tbody>
+                     </table>
+                </div>
+             </div>
+          </div>
      </div>
 
      <!-- Monthly Charts -->
-     <div class="mt-4 pt-4 ml-4 mr-4" style="display: inline-block; width: 45vw;">
-          <canvas id="chart1"></canvas>
-     </div>
+     <div class="container">
+          <div class="row justify-content-center align-items-center mt-5">
+               <div class="col col-lg-6">
+                    <canvas id="chart1"></canvas>
+               </div>
+               <div class="col col-lg-6">
+                    <canvas id="chart2"></canvas>
+               </div>
+          </div>
 
-     <div class="ml-4 mt-4 pt-4" style="display: inline-block; width: 45vw;">
-          <canvas id="chart2"></canvas>
-     </div>
-
-     <div class="mt-4 pt-4 ml-3" style="width:95vw;">
-          <canvas id="chart3"></canvas>
+          <div class="row justify-content-center align-items-center mt-5">
+               <div class="col col-lg-12">
+                    <canvas id="chart3"></canvas>
+               </div>
+          </div>
      </div>
 
      <!-- CALCULATIONS ANNUALY TABLE -->
-     <table style="width:70%; margin:auto; font-size:1.4vw;" class="table table-hover table-bordered table-light table-sm mt-4 mb-4" border="1" style="border:2px solid #000000; border-collapse:collapse">
-          <caption style="caption-side:top; text-align:center; color:#000000; font-size:30px; font-weight:bold;">Annual Indicators</caption>
-          <tbody>
-                    {% for i in range(annual_calculations_categories|length) %}
-                         <tr>
-                              <td style="vertical-align : middle;text-align:center;">{{ annual_calculations_ei[i] }}</td>
-                              <th scope="row" style="vertical-align : middle;text-align:center;">{{ annual_calculations_categories[i] }}</th>
-                              <td style="vertical-align : middle;text-align:center;">{{ "%.2f"|format(annual_calculations_values[i]) }}</td>
-                         </tr>
-                    {% endfor %}
-           </tbody>
-     </table>
-
-     <br>
+     <div class="container">
+     <div class="row justify-content-center align-items-center my-5">
+       <div class="col col-lg-8">
+          <div class="table-responsive container text-center" style="font-size: 20px;">
+              <table class="table table-hover table-bordered table-light table-sm table-striped" border="1" style="border:2px solid #000000; border-collapse:collapse">
+                   <caption class="text-muted" style="caption-side:top; text-align:center; color:#000000; font-size:24px; font-weight:bold;">Annual Indicators</caption>
+                    <tbody>
+                         {% for i in range(annual_calculations_categories|length) %}
+                              <tr>
+                                   <td style="vertical-align : middle;text-align:center;">{{ annual_calculations_ei[i] }}</td>
+                                   <td style="vertical-align : middle;text-align:center;">{{ annual_calculations_categories[i] }}</td>
+                                   <td style="vertical-align : middle;text-align:center;">{{ "%.2f"|format(annual_calculations_values[i]) }}</td>
+                              </tr>
+                         {% endfor %}
+                     </tbody>
+                </table>
+           </div>
+         </div>
+       </div>
+     </div>
 
      <!-- Annual Chart -->
-     <div class="mt-4" style="width: 50%; margin: auto;">
-          <canvas id="chart4"></canvas>
+     <div class="container">
+          <div class="row justify-content-center align-items-center my-5">
+               <div class="col col-lg-8">
+                    <canvas id="chart4"></canvas>
+               </div>
+          </div>
      </div>
-
-
-     <div class="text-center mb-4">
-          <a class="btn btn-md btn-primary mr-4 mb-4" href="{{ url_for('comparisons') }}">View the Scenarios Comparison</a>
-     </div>
-
 
      <!-- Javascript -->
 
