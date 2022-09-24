@@ -7,8 +7,14 @@ body {
      min-height: 100%;
      display: flex;
      flex-direction: column;
-     /* background-image: url("./images/background.jfif"); */
-     /* background-repeat: repeat; */
+     background-image: url("./images/background.jpg");
+     background-size: cover;
+     /* Background images from https://www.freepik.com/free-vector/ */
+     height: 100vh;
+     background-position: center center;
+     background-attachment: scroll;
+     /* background-blend-mode: luminosity; */
+     /* background-repeat: no-repeat; */
 }
 
 
