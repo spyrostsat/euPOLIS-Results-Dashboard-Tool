@@ -2,19 +2,23 @@
 
 {% block content %}
 
-<div class="container text-center mt-4">
-     <p style="font-size: 36px; font-family: serif, Helvetica;" class="lead my-5 fw-bold">euPOLIS NBS UW Metabolism Dashboard</p>
+<div class="container text-center my-5">
+     <p style="font-size: 36px;" class="lead fw-bold">{{ general_info['pilot site name'] }}</p>
+</div>
 
-     <p class="text-center mt-4" style="font-size: 26px;">{{ general_info['pilot site name'] }}</p>
-     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31479.809676528464!2d23.65173474675087!3d37.957901343520874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x71c164791bfc6e00!2sRalleios%20Experimental%20Schools!5e0!3m2!1sen!2sgr!4v1659360232542!5m2!1sen!2sgr" width="400" height="300" class="mb-4" style="display: block; margin: auto;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-     <p style="font-size:16px; text-align: justify;" class="text-muted my-5">
-          Ralleio school is one of the pilot locations in the euPolis Front Runner City of Piraeus. It is a school with a long
-          history in the City of Piraeus and operates as an Experimental School overseen by the Department of Education of the
-          University of Athens. Its innovative nature, due to experimentation with different teaching approaches in primary education
-          and its participation in various educational research programmes and other research initiatives, make it ideal as an euPolis
-          pilot site.
-     </p>
+<div class="container">
+     <div class="row mb-4 text-center justify-content-center align-items-center">
+            <div class="col-12 col-lg-4 my-3">
+                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1573.213811560523!2d23.65681165793388!3d37.943800110162094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6f47284f7881744f!2zMzfCsDU2JzM3LjciTiAyM8KwMzknMjguNSJF!5e0!3m2!1sen!2sgr!4v1664109083552!5m2!1sen!2sgr" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="col-12 col-lg-5 text-muted" style="font-size:16px; text-align: justify;">
+                 Ralleion school is one of the pilot locations in the euPolis Front Runner City of Piraeus. It is a school with a long
+                 history in the City of Piraeus and operates as an Experimental School overseen by the Department of Education of the
+                 University of Athens. Its innovative nature, due to experimentation with different teaching approaches in primary education
+                 and its participation in various educational research programmes and other research initiatives, make it ideal as an euPolis
+                 pilot site.
+            </div>
+     </div>
 </div>
 
 {% endblock content %}

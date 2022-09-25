@@ -8,15 +8,13 @@
 
           <p style="font-size: 20px;">Simulation Period: {{ scenario_1_data["general_info"]["Simulation period"] }}</p>
 
-          <section class="min-vh-100 mt-5">
-               <div class="container-lg">
-                 <div class="row row-cols-1 row-cols-lg-8">
-                   <div class="col">
-                        <img src="{{ url_for('static', filename='images/scenario_1.png') }}" alt="Scenario 1">
-                   </div>
-                 </div>
-               </div>
-          </section>
+          <div class="container my-5">
+            <div class="row justify-content-center">
+              <div class="col-12 col-lg-6">
+                   <img src="{{ url_for('static', filename='images/scenario_1.png') }}" alt="Scenario 1">
+              </div>
+            </div>
+          </div>
 
           <!-- KEY INPUTS TABLE -->
           <div class="row justify-content-center align-items-center">
@@ -128,8 +126,8 @@
 
      <!-- Annual Chart -->
      <div class="container">
-          <div class="row justify-content-center align-items-center my-5">
-               <div class="col col-lg-8">
+          <div class="row justify-content-center align-items-center">
+               <div class="col col-lg-6">
                     <canvas id="chart4"></canvas>
                </div>
           </div>
@@ -377,7 +375,7 @@
           const chart4 = new Chart(ctx4, {
               type: 'radar',
               data: {
-                 labels: ["Site NBS Water Autonomy", "Water Reuse", "Runoff Coefficient", "Stormwater treated/managed locally", "Wastewater treated/managed locally", "Green Surfaces/Spaces"],
+                 labels: ["Site NBS Water Autonomy", "Water Reuse", "Runoff Coefficient", "Stormwater treated locally", "Wastewater treated locally", "Green Surfaces"],
                  datasets: [{
                  label: "Scenario 1",
                  data: chart_4_data,

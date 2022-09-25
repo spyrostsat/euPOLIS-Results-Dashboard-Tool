@@ -144,31 +144,31 @@
           </div>
      </div>
      <div class="row justify-content-center align-items-center mt-5">
-          <div class="col col-lg-6">
+          <div class="col col-lg-5">
                <canvas id="chart9"></canvas>
           </div>
-          <div class="col col-lg-6">
+          <div class="col col-lg-5">
                <canvas id="chart10"></canvas>
           </div>
      </div>
      <div class="row justify-content-center align-items-center mt-5">
-          <div class="col col-lg-6">
+          <div class="col col-lg-5">
                <canvas id="chart11"></canvas>
           </div>
-          <div class="col col-lg-6">
+          <div class="col col-lg-5">
                <canvas id="chart12"></canvas>
           </div>
      </div>
      <div class="row justify-content-center align-items-center mt-5">
-          <div class="col col-lg-6">
+          <div class="col col-lg-5">
                <canvas id="chart13"></canvas>
           </div>
-          <div class="col col-lg-6">
+          <div class="col col-lg-5">
                <canvas id="chart14"></canvas>
           </div>
      </div>
      <div class="row justify-content-center align-items-center mt-5">
-          <div class="col col-lg-6">
+          <div class="col col-lg-5">
                <canvas id="chart15"></canvas>
           </div>
      </div>
@@ -864,7 +864,7 @@
      const chart9 = new Chart(ctx9, {
          type: 'radar',
          data: {
-            labels: ["Site NBS Water Autonomy", "Water Reuse", "Runoff Coefficient", "Stormwater treated/managed locally", "Wastewater treated/managed locally", "Green Surfaces/Spaces"],
+            labels: ["Site NBS Water Autonomy", "Water Reuse", "Runoff Coefficient", "Stormwater treated locally", "Wastewater treated locally", "Green Surfaces"],
             datasets: [{
                  label: "Scenario 1",
                  data: [table_2_scenario_1[13], table_3_scenario_1[2], table_3_scenario_1[7], table_3_scenario_1[9], table_3_scenario_1[12], table_1_scenario_1[14]],
@@ -934,7 +934,7 @@
      const chart10 = new Chart(ctx10, {
          type: 'radar',
          data: {
-            labels: ["Site NBS Water Autonomy", "Water Reuse", "Runoff Coefficient", "Stormwater treated/managed locally", "Wastewater treated/managed locally", "Green Surfaces/Spaces"],
+            labels: ["Site NBS Water Autonomy", "Water Reuse", "Runoff Coefficient", "Stormwater treated locally", "Wastewater treated locally", "Green Surfaces"],
             datasets: [{
                label: "Scenario 3",
                data: [table_2_scenario_3[13], table_3_scenario_3[2], table_3_scenario_3[7], table_3_scenario_3[9], table_3_scenario_3[12], table_1_scenario_3[14]],
@@ -995,7 +995,7 @@
      const chart11 = new Chart(ctx11, {
          type: 'radar',
          data: {
-            labels: ["Site NBS Water Autonomy", "Water Reuse", "Runoff Coefficient", "Stormwater treated/managed locally", "Wastewater treated/managed locally", "Green Surfaces/Spaces"],
+            labels: ["Site NBS Water Autonomy", "Water Reuse", "Runoff Coefficient", "Stormwater treated locally", "Wastewater treated locally", "Green Surfaces"],
             datasets: [{
             label: "Baseline",
             data: [table_2_baseline[13], table_3_baseline[2], table_3_baseline[7], table_3_baseline[9], table_3_baseline[12], table_1_baseline[14]],
@@ -1035,7 +1035,7 @@
      const chart12 = new Chart(ctx12, {
          type: 'radar',
          data: {
-            labels: ["Site NBS Water Autonomy", "Water Reuse", "Runoff Coefficient", "Stormwater treated/managed locally", "Wastewater treated/managed locally", "Green Surfaces/Spaces"],
+            labels: ["Site NBS Water Autonomy", "Water Reuse", "Runoff Coefficient", "Stormwater treated locally", "Wastewater treated locally", "Green Surfaces"],
             datasets: [{
                  label: "Scenario 1",
                  data: [table_2_scenario_1[13], table_3_scenario_1[2], table_3_scenario_1[7], table_3_scenario_1[9], table_3_scenario_1[12], table_1_scenario_1[14]],
@@ -1075,7 +1075,7 @@
      const chart13 = new Chart(ctx13, {
          type: 'radar',
          data: {
-            labels: ["Site NBS Water Autonomy", "Water Reuse", "Runoff Coefficient", "Stormwater treated/managed locally", "Wastewater treated/managed locally", "Green Surfaces/Spaces"],
+            labels: ["Site NBS Water Autonomy", "Water Reuse", "Runoff Coefficient", "Stormwater treated locally", "Wastewater treated locally", "Green Surfaces"],
             datasets: [{
                 label: "Scenario 2",
                 data: [table_2_scenario_2[13], table_3_scenario_2[2], table_3_scenario_2[7], table_3_scenario_2[9], table_3_scenario_2[12], table_1_scenario_2[14]],
@@ -1115,7 +1115,7 @@
      const chart14 = new Chart(ctx14, {
          type: 'radar',
          data: {
-            labels: ["Site NBS Water Autonomy", "Water Reuse", "Runoff Coefficient", "Stormwater treated/managed locally", "Wastewater treated/managed locally", "Green Surfaces/Spaces"],
+            labels: ["Site NBS Water Autonomy", "Water Reuse", "Runoff Coefficient", "Stormwater treated locally", "Wastewater treated locally", "Green Surfaces"],
             datasets: [{
                label: "Scenario 3",
                data: [table_2_scenario_3[13], table_3_scenario_3[2], table_3_scenario_3[7], table_3_scenario_3[9], table_3_scenario_3[12], table_1_scenario_3[14]],
@@ -1155,7 +1155,7 @@
      const chart15 = new Chart(ctx15, {
          type: 'radar',
          data: {
-            labels: ["Site NBS Water Autonomy", "Water Reuse", "Runoff Coefficient", "Stormwater treated/managed locally", "Wastewater treated/managed locally", "Green Surfaces/Spaces"],
+            labels: ["Site NBS Water Autonomy", "Water Reuse", "Runoff Coefficient", "Stormwater treated locally", "Wastewater treated locally", "Green Surfaces"],
             datasets: [{
               label: "Scenario 4",
               data: [table_2_scenario_4[13], table_3_scenario_4[2], table_3_scenario_4[7], table_3_scenario_4[9], table_3_scenario_4[12], table_1_scenario_4[14]],

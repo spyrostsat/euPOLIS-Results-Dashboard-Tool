@@ -8,15 +8,13 @@
 
           <p style="font-size: 20px;">Simulation Period: {{ baseline_scenario_data["general_info"]["Simulation period"] }}</p>
 
-          <section class="min-vh-100 mt-5">
-               <div class="container-lg">
-                 <div class="row row-cols-1 row-cols-lg-8">
-                   <div class="col">
-                        <img src="{{ url_for('static', filename='images/baseline.png') }}" alt="Baseline Scenario">
-                   </div>
-                 </div>
-               </div>
-          </section>
+          <div class="container my-5">
+            <div class="row justify-content-center">
+              <div class="col-12 col-lg-6">
+                   <img src="{{ url_for('static', filename='images/baseline.png') }}" alt="Baseline Scenario">
+              </div>
+            </div>
+          </div>
 
           <!-- MODEL PARAMETERS TABLE -->
           <div class="row justify-content-center align-items-center">
@@ -51,7 +49,7 @@
         </div>
 
           <!-- CALCULATIONS ANNUALY TABLE -->
-          <div class="row justify-content-center align-items-center mt-5">
+          <div class="row justify-content-center align-items-center my-5">
             <div class="col col-lg-8">
                <div class="table-responsive container text-center" style="font-size: 16px;">
                    <table class="table table-hover table-bordered table-light table-sm table-striped" border="1" style="border:2px solid #000000; border-collapse:collapse">
@@ -69,9 +67,8 @@
                </div>
           </div>
           </div>
-     <br>
 
-     <div class="row justify-content-center align-items-center mt-5">
+     <div class="row justify-content-center align-items-center">
           <div class="col col-lg-6">
                <canvas id="chart1"></canvas>
           </div>
@@ -96,7 +93,7 @@
           const chart1 = new Chart(ctx1, {
               type: 'radar',
               data: {
-                 labels: ["Site NBS Water Autonomy", "Water Reuse", "Runoff Coefficient", "Stormwater treated/managed locally", "Wastewater treated/managed locally", "Green Surfaces/Spaces"],
+                 labels: ["Site NBS Water Autonomy", "Water Reuse", "Runoff Coefficient", "Stormwater treated locally", "Wastewater treated locally", "Green Surfaces"],
                  datasets: [{
                  label: "Baseline",
                  data: chart_data,
