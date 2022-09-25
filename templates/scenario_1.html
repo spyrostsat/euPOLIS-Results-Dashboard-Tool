@@ -127,7 +127,7 @@
      <!-- Annual Chart -->
      <div class="container">
           <div class="row justify-content-center align-items-center">
-               <div class="col col-lg-6">
+               <div class="col col-lg-7">
                     <canvas id="chart4"></canvas>
                </div>
           </div>
@@ -395,6 +395,9 @@
                   },
                   scales: {
                       r: {
+                           ticks: {
+                                 stepSize: 20
+                              },
                            pointLabels: {
                                 font: {
                                   size: 16
