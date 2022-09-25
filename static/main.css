@@ -3,7 +3,7 @@ html {
 }
 
 body {
-     font-family: serif, Arial, Helvetica;
+     font-family: Helvetica, Arial;
      min-height: 100%;
      display: flex;
      flex-direction: column;
