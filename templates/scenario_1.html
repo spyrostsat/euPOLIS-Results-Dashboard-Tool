@@ -10,7 +10,7 @@
 
           <div class="container my-5">
             <div class="row justify-content-center">
-              <div class="col-12 col-lg-6">
+              <div class="col-12 col-lg-5">
                    <img src="{{ url_for('static', filename='images/scenario_1.png') }}" alt="Scenario 1">
               </div>
             </div>
@@ -21,7 +21,7 @@
             <div class="col col-lg-8">
                <div class="table-responsive container text-center" style="font-size: 16px;">
                    <table class="table table-hover table-bordered table-light table-sm table-striped" border="1" style="border:2px solid #000000; border-collapse:collapse">
-                        <caption class="text-muted" style="caption-side:top; text-align:center; color:#000000; font-size:24px; font-weight:bold;">Key Inputs</caption>
+                        <caption class="text-muted" style="caption-side:top; text-align:center; color:#000000; font-size:24px;">Key Inputs</caption>
                          <tbody>
                                    <tr>
                                          <td style="vertical-align : middle;text-align:center;">{{ scenario_1_data["model_params"]["imprv_roofs_id_8"]["param_desc"] }}</td>
@@ -108,7 +108,7 @@
        <div class="col col-lg-8">
           <div class="table-responsive container text-center" style="font-size: 16px;">
               <table class="table table-hover table-bordered table-light table-sm table-striped" border="1" style="border:2px solid #000000; border-collapse:collapse">
-                   <caption class="text-muted" style="caption-side:top; text-align:center; color:#000000; font-size:24px; font-weight:bold;">Annual Indicators</caption>
+                   <caption class="text-muted" style="caption-side:top; text-align:center; color:#000000; font-size:24px;">Annual Indicators</caption>
                     <tbody>
                          {% for i in range(annual_calculations_categories|length) %}
                               <tr>
