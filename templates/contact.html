@@ -1,29 +1,30 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
-<div class="container text-center mt-5 mb-2">
-     <p style="font-size: 36px;" class="lead">Contact Details</p>
+<div class="mb-5" style="background-color: rgba(140, 198, 68, 0.7); color: #184885; @media min-width: 992px {height: 35vh;} border-top: solid 2px #184885; border-bottom: solid 2px #184885;">
+     <div class="container text-center my-4">
+          <p style="font-size: 34px;" class="lead my-5">Contact Details</p>
+     
+          <div class="container">
+               <div class="row my-4 text-center justify-content-center">
+                      <div class="col col-lg-4">
+                           <span><i class="bi bi-telephone-fill pe-3"></i></span> +30 210 7722828-2886
+                      </div>
+               </div>
+               <div class="row my-4 text-center justify-content-center">
+          
+                      <div class="col col-lg-4">
+                           <span><i class="bi bi-envelope-fill pe-3"></i></span> uwmh@hydro.ntua.gr
+                      </div>
+               </div>
+               <div class="row mt-4 mb-5 text-center justify-content-center">
+                      <div class="col col-lg-4">
+                           <span><i class="bi bi-house-door-fill pe-3"></i></span>
+                           NTUA Campus, Heroon Polytechneiou str. 9, 15780, Zographou, Athens Greece, Hydraulics Building
+                      </div>
+               </div>
+          </div>
+     </div>
 </div>
 
-<div class="container py-4">
-     <div class="row my-4 text-center justify-content-center">
-            <div class="col col-lg-4">
-                 <span><i class="bi bi-telephone-fill pe-3"></i></span> +30 210 7722828-2886
-            </div>
-     </div>
-     <div class="row my-4 text-center justify-content-center">
-
-            <div class="col col-lg-4">
-                 <span><i class="bi bi-envelope-fill pe-3"></i></span> uwmh@hydro.ntua.gr
-            </div>
-     </div>
-     <div class="row my-4 text-center justify-content-center">
-            <div class="col col-lg-4">
-                 <span><i class="bi bi-house-door-fill pe-3"></i></span>
-                 NTUA Campus, Heroon Polytechneiou str. 9, 15780, Zographou, Athens Greece, Hydraulics Building
-            </div>
-     </div>
-</div>
-
-{% endblock %}
+{% endblock content %}

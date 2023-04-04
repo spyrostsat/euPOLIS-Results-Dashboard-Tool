@@ -2,49 +2,50 @@
 
 {% block content %}
 
+<div style="background-color: rgba(140, 198, 68, 0.7); color: #184885; border-top: solid 2px #184885; border-bottom: solid 2px #184885;">
+     <div class="container text-center mt-5">
+          <p style="font-size: 36px;" class="lead">euPOLIS NBS UW Metabolism Dashboard</p>
+     </div>
 
-<div class="container text-center mt-5">
-     <p style="font-size: 36px;" class="lead">euPOLIS NBS UW Metabolism Dashboard</p>
-</div>
-
-<div class="container mt-4">
-  <div class="row justify-content-center align-items-center">
-    <div class="col-12 col-lg-6 text-center">
-         <p class="text-center mt-4 text-muted" style="font-size: 24px;">{{ general_info['pilot site name'] }}</p>
-         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1573.213811560523!2d23.65681165793388!3d37.943800110162094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6f47284f7881744f!2zMzfCsDU2JzM3LjciTiAyM8KwMzknMjguNSJF!5e0!3m2!1sen!2sgr!4v1664109083552!5m2!1sen!2sgr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-    <div class="col-12 col-lg-4 text-center mt-4">
-         <div class="table-responsive container text-center" style="font-size: 20px;">
-              <table class="table table-hover table-bordered table-light table-sm table-striped" border="1" style="border:2px solid #000000; border-collapse:collapse">
-                   <caption class="text-muted" style="caption-side:top; text-align:center; color:#000000; font-size:24px;">Site General Information</caption>
-                   <tbody>
-                             <tr>
-                                   <td style="vertical-align : middle;text-align:center;">Location</td>
-                                   <td style="vertical-align : middle;text-align:center;">[{{ general_info['pilot site location'] }}]</td>
-                             </tr>
-                             <tr>
-                                  <td style="vertical-align : middle;text-align:center;">{{ general_parameters['total_site_surface']['param_desc'] }}</td>
-                                  <td style="vertical-align : middle;text-align:center;">{{ general_parameters['total_site_surface']['param_val'] }}</td>
-                             </tr>
-                             <tr>
-                                  <td style="vertical-align : middle;text-align:center;">{{ general_parameters['existing_green_surfaces']['param_desc'] }}</td>
-                                  <td style="vertical-align : middle;text-align:center;">{{ general_parameters['existing_green_surfaces']['param_val'] }}</td>
-                             </tr>
-                             <tr>
-                                  <td style="vertical-align : middle;text-align:center;">{{ general_parameters['imp_surf_baseline']['param_desc'] }}</td>
-                                  <td style="vertical-align : middle;text-align:center;">{{ general_parameters['imp_surf_baseline']['param_val'] }}</td>
-                             </tr>
-                    </tbody>
-              </table>
-         </div>
-    </div>
-  </div>
+     <div class="container mt-4 mb-5">
+          <div class="row justify-content-center align-items-center">
+               <div class="col-12 col-lg-6 text-center">
+                    <p class="text-center mt-4" style="font-size: 30px;">{{ general_info['pilot site name'] }}</p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1573.213811560523!2d23.65681165793388!3d37.943800110162094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6f47284f7881744f!2zMzfCsDU2JzM3LjciTiAyM8KwMzknMjguNSJF!5e0!3m2!1sen!2sgr!4v1664109083552!5m2!1sen!2sgr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+               </div>
+               <div class="col-12 col-lg-6 text-center mt-4">
+                    <div class="table-responsive container text-center" style="font-size: 20px;">
+                         <table id="my-table" class="table table-hover table-bordered table-sm" style="border:2px solid #184885; border-collapse:collapse">
+                              <caption style="caption-side:top; text-align:center; font-size:30px; color: #184885;">Site General Information</caption>
+                              <tbody>
+                                   <tr style="color: #184885; font-size: 16px;">
+                                        <td class="fs-5" style="vertical-align : middle;text-align:center; border: 2px solid #184885">Location</td>
+                                        <td class="fs-5" style="vertical-align : middle;text-align:center; border: 2px solid #184885">[{{ general_info['pilot site location'] }}]</td>
+                                   </tr>
+                                   <tr style="color: #184885; font-size: 16px;">
+                                        <td class="fs-5" style="vertical-align : middle;text-align:center; border: 2px solid #184885">{{ general_parameters['total_site_surface']['param_desc'] }}</td>
+                                        <td class="fs-5" style="vertical-align : middle;text-align:center; border: 2px solid #184885">{{ general_parameters['total_site_surface']['param_val'] }}</td>
+                                   </tr>
+                                   <tr style="color: #184885; font-size: 16px;">
+                                        <td class="fs-5" style="vertical-align : middle;text-align:center; border: 2px solid #184885">{{ general_parameters['existing_green_surfaces']['param_desc'] }}</td>
+                                        <td class="fs-5" style="vertical-align : middle;text-align:center; border: 2px solid #184885">{{ general_parameters['existing_green_surfaces']['param_val'] }}</td>
+                                   </tr>
+                                   <tr style="color: #184885; font-size: 16px;">
+                                        <td class="fs-5" style="vertical-align : middle;text-align:center; border: 2px solid #184885">{{ general_parameters['imp_surf_baseline']['param_desc'] }}</td>
+                                        <td class="fs-5" style="vertical-align : middle;text-align:center; border: 2px solid #184885">{{ general_parameters['imp_surf_baseline']['param_val'] }}</td>
+                                   </tr>
+                              </tbody>
+                         </table>
+                    </div>
+               </div>
+          </div>
+     </div>
 </div>
 
 <div class="container my-5">
-     <p style="font-size: 22px; text-align: justify;" class="lead pt-3">
+     <p style="font-size: 24px; text-align: justify; color:#184885" class="lead">
           A range of different potential NBS interventions are being investigated for implementation in the school.
-          An initial analysis is presented here. <i>Click</i> on the scenarios listed bellow to view the resulting tables and graphs.
+          An initial analysis is presented here. Click on the scenarios listed bellow to view the resulting tables and graphs.
      </p>
 </div>
 
@@ -67,7 +68,7 @@
               <a href="{{ url_for('scenario_4') }}"><img src="{{ url_for('static', filename='images/scenario_4.png') }}" alt="Scenario 4"></a>
          </div>
          <div class="col">
-              <a class="btn btn-lg btn-outline-info my-5" href="{{ url_for('comparisons') }}" style="position: relative; top: 25px; left: 30px;">View the Scenarios Comparison<span><i class=" ms-2 bi bi-arrow-right-circle"></i></span></a>
+              <a class="my-button ms-lg-4 my-5 my-hyper" href="{{ url_for('comparisons') }}" style="position: relative; top: 25px; left: 30px;">View the Scenarios Comparison<span><i class=" ms-2 bi bi-arrow-right-circle"></i></span></a>
          </div>
        </div>
      </div>
