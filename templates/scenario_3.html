@@ -1,61 +1,66 @@
 {% extends "layout.html" %}
 
 {% block content %}
-     <div class="container text-center mt-5">
-          <p class="mb-5 lead" style="font-size: 36px;">Scenario 3</p>
+     <div style="background-color: rgba(140, 198, 68, 0.7); color: #184885; border-top: solid 2px #184885; border-bottom: solid 2px #184885;">
+          <div class="container text-center mt-5">
 
-          <p style="font-size: 20px;">{{ scenario_3_data["general_info"]["Scenario Description"] }}</p>
+               <p class="mb-5 lead" style="font-size: 36px;">Scenario 3</p>
 
-          <p style="font-size: 20px;">Simulation Period: {{ scenario_3_data["general_info"]["Simulation period"] }}</p>
+               <p style="font-size: 20px;">{{ scenario_3_data["general_info"]["Scenario Description"] }}</p>
 
-          <div class="container my-5">
-            <div class="row justify-content-center">
-              <div class="col-12 col-lg-5">
-                   <img src="{{ url_for('static', filename='images/scenario_3.png') }}" alt="Scenario 3">
-              </div>
-            </div>
+               <p style="font-size: 20px;">Simulation Period: {{ scenario_3_data["general_info"]["Simulation period"] }}</p>
+
+               <div class="container my-5">
+                    <div class="row justify-content-center">
+                         <div class="col-12 col-lg-5">
+                              <img src="{{ url_for('static', filename='images/scenario_3.png') }}" alt="Scenario 3">
+                         </div>
+                    </div>
+               </div>
           </div>
+     </div>
 
+     <div class="container text-center mt-5">
           <!-- KEY INPUTS TABLE -->
           <div class="row justify-content-center align-items-center">
-            <div class="col col-lg-8">
-               <div class="table-responsive container text-center" style="font-size: 16px;">
-                   <table class="table table-hover table-bordered table-light table-sm table-striped" border="1" style="border:2px solid #000000; border-collapse:collapse">
-                        <caption class="text-muted" style="caption-side:top; text-align:center; color:#000000; font-size:24px;">Key Inputs</caption>
+            <div class="col col-lg-6">
+               <div class="table-responsive container text-center" style="font-size: 20px;">
+                    <table class="table table-hover table-bordered table-sm" style="border:2px solid #184885; border-collapse:collapse">
+                        <caption style="caption-side:top; text-align:center; font-size:30px; color: #184885;">Key Inputs</caption>
                          <tbody>
-                                   <tr>
+                                   <tr style="color: #184885; font-size: 16px;">
                                          <td style="vertical-align : middle;text-align:center;">{{ scenario_3_data["model_params"]["imprv_roofs_id_8"]["param_desc"] }}</td>
                                          <td style="vertical-align : middle;text-align:center;">{{ scenario_3_data["model_params"]["imprv_roofs_id_8"]["param_val"] }}</td>
                                    </tr>
-                                   <tr>
+                                   <tr style="color: #184885; font-size: 16px;">
                                         <td style="vertical-align : middle;text-align:center;">{{ scenario_3_data["model_params"]["imprv_permeable_pavement_id_151"]["param_desc"] }}</td>
                                         <td style="vertical-align : middle;text-align:center;">{{ scenario_3_data["model_params"]["imprv_permeable_pavement_id_151"]["param_val"] }}</td>
                                    </tr>
-                                   <tr>
+                                   <tr style="color: #184885; font-size: 16px;">
                                         <td style="vertical-align : middle;text-align:center;">{{ scenario_3_data["model_params"]["imprv_rwh_roofs_id_158"]["param_desc"] }}</td>
                                         <td style="vertical-align : middle;text-align:center;">{{ scenario_3_data["model_params"]["imprv_rwh_roofs_id_158"]["param_val"] }}</td>
                                    </tr>
-                                   <tr>
+                                   <tr style="color: #184885; font-size: 16px;">
                                         <td style="vertical-align : middle;text-align:center;">{{ scenario_3_data["model_params"]["bg_green_roof_semintensive_id_149"]["param_desc"] }}</td>
                                         <td style="vertical-align : middle;text-align:center;">{{ scenario_3_data["model_params"]["bg_green_roof_semintensive_id_149"]["param_val"] }}</td>
                                    </tr>
-                                   <tr>
+                                   <tr style="color: #184885; font-size: 16px;">
                                         <td style="vertical-align : middle;text-align:center;">{{ scenario_3_data["model_params"]["bg_green_roof_extensive_id_120"]["param_desc"] }}</td>
                                         <td style="vertical-align : middle;text-align:center;">{{ scenario_3_data["model_params"]["bg_green_roof_extensive_id_120"]["param_val"] }}</td>
                                    </tr>
-                                   <tr>
+                                   <tr style="color: #184885; font-size: 16px;">
                                         <td style="vertical-align : middle;text-align:center;">{{ scenario_3_data["model_params"]["bg_planters_id_150"]["param_desc"] }}</td>
                                         <td style="vertical-align : middle;text-align:center;">{{ scenario_3_data["model_params"]["bg_planters_id_150"]["param_val"] }}</td>
                                    </tr>
-                                   <tr>
+                                   <tr style="color: #184885; font-size: 16px;">
                                         <td style="vertical-align : middle;text-align:center;">{{ scenario_3_data["model_params"]["bg_shelter_id_200"]["param_desc"] }}</td>
                                         <td style="vertical-align : middle;text-align:center;">{{ scenario_3_data["model_params"]["bg_shelter_id_200"]["param_val"] }}</td>
                                    </tr>
-                                   <tr>
+                                   <tr style="color: #184885; font-size: 16px;">
                                         <td style="vertical-align : middle;text-align:center;">{{ scenario_3_data["model_params"]["rwh_tank_capacity"]["param_desc"] }}</td>
                                         <td style="vertical-align : middle;text-align:center;">{{ scenario_3_data["model_params"]["rwh_tank_capacity"]["param_val"] }}</td>
                                    </tr>
-                                   <tr>
+                                   <tr style="color: #184885; font-size: 16px;">
                                         <td style="vertical-align : middle;text-align:center;">{{ scenario_3_data["model_params"]["gw_tank_capacity"]["param_desc"] }}</td>
                                         <td style="vertical-align : middle;text-align:center;">{{ scenario_3_data["model_params"]["gw_tank_capacity"]["param_val"] }}</td>
                                    </tr>
@@ -63,15 +68,13 @@
                      </table>
                 </div>
              </div>
-           </div>
 
            <!-- CALCULATIONS MONTHLY TABLE -->
-           <div class="row justify-content-center align-items-center mt-5">
-             <div class="col col-lg-8">
-                <div class="table-responsive container text-center" style="font-size: 16px;">
-                    <table class="table table-hover table-bordered table-light table-sm table-striped" border="1" style="border:2px solid #000000; border-collapse:collapse">
+             <div class="col col-lg-6">
+               <div class="table-responsive container text-center" style="font-size: 20px;">
+                    <table class="table table-hover table-bordered table-sm" style="border:2px solid #184885; border-collapse:collapse">
                          <thead>
-                              <tr>
+                              <tr style="color: #184885; font-size: 16px;">
                                    <td style="vertical-align : middle;text-align:center;">Month</td>
                                    <td style="vertical-align : middle;text-align:center;">NBS 1 Water Autonomy (%)</td>
                                    <td style="vertical-align : middle;text-align:center;">NBS 3 Water Autonomy (%)</td>
@@ -80,7 +83,7 @@
                          </thead>
                          <tbody>
                               {% for i in range(averages_monthly|length) %}
-                                   <tr>
+                                   <tr style="color: #184885; font-size: 16px;">
                                         <td style="vertical-align : middle;text-align:center;">{{ i + 1 }}</td>
                                         <td style="vertical-align : middle;text-align:center;">{{ "%.2f"|format(averages_monthly[i, 13]) }}</td>
                                         <td style="vertical-align : middle;text-align:center;">{{ "%.2f"|format(averages_monthly[i, 14]) }}</td>
@@ -106,7 +109,7 @@
           </div>
 
           <div class="row justify-content-center align-items-center mt-5">
-               <div class="col col-lg-12">
+               <div class="col col-lg-12 responsive-chart">
                     <canvas id="chart3"></canvas>
                </div>
           </div>
@@ -114,33 +117,30 @@
 
      <!-- CALCULATIONS ANNUALY TABLE -->
      <div class="container">
-     <div class="row justify-content-center align-items-center my-5">
-       <div class="col col-lg-8">
-          <div class="table-responsive container text-center" style="font-size: 16px;">
-              <table class="table table-hover table-bordered table-light table-sm table-striped" border="1" style="border:2px solid #000000; border-collapse:collapse">
-                   <caption class="text-muted" style="caption-side:top; text-align:center; color:#000000; font-size:24px;">Annual Indicators</caption>
-                    <tbody>
-                         {% for i in range(annual_calculations_categories|length) %}
-                              <tr>
-                                   <td style="vertical-align : middle;text-align:center;">{{ annual_calculations_ei[i] }}</td>
-                                   <td style="vertical-align : middle;text-align:center;">{{ annual_calculations_categories[i] }}</td>
-                                   <td style="vertical-align : middle;text-align:center;">{{ "%.2f"|format(annual_calculations_values[i]) }}</td>
-                              </tr>
-                         {% endfor %}
-                     </tbody>
-                </table>
-           </div>
-         </div>
-       </div>
-     </div>
+          <div class="row justify-content-center align-items-center mb-5">
+               <div class="col col-lg-6">
+                    <div class="table-responsive container text-center" style="font-size: 20px;">
+                         <table class="table table-hover table-bordered table-sm" style="border:2px solid #184885; border-collapse:collapse">
+                              <caption style="caption-side:top; text-align:center; font-size:30px; color: #184885;">Annual Indicators</caption>
+                              <tbody>
+                                   {% for i in range(annual_calculations_categories|length) %}
+                                   <tr style="color: #184885; font-size: 16px;">
+                                        <td style="vertical-align : middle;text-align:center;">{{ annual_calculations_ei[i] }}</td>
+                                        <td style="vertical-align : middle;text-align:center;">{{ annual_calculations_categories[i] }}</td>
+                                        <td style="vertical-align : middle;text-align:center;">{{ "%.2f"|format(annual_calculations_values[i]) }}</td>
+                                   </tr>
+                                   {% endfor %}
+                              </tbody>
+                         </table>
+                    </div>
+               </div>
 
-     <!-- Annual Chart -->
-     <div class="container">
-          <div class="row justify-content-center align-items-center">
-               <div class="col col-lg-7">
+               <!-- Annual Chart -->
+               <div class="col col-lg-6">
                     <canvas id="chart4"></canvas>
                </div>
           </div>
+
      </div>
 
      <!-- Javascript -->
@@ -152,7 +152,16 @@
           // Configurations
           // Chart.register.apply(null, Object.values(CHART).filter((chartClass) => (chartClass.id)));
           Chart.defaults.font.size = 16;
-          Chart.defaults.font.family = 'Helvetica';
+          Chart.defaults.font.family = 'Titillium Web';
+          Chart.defaults.color = '#184885'
+
+
+          let general_color = '#1399c6'
+          let general_color_winner = '#0e8c7f'
+          let grey_water = "#cccccc"
+          color_senario3_in = 'rgba(248, 231, 192, 0.8)'
+          color_senario3_out = 'rgba(248, 231, 192, 1)'
+
 
           // Charts Data
           chart_1_data_1 = {{ chart_1_data_1|safe }}
@@ -173,15 +182,15 @@
                   datasets: [{
                       label: "Potable Water Demand",
                       data: chart_1_data_1,
-                      backgroundColor: "#0096FF",
-                      borderColor: "#0096FF",
+                      backgroundColor: general_color,
+                      borderColor: general_color,
                       borderWidth: 1,
                  },
                  {
                      label: "Green Water Demand",
                      data: chart_1_data_2,
-                     backgroundColor: "#009400",
-                     borderColor: "#009400",
+                     backgroundColor: general_color_winner,
+                     borderColor: general_color_winner,
                      borderWidth: 1,
                      // yAxisID: "rightAxis"
                  }]
@@ -244,15 +253,15 @@
                   datasets: [{
                       label: "Greywater Tank",
                       data: chart_2_data_1,
-                      backgroundColor: "#cccccc",
-                      borderColor: "#cccccc",
+                      backgroundColor: grey_water,
+                      borderColor: grey_water,
                       borderWidth: 1,
                  },
                  {
                      label: "Rainwater Tank",
                      data: chart_2_data_2,
-                     backgroundColor: "#0096FF",
-                     borderColor: "#0096FF",
+                     backgroundColor: general_color,
+                     borderColor: general_color,
                      borderWidth: 1,
                      // yAxisID: "rightAxis"
                  }]
@@ -315,16 +324,16 @@
                   datasets: [{
                       label: "Total NBS Demand (L/d)",
                       data: chart_3_data_1,
-                      backgroundColor: "#009400",
-                      borderColor: "#009400",
+                      backgroundColor: general_color_winner,
+                      borderColor: general_color_winner,
                       borderWidth: 2,
                       pointRadius: 0
                  },
                  {
                      label: "Rainfall (mm/d)",
                      data: chart_3_data_2,
-                     backgroundColor: "#0096FF",
-                     borderColor: "#0096FF",
+                     backgroundColor: general_color,
+                     borderColor: general_color,
                      borderWidth: 2,
                      yAxisID: "rightAxis",
                      pointRadius: 0
@@ -400,14 +409,18 @@
                  label: "Scenario 3",
                  data: chart_4_data,
                  fill: true,
-                 backgroundColor: 'rgba(255, 99, 132, 0.4)',
-                borderColor: 'rgb(255, 99, 132)',
-                pointBackgroundColor: 'rgb(255, 99, 132)',
-                pointBorderColor: 'rgb(255, 99, 132)',
+                 backgroundColor: color_senario3_in,
+                borderColor: color_senario3_out,
+                pointBackgroundColor: color_senario3_in,
+                pointBorderColor: color_senario3_out,
                 borderWidth: 1,
             }]
               },
               options: {
+               plugins: {
+                    legend: {
+                        display: false,
+                   }},
                 elements: {
                        line: {
                           borderWidth: 3

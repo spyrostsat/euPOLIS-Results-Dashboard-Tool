@@ -126,3 +126,12 @@ div img {
 .my-hyper:hover {
      color: white;
 }
+
+.responsive-chart {
+     display: none;
+}      
+@media screen and (min-width: 992px) {
+     .responsive-chart {
+          display: block;
+     }
+}

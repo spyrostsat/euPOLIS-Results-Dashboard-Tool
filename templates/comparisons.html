@@ -3,50 +3,88 @@
 
 {% block content %}
 
-<div class="container text-center mt-5">
-     <p class="mb-5 lead" style="font-size: 36px;">Scenarios Comparison</p>
-
-     <!-- TABLE 1 -->
-     <div class="row container justify-content-center align-items-center">
-       <div class="col">
-          <div class="table-responsive container text-center" style="font-size: 16px;">
-              <table class="table table-hover table-bordered table-light table-sm table-striped" border="1" style="border:2px solid #000000; border-collapse:collapse">
-                    <thead>
-                         <tr>
-                               <th scope="col" class="align-middle">#</th>
-                               <th scope="col" class="align-middle">Parameter</th>
-                               <th scope="col" class="align-middle">Baseline</th>
-                               <th scope="col" class="align-middle">Scenario 1</th>
-                               <th scope="col" class="align-middle">Scenario 2</th>
-                               <th scope="col" class="align-middle">Scenario 3</th>
-                               <th scope="col" class="align-middle">Scenario 4</th>
-                         </tr>
-                    </thead>
-                    <tbody>
-                         {% for i in range(table_1_labels|length) %}
-                              <tr>
-                                    <td scope="row" class="align-middle">{{ i + 1 }}</td>
-                                    <td style="vertical-align : middle;text-align:center;">{{ table_1_labels[i] }}</td>
-                                    <td style="vertical-align : middle;text-align:center;">{{ table_1_baseline[i] }}</td>
-                                    <td style="vertical-align : middle;text-align:center;">{{ table_1_scenario_1[i] }}</td>
-                                    <td style="vertical-align : middle;text-align:center;">{{ table_1_scenario_2[i] }}</td>
-                                    <td style="vertical-align : middle;text-align:center;">{{ table_1_scenario_3[i] }}</td>
-                                    <td style="vertical-align : middle;text-align:center;">{{ table_1_scenario_4[i] }}</td>
-                              </tr>
-                         {% endfor %}
-                    </tbody>
-               </table>
+     <div style="background-color: rgba(140, 198, 68, 0.7); color: #184885; border-top: solid 2px #184885; border-bottom: solid 2px #184885;">
+          <div class="container text-center mt-5">
+               <p class="mb-5 lead py-5" style="font-size: 36px;">Scenarios Comparison</p>
           </div>
-       </div>
      </div>
-
-     <!-- TABLE 2 -->
-     <div class="row container justify-content-center align-items-center my-5">
-       <div class="col">
-          <div class="table-responsive container text-center" style="font-size: 16px;">
-              <table class="table table-hover table-bordered table-light table-sm table-striped" border="1" style="border:2px solid #000000; border-collapse:collapse">
+     
+     <div class="container text-center mt-5">
+          <!-- TABLE 1 -->
+          <div class="row container justify-content-center align-items-center">
+          <div class="col">
+               <div class="table-responsive container text-center" style="font-size: 20px;">
+                    <table class="table table-hover table-bordered table-sm" style="border:2px solid #184885; border-collapse:collapse">
                     <thead>
-                         <tr>
+                              <tr style="color: #184885; font-size: 16px;">
+                                   <th scope="col" class="align-middle">#</th>
+                                   <th scope="col" class="align-middle">Parameter</th>
+                                   <th scope="col" class="align-middle">Baseline</th>
+                                   <th scope="col" class="align-middle">Scenario 1</th>
+                                   <th scope="col" class="align-middle">Scenario 2</th>
+                                   <th scope="col" class="align-middle">Scenario 3</th>
+                                   <th scope="col" class="align-middle">Scenario 4</th>
+                              </tr>
+                         </thead>
+                         <tbody>
+                              {% for i in range(table_1_labels|length) %}
+                                   <tr style="color: #184885; font-size: 16px;">
+                                        <td scope="row" class="align-middle">{{ i + 1 }}</td>
+                                        <td style="vertical-align : middle;text-align:center;">{{ table_1_labels[i] }}</td>
+                                        <td style="vertical-align : middle;text-align:center;">{{ table_1_baseline[i] }}</td>
+                                        <td style="vertical-align : middle;text-align:center;">{{ table_1_scenario_1[i] }}</td>
+                                        <td style="vertical-align : middle;text-align:center;">{{ table_1_scenario_2[i] }}</td>
+                                        <td style="vertical-align : middle;text-align:center;">{{ table_1_scenario_3[i] }}</td>
+                                        <td style="vertical-align : middle;text-align:center;">{{ table_1_scenario_4[i] }}</td>
+                                   </tr>
+                              {% endfor %}
+                         </tbody>
+                    </table>
+               </div>
+          </div>
+          </div>
+
+          <!-- TABLE 2 -->
+          <div class="row container justify-content-center align-items-center my-5">
+          <div class="col">
+               <div class="table-responsive container text-center" style="font-size: 20px;">
+                    <table class="table table-hover table-bordered table-sm" style="border:2px solid #184885; border-collapse:collapse">
+                    <thead>
+                              <tr style="color: #184885; font-size: 16px;">
+                                   <th scope="col" class="align-middle">#</th>
+                                   <th scope="col" class="align-middle">Parameter</th>
+                                   <th scope="col" class="align-middle">Baseline</th>
+                                   <th scope="col" class="align-middle">Scenario 1</th>
+                                   <th scope="col" class="align-middle">Scenario 2</th>
+                                   <th scope="col" class="align-middle">Scenario 3</th>
+                                   <th scope="col" class="align-middle">Scenario 4</th>
+                              </tr>
+                         </thead>
+                         <tbody>
+                              {% for i in range(table_2_labels|length) %}
+                                   <tr style="color: #184885; font-size: 16px;">
+                                        <td scope="row" class="align-middle">{{ i + 1 }}</td>
+                                        <td style="vertical-align : middle;text-align:center;">{{ table_2_labels[i] }}</td>
+                                        <td style="vertical-align : middle;text-align:center;">{{ table_2_baseline[i] }}</td>
+                                        <td style="vertical-align : middle;text-align:center;">{{ table_2_scenario_1[i] }}</td>
+                                        <td style="vertical-align : middle;text-align:center;">{{ table_2_scenario_2[i] }}</td>
+                                        <td style="vertical-align : middle;text-align:center;">{{ table_2_scenario_3[i] }}</td>
+                                        <td style="vertical-align : middle;text-align:center;">{{ table_2_scenario_4[i] }}</td>
+                                   </tr>
+                              {% endfor %}
+                         </tbody>
+                    </table>
+               </div>
+          </div>
+          </div>
+
+          <!-- TABLE 3 -->
+          <div class="row container justify-content-center align-items-center mb-5">
+          <div class="col">
+               <div class="table-responsive container text-center" style="font-size: 20px;">
+                    <table class="table table-hover table-bordered table-sm" style="border:2px solid #184885; border-collapse:collapse">
+               <thead>
+                         <tr style="color: #184885; font-size: 16px;">
                               <th scope="col" class="align-middle">#</th>
                               <th scope="col" class="align-middle">Parameter</th>
                               <th scope="col" class="align-middle">Baseline</th>
@@ -55,95 +93,61 @@
                               <th scope="col" class="align-middle">Scenario 3</th>
                               <th scope="col" class="align-middle">Scenario 4</th>
                          </tr>
-                    </tdead>
+                    </thead>
                     <tbody>
-                         {% for i in range(table_2_labels|length) %}
-                              <tr>
-                                    <td scope="row" class="align-middle">{{ i + 1 }}</td>
-                                    <td style="vertical-align : middle;text-align:center;">{{ table_2_labels[i] }}</td>
-                                    <td style="vertical-align : middle;text-align:center;">{{ table_2_baseline[i] }}</td>
-                                    <td style="vertical-align : middle;text-align:center;">{{ table_2_scenario_1[i] }}</td>
-                                    <td style="vertical-align : middle;text-align:center;">{{ table_2_scenario_2[i] }}</td>
-                                    <td style="vertical-align : middle;text-align:center;">{{ table_2_scenario_3[i] }}</td>
-                                    <td style="vertical-align : middle;text-align:center;">{{ table_2_scenario_4[i] }}</td>
+                         {% for i in range(table_3_labels|length) %}
+                              <tr style="color: #184885; font-size: 16px;">
+                                   <td scope="row" class="align-middle">{{ i + 1 }}</td>
+                                   <td style="vertical-align : middle;text-align:center;">{{ table_3_labels[i] }}</td>
+                                   <td style="vertical-align : middle;text-align:center;">{{ table_3_baseline[i] }}</td>
+                                   <td style="vertical-align : middle;text-align:center;">{{ table_3_scenario_1[i] }}</td>
+                                   <td style="vertical-align : middle;text-align:center;">{{ table_3_scenario_2[i] }}</td>
+                                   <td style="vertical-align : middle;text-align:center;">{{ table_3_scenario_3[i] }}</td>
+                                   <td style="vertical-align : middle;text-align:center;">{{ table_3_scenario_4[i] }}</td>
                               </tr>
                          {% endfor %}
                     </tbody>
                </table>
           </div>
-       </div>
+          </div>
      </div>
-
-     <!-- TABLE 3 -->
-     <div class="row container justify-content-center align-items-center mb-5">
-       <div class="col">
-          <div class="table-responsive container text-center" style="font-size: 16px;">
-              <table class="table table-hover table-bordered table-light table-sm table-striped" border="1" style="border:2px solid #000000; border-collapse:collapse">
-               <thead>
-                    <tr>
-                         <th scope="col" class="align-middle">#</th>
-                         <th scope="col" class="align-middle">Parameter</th>
-                         <th scope="col" class="align-middle">Baseline</th>
-                         <th scope="col" class="align-middle">Scenario 1</th>
-                         <th scope="col" class="align-middle">Scenario 2</th>
-                         <th scope="col" class="align-middle">Scenario 3</th>
-                         <th scope="col" class="align-middle">Scenario 4</th>
-                    </tr>
-               </tdead>
-               <tbody>
-                    {% for i in range(table_3_labels|length) %}
-                         <tr>
-                               <td scope="row" class="align-middle">{{ i + 1 }}</td>
-                               <td style="vertical-align : middle;text-align:center;">{{ table_3_labels[i] }}</td>
-                               <td style="vertical-align : middle;text-align:center;">{{ table_3_baseline[i] }}</td>
-                               <td style="vertical-align : middle;text-align:center;">{{ table_3_scenario_1[i] }}</td>
-                               <td style="vertical-align : middle;text-align:center;">{{ table_3_scenario_2[i] }}</td>
-                               <td style="vertical-align : middle;text-align:center;">{{ table_3_scenario_3[i] }}</td>
-                               <td style="vertical-align : middle;text-align:center;">{{ table_3_scenario_4[i] }}</td>
-                         </tr>
-                    {% endfor %}
-               </tbody>
-          </table>
-        </div>
      </div>
-  </div>
-</div>
 
 <!-- GRAPHS SECTION (15 charts in total) -->
 <div class="container">
-     <div class="row justify-content-center align-items-center mt-5">
-          <div class="col col-lg-6">
+     <div class="row justify-content-center align-items-center">
+          <div class="col col-lg-6 responsive-chart">
                <canvas id="chart1"></canvas>
           </div>
-          <div class="col col-lg-6">
+          <div class="col col-lg-6 responsive-chart">
                <canvas id="chart2"></canvas>
           </div>
      </div>
-     <div class="row justify-content-center align-items-center mt-5">
-          <div class="col col-lg-6">
+     <div class="row justify-content-center align-items-center">
+          <div class="col col-lg-6 responsive-chart">
                <canvas id="chart3"></canvas>
           </div>
-          <div class="col col-lg-6">
+          <div class="col col-lg-6 responsive-chart">
                <canvas id="chart4"></canvas>
           </div>
      </div>
-     <div class="row justify-content-center align-items-center mt-5">
-          <div class="col col-lg-6">
+     <div class="row justify-content-center align-items-center">
+          <div class="col col-lg-6 responsive-chart">
                <canvas id="chart5"></canvas>
           </div>
-          <div class="col col-lg-6">
+          <div class="col col-lg-6 responsive-chart">
                <canvas id="chart6"></canvas>
           </div>
      </div>
-     <div class="row justify-content-center align-items-center mt-5">
-          <div class="col col-lg-6">
+     <div class="row justify-content-center align-items-center">
+          <div class="col col-lg-6 responsive-chart">
                <canvas id="chart7"></canvas>
           </div>
-          <div class="col col-lg-6">
+          <div class="col col-lg-6 responsive-chart">
                <canvas id="chart8"></canvas>
           </div>
      </div>
-     <div class="row justify-content-center align-items-center mt-5">
+     <div class="row justify-content-center align-items-center">
           <div class="col col-lg-6">
                <canvas id="chart9"></canvas>
           </div>
@@ -151,7 +155,7 @@
                <canvas id="chart10"></canvas>
           </div>
      </div>
-     <div class="row justify-content-center align-items-center mt-5">
+     <div class="row justify-content-center align-items-center">
           <div class="col col-lg-6">
                <canvas id="chart11"></canvas>
           </div>
@@ -159,7 +163,7 @@
                <canvas id="chart12"></canvas>
           </div>
      </div>
-     <div class="row justify-content-center align-items-center mt-5">
+     <div class="row justify-content-center align-items-center">
           <div class="col col-lg-6">
                <canvas id="chart13"></canvas>
           </div>
@@ -167,7 +171,7 @@
                <canvas id="chart14"></canvas>
           </div>
      </div>
-     <div class="row justify-content-center align-items-center mt-5">
+     <div class="row justify-content-center align-items-center">
           <div class="col col-lg-6">
                <canvas id="chart15"></canvas>
           </div>
@@ -183,7 +187,23 @@
      // Configurations
      // Chart.register.apply(null, Object.values(CHART).filter((chartClass) => (chartClass.id)));
      Chart.defaults.font.size = 16;
-     Chart.defaults.font.family = 'Helvetica';
+     Chart.defaults.font.family = 'Titillium Web';
+     Chart.defaults.color = '#184885'
+
+
+     let color_baseline_in = 'rgba(212, 232, 247, 0.8)'
+     let color_baseline_out = 'rgba(212, 232, 247, 1)'
+     let color_senario1_in = 'rgba(239, 244, 211, 0.7)'
+     let color_senario1_out = 'rgba(239, 244, 211, 1)'
+     color_senario2_in = 'rgba(248, 232, 201, 0.8)'
+     color_senario2_out = 'rgba(248, 232, 201, 1)'
+     color_senario3_in = 'rgba(248, 231, 192, 0.8)'
+     color_senario3_out = 'rgba(248, 231, 192, 1)'
+     color_senario4_in = 'rgba(173, 205, 232, 0.8)'
+     color_senario4_out = 'rgba(173, 205, 232, 1)'
+     let general_color = '#1399c6'
+     let general_color_winner = '#0e8c7f'
+
 
      // First let's load all the data that we will probably need for our graphs
 
@@ -227,16 +247,16 @@
             datasets: [{
                  label: "Green Water for NBS",
                  data: [table_2_scenario_1[10], table_2_scenario_2[10], table_2_scenario_3[10], table_2_scenario_4[10]],
-                 backgroundColor: 'rgb(76, 175, 80)',
-                 borderColor: 'rgb(76, 175, 80)',
+                 backgroundColor: color_senario2_out,
+                 borderColor: color_senario2_out,
                  borderWidth: 1,
                  order: 1
             },
             {
                 label: "Potable Water for NBS",
                 data: [table_2_scenario_1[9], table_2_scenario_2[9], table_2_scenario_3[9], table_2_scenario_4[9]],
-                backgroundColor: 'rgb(3, 169, 244)',
-                borderColor: 'rgb(3, 169, 244)',
+                backgroundColor: color_senario4_out,
+                borderColor: color_senario4_out,
                 borderWidth: 1,
                 order: 1
                 // yAxisID: "rightAxis"
@@ -429,8 +449,8 @@
             datasets: [{
                  label: "Impervious Surfaces (m2)",
                  data: [table_1_baseline[3], table_1_scenario_1[3], table_1_scenario_2[3], table_1_scenario_3[3], table_1_scenario_4[3]],
-                 backgroundColor: "#ffaf7a",
-                 borderColor: "#ffaf7a",
+                 backgroundColor: general_color,
+                 borderColor: general_color,
                  borderWidth: 1,
                  order: 1
             },
@@ -522,8 +542,8 @@
             {
                 label: "Water Reuse (%)",
                 data: [table_3_baseline[2], table_3_scenario_1[2], table_3_scenario_2[2], table_3_scenario_3[2], table_3_scenario_4[2]],
-                backgroundColor: "#ffaf7a",
-                borderColor: "#ffaf7a",
+                backgroundColor: general_color,
+                borderColor: general_color,
                 borderWidth: 1,
            },
            {
@@ -593,15 +613,15 @@
             datasets: [{
                  label: "Runoff Coefficient (%)",
                  data: [table_3_baseline[7], table_3_scenario_1[7], table_3_scenario_2[7], table_3_scenario_3[7], table_3_scenario_4[7]],
-                 backgroundColor: "#ffaf7a",
-                 borderColor: "#ffaf7a",
+                 backgroundColor: general_color,
+                 borderColor: general_color,
                  borderWidth: 1,
             },
             {
                 label: "Stormwater treated/managed locally (%)",
                 data: [table_3_baseline[9], table_3_scenario_1[9], table_3_scenario_2[9], table_3_scenario_3[9], table_3_scenario_4[9]],
-                backgroundColor: "#FFF157",
-                borderColor: "#FFF157",
+                backgroundColor: general_color_winner,
+                borderColor: general_color_winner,
                 borderWidth: 1,
            }]
          },
@@ -664,8 +684,8 @@
             datasets: [{
                  label: "Wastewater treated/managed locally (%)",
                  data: [table_3_baseline[12], table_3_scenario_1[12], table_3_scenario_2[12], table_3_scenario_3[12], table_3_scenario_4[12]],
-                 backgroundColor: "#FFF157",
-                 borderColor: "#FFF157",
+                 backgroundColor: general_color_winner,
+                 borderColor: general_color_winner,
                  borderWidth: 1,
             }]
          },
@@ -727,15 +747,15 @@
             datasets: [{
                  label: "Impervious Surfaces (%)",
                  data: [table_1_baseline[6], table_1_scenario_1[6], table_1_scenario_2[6], table_1_scenario_3[6], table_1_scenario_4[6]],
-                 backgroundColor: "#ffaf7a",
-                 borderColor: "#ffaf7a",
+                 backgroundColor: general_color,
+                 borderColor: general_color,
                  borderWidth: 1,
             },
             {
                 label: "Green Surfaces/Spaces (%)",
                 data: [table_1_baseline[14], table_1_scenario_1[14], table_1_scenario_2[14], table_1_scenario_3[14], table_1_scenario_4[14]],
-                backgroundColor: "#FFF157",
-                borderColor: "#FFF157",
+                backgroundColor: general_color_winner,
+                borderColor: general_color_winner,
                 borderWidth: 1,
            }]
          },
@@ -797,15 +817,15 @@
             datasets: [{
                  label: "Wastewater treated/managed locally (%)",
                  data: [table_3_baseline[12], table_3_scenario_1[12], table_3_scenario_2[12], table_3_scenario_3[12], table_3_scenario_4[12]],
-                 backgroundColor: "#ffaf7a",
-                 borderColor: "#ffaf7a",
+                 backgroundColor: general_color,
+                 borderColor: general_color,
                  borderWidth: 1,
             },
             {
                 label: "Stormwater treated/managed locally (%)",
                 data: [table_3_baseline[9], table_3_scenario_1[9], table_3_scenario_2[9], table_3_scenario_3[9], table_3_scenario_4[9]],
-                backgroundColor: "#FFF157",
-                borderColor: "#FFF157",
+                backgroundColor: general_color_winner,
+                borderColor: general_color_winner,
                 borderWidth: 1,
            }]
          },
@@ -869,40 +889,40 @@
                  label: "Scenario 1",
                  data: [table_2_scenario_1[13], table_3_scenario_1[2], table_3_scenario_1[7], table_3_scenario_1[9], table_3_scenario_1[12], table_1_scenario_1[14]],
                  fill: true,
-                backgroundColor: 'rgba(255, 152, 0, 0.4)',
-                borderColor: 'rgb(255, 152, 0)',
-                pointBackgroundColor: 'rgb(255, 152, 0)',
-                pointBorderColor: 'rgb(255, 152, 0)',
+                backgroundColor: color_senario1_in,
+                borderColor: color_senario1_out,
+                pointBackgroundColor: color_senario1_in,
+                pointBorderColor: color_senario1_out,
                 borderWidth: 1,
             },
             {
                 label: "Scenario 2",
                 data: [table_2_scenario_2[13], table_3_scenario_2[2], table_3_scenario_2[7], table_3_scenario_2[9], table_3_scenario_2[12], table_1_scenario_2[14]],
                 fill: true,
-                backgroundColor: 'rgba(76, 175, 80, 0.4)',
-                borderColor: 'rgb(76, 175, 80)',
-                pointBackgroundColor: 'rgb(76, 175, 80)',
-                pointBorderColor: 'rgb(76, 175, 80)',
+                backgroundColor: color_senario2_in,
+                borderColor: color_senario2_out,
+                pointBackgroundColor: color_senario2_in,
+                pointBorderColor: color_senario2_out,
                 borderWidth: 1,
            },
            {
                label: "Scenario 3",
                data: [table_2_scenario_3[13], table_3_scenario_3[2], table_3_scenario_3[7], table_3_scenario_3[9], table_3_scenario_3[12], table_1_scenario_3[14]],
                fill: true,
-               backgroundColor: 'rgba(255, 99, 132, 0.4)',
-               borderColor: 'rgb(255, 99, 132)',
-               pointBackgroundColor: 'rgb(255, 99, 132)',
-               pointBorderColor: 'rgb(255, 99, 132)',
+               backgroundColor: color_senario3_in,
+               borderColor: color_senario3_out,
+               pointBackgroundColor: color_senario3_in,
+               pointBorderColor: color_senario3_out,
                borderWidth: 1,
           },
           {
               label: "Scenario 4",
               data: [table_2_scenario_4[13], table_3_scenario_4[2], table_3_scenario_4[7], table_3_scenario_4[9], table_3_scenario_4[12], table_1_scenario_4[14]],
               fill: true,
-             backgroundColor: 'rgba(3, 169, 244, 0.4)',
-             borderColor: 'rgb(3, 169, 244)',
-             pointBackgroundColor: 'rgb(3, 169, 244)',
-             pointBorderColor: 'rgb(3, 169, 244)',
+             backgroundColor: color_senario4_in,
+             borderColor: color_senario4_out,
+             pointBackgroundColor: color_senario4_in,
+             pointBorderColor: color_senario4_out,
               borderWidth: 1,
          }]
          },
@@ -942,30 +962,30 @@
                label: "Scenario 3",
                data: [table_2_scenario_3[13], table_3_scenario_3[2], table_3_scenario_3[7], table_3_scenario_3[9], table_3_scenario_3[12], table_1_scenario_3[14]],
                fill: true,
-               backgroundColor: 'rgba(255, 99, 132, 0.4)',
-               borderColor: 'rgb(255, 99, 132)',
-               pointBackgroundColor: 'rgb(255, 99, 132)',
-               pointBorderColor: 'rgb(255, 99, 132)',
+               backgroundColor: color_senario3_in,
+               borderColor: color_senario3_out,
+               pointBackgroundColor: color_senario3_in,
+               pointBorderColor: color_senario3_out,
                borderWidth: 1,
           },
           {
               label: "Scenario 4",
               data: [table_2_scenario_4[13], table_3_scenario_4[2], table_3_scenario_4[7], table_3_scenario_4[9], table_3_scenario_4[12], table_1_scenario_4[14]],
               fill: true,
-             backgroundColor: 'rgba(3, 169, 244, 0.4)',
-             borderColor: 'rgb(3, 169, 244)',
-             pointBackgroundColor: 'rgb(3, 169, 244)',
-             pointBorderColor: 'rgb(3, 169, 244)',
+             backgroundColor: color_senario4_in,
+             borderColor: color_senario4_out,
+             pointBackgroundColor: color_senario4_in,
+             pointBorderColor: color_senario4_out,
               borderWidth: 1,
          },
          {
             label: "Baseline",
             data: [table_2_baseline[13], table_3_baseline[2], table_3_baseline[7], table_3_baseline[9], table_3_baseline[12], table_1_baseline[14]],
             fill: true,
-           backgroundColor: 'rgba(255, 235, 59, 0.4)',
-           borderColor: 'rgb(255, 235, 59)',
-           pointBackgroundColor: 'rgb(255, 235, 59)',
-           pointBorderColor: 'rgb(255, 235, 59)',
+           backgroundColor: color_baseline_in,
+           borderColor: color_baseline_out,
+           pointBackgroundColor: color_baseline_in,
+           pointBorderColor: color_baseline_out,
             borderWidth: 1,
         }]
          },
@@ -1006,10 +1026,10 @@
             label: "Baseline",
             data: [table_2_baseline[13], table_3_baseline[2], table_3_baseline[7], table_3_baseline[9], table_3_baseline[12], table_1_baseline[14]],
             fill: true,
-           backgroundColor: 'rgba(255, 235, 59, 0.4)',
-           borderColor: 'rgb(255, 235, 59)',
-           pointBackgroundColor: 'rgb(255, 235, 59)',
-           pointBorderColor: 'rgb(255, 235, 59)',
+           backgroundColor: color_baseline_in,
+           borderColor: color_baseline_out,
+           pointBackgroundColor: color_baseline_in,
+           pointBorderColor: color_baseline_out,
             borderWidth: 1,
         }]
          },
@@ -1049,10 +1069,10 @@
                  label: "Scenario 1",
                  data: [table_2_scenario_1[13], table_3_scenario_1[2], table_3_scenario_1[7], table_3_scenario_1[9], table_3_scenario_1[12], table_1_scenario_1[14]],
                  fill: true,
-                backgroundColor: 'rgba(255, 152, 0, 0.4)',
-                borderColor: 'rgb(255, 152, 0)',
-                pointBackgroundColor: 'rgb(255, 152, 0)',
-                pointBorderColor: 'rgb(255, 152, 0)',
+                backgroundColor: color_senario1_in,
+                borderColor: color_senario1_out,
+                pointBackgroundColor: color_senario1_in,
+                pointBorderColor: color_senario1_out,
                 borderWidth: 1,
             }]
          },
@@ -1092,10 +1112,10 @@
                 label: "Scenario 2",
                 data: [table_2_scenario_2[13], table_3_scenario_2[2], table_3_scenario_2[7], table_3_scenario_2[9], table_3_scenario_2[12], table_1_scenario_2[14]],
                 fill: true,
-                backgroundColor: 'rgba(76, 175, 80, 0.4)',
-                borderColor: 'rgb(76, 175, 80)',
-                pointBackgroundColor: 'rgb(76, 175, 80)',
-                pointBorderColor: 'rgb(76, 175, 80)',
+                backgroundColor: color_senario2_in,
+                borderColor: color_senario2_out,
+                pointBackgroundColor: color_senario2_in,
+                pointBorderColor: color_senario2_out,
                 borderWidth: 1,
            }]
          },
@@ -1135,10 +1155,10 @@
                label: "Scenario 3",
                data: [table_2_scenario_3[13], table_3_scenario_3[2], table_3_scenario_3[7], table_3_scenario_3[9], table_3_scenario_3[12], table_1_scenario_3[14]],
                fill: true,
-               backgroundColor: 'rgba(255, 99, 132, 0.4)',
-               borderColor: 'rgb(255, 99, 132)',
-               pointBackgroundColor: 'rgb(255, 99, 132)',
-               pointBorderColor: 'rgb(255, 99, 132)',
+               backgroundColor: color_senario3_in,
+               borderColor: color_senario3_out,
+               pointBackgroundColor: color_senario3_in,
+               pointBorderColor: color_senario3_out,
                borderWidth: 1,
           }]
          },
@@ -1178,10 +1198,10 @@
               label: "Scenario 4",
               data: [table_2_scenario_4[13], table_3_scenario_4[2], table_3_scenario_4[7], table_3_scenario_4[9], table_3_scenario_4[12], table_1_scenario_4[14]],
               fill: true,
-             backgroundColor: 'rgba(3, 169, 244, 0.4)',
-             borderColor: 'rgb(3, 169, 244)',
-             pointBackgroundColor: 'rgb(3, 169, 244)',
-             pointBorderColor: 'rgb(3, 169, 244)',
+             backgroundColor: color_senario4_in,
+             borderColor: color_senario4_out,
+             pointBackgroundColor: color_senario4_in,
+             pointBorderColor: color_senario4_out,
               borderWidth: 1,
          }]
          },

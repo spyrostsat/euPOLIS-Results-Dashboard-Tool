@@ -1,75 +1,77 @@
 {% extends "layout.html" %}
 
 {% block content %}
-     <div class="container text-center my-5">
-          <p class="mb-5 lead" style="font-size: 36px;">Baseline Scenario</p>
+     <div style="background-color: rgba(140, 198, 68, 0.7); color: #184885; border-top: solid 2px #184885; border-bottom: solid 2px #184885;">
+          <div class="container text-center mt-5">
+               <p class="mb-5 lead" style="font-size: 36px;">Baseline Scenario</p>
 
-          <p style="font-size: 20px;">{{ baseline_scenario_data["general_info"]["Scenario Description"] }}</p>
+               <p style="font-size: 20px;">{{ baseline_scenario_data["general_info"]["Scenario Description"] }}</p>
 
-          <p style="font-size: 20px;">Simulation Period: {{ baseline_scenario_data["general_info"]["Simulation period"] }}</p>
+               <p style="font-size: 20px;">Simulation Period: {{ baseline_scenario_data["general_info"]["Simulation period"] }}</p>
 
-          <div class="container my-5">
-            <div class="row justify-content-center">
-              <div class="col-12 col-lg-5">
-                   <img src="{{ url_for('static', filename='images/baseline.png') }}" alt="Baseline Scenario">
-              </div>
-            </div>
+               <div class="container my-5">
+                    <div class="row justify-content-center">
+                         <div class="col-12 col-lg-5">
+                              <img src="{{ url_for('static', filename='images/baseline.png') }}" alt="Baseline Scenario">
+                         </div>
+                    </div>
+               </div>
           </div>
+     </div>
 
+     <div class="container text-center mt-5">
           <!-- MODEL PARAMETERS TABLE -->
           <div class="row justify-content-center align-items-center">
-            <div class="col col-lg-8">
-               <div class="table-responsive container text-center" style="font-size: 16px;">
-                   <table class="table table-hover table-bordered table-light table-sm table-striped" border="1" style="border:2px solid #000000; border-collapse:collapse">
-                        <caption class="text-muted" style="caption-side:top; text-align:center; color:#000000; font-size:24px;">Key Inputs</caption>
-                         <tbody>
-                              <tr>
-                                    <td style="vertical-align : middle;text-align:center;">{{ baseline_scenario_data["model_params"]["imprv_roofs_id_8"]["param_desc"] }}</td>
-                                    <td style="vertical-align : middle;text-align:center;">{{ baseline_scenario_data["model_params"]["imprv_roofs_id_8"]["param_val"] }}</td>
-                              </tr>
+               <div class="col col-lg-6">
+                    <div class="table-responsive container text-center" style="font-size: 20px;">
+                         <table class="table table-hover table-bordered table-sm" style="border:2px solid #184885; border-collapse:collapse">
+                              <caption style="caption-side:top; text-align:center; font-size:30px; color: #184885;">Key Inputs</caption>
+                              <tbody>
+                                   <tr style="color: #184885; font-size: 16px;">
+                                        <td class="fs-5" style="vertical-align : middle;text-align:center; border: 2px solid #184885">{{ baseline_scenario_data["model_params"]["imprv_roofs_id_8"]["param_desc"] }}</td>
+                                        <td class="fs-5" style="vertical-align : middle;text-align:center; border: 2px solid #184885">{{ baseline_scenario_data["model_params"]["imprv_roofs_id_8"]["param_val"] }}</td>
+                                   </tr>
 
-                              <tr>
-                                    <td style="vertical-align : middle;text-align:center;">{{ baseline_scenario_data["general_params"]["NBS_surface"]["param_desc"] }}</td>
-                                    <td style="vertical-align : middle;text-align:center;">{{ baseline_scenario_data["general_params"]["NBS_surface"]["param_val"] }}</td>
-                              </tr>
+                                   <tr style="color: #184885; font-size: 16px;">
+                                        <td class="fs-5" style="vertical-align : middle;text-align:center; border: 2px solid #184885">{{ baseline_scenario_data["general_params"]["NBS_surface"]["param_desc"] }}</td>
+                                        <td class="fs-5" style="vertical-align : middle;text-align:center; border: 2px solid #184885">{{ baseline_scenario_data["general_params"]["NBS_surface"]["param_val"] }}</td>
+                                   </tr>
 
-                              <tr>
-                                   <td style="vertical-align : middle;text-align:center;">{{ baseline_scenario_data["general_params"]["green_water_baseline"]["param_desc"] }}</td>
-                                   <td style="vertical-align : middle;text-align:center;">{{ baseline_scenario_data["general_params"]["green_water_baseline"]["param_val"] }}</td>
-                              </tr>
+                                   <tr style="color: #184885; font-size: 16px;">
+                                        <td class="fs-5" style="vertical-align : middle;text-align:center; border: 2px solid #184885">{{ baseline_scenario_data["general_params"]["green_water_baseline"]["param_desc"] }}</td>
+                                        <td class="fs-5" style="vertical-align : middle;text-align:center; border: 2px solid #184885">{{ baseline_scenario_data["general_params"]["green_water_baseline"]["param_val"] }}</td>
+                                   </tr>
 
-                              <tr>
-                                   <td style="vertical-align : middle;text-align:center;">{{ baseline_scenario_data["general_params"]["energy_baseline"]["param_desc"] }}</td>
-                                   <td style="vertical-align : middle;text-align:center;">{{ baseline_scenario_data["general_params"]["energy_baseline"]["param_val"] }}</td>
-                              </tr>
-                             </tbody>
-                  </table>
+                                   <tr style="color: #184885; font-size: 16px;">
+                                        <td class="fs-5" style="vertical-align : middle;text-align:center; border: 2px solid #184885">{{ baseline_scenario_data["general_params"]["energy_baseline"]["param_desc"] }}</td>
+                                        <td class="fs-5" style="vertical-align : middle;text-align:center; border: 2px solid #184885">{{ baseline_scenario_data["general_params"]["energy_baseline"]["param_val"] }}</td>
+                                   </tr>
+                              </tbody>
+                         </table>
+                    </div>
                </div>
-          </div>
-        </div>
 
-          <!-- CALCULATIONS ANNUALY TABLE -->
-          <div class="row justify-content-center align-items-center my-5">
-            <div class="col col-lg-8">
-               <div class="table-responsive container text-center" style="font-size: 16px;">
-                   <table class="table table-hover table-bordered table-light table-sm table-striped" border="1" style="border:2px solid #000000; border-collapse:collapse">
-                        <caption class="text-muted" style="caption-side:top; text-align:center; color:#000000; font-size:24px;">Annual Indicators</caption>
-                         <tbody>
+               <div class="col col-lg-6">
+                    <div class="table-responsive container text-center" style="font-size: 20px;">
+                         <table class="table table-hover table-bordered table-sm" style="border:2px solid #184885; border-collapse:collapse">
+                              <caption style="caption-side:top; text-align:center; font-size:30px; color: #184885;">Annual Indicators</caption>
+                              <tbody>
                                    {% for i in range(annual_calculations_categories|length) %}
-                                        <tr>
-                                             <td style="vertical-align : middle;text-align:center;">{{ annual_calculations_ei[i] }}</td>
-                                             <td style="vertical-align : middle;text-align:center;">{{ annual_calculations_categories[i] }}</td>
-                                             <td style="vertical-align : middle;text-align:center;">{{ "%.2f"|format(annual_calculations_values[i]) }}</td>
+                                        <tr style="color: #184885; font-size: 16px;">
+                                             <td class="fs-5" style="vertical-align : middle;text-align:center; border: 2px solid #184885">{{ annual_calculations_ei[i] }}</td>
+                                             <td class="fs-5" style="vertical-align : middle;text-align:center; border: 2px solid #184885">{{ annual_calculations_categories[i] }}</td>
+                                             <td class="fs-5" style="vertical-align : middle;text-align:center; border: 2px solid #184885">{{ "%.2f"|format(annual_calculations_values[i]) }}</td>
                                         </tr>
                                    {% endfor %}
-                          </tbody>
-                     </table>
+                              </tbody>
+                         </table>
+                    </div>
                </div>
           </div>
-          </div>
+     </div>
 
      <div class="row justify-content-center align-items-center">
-          <div class="col col-lg-7">
+          <div class="col col-lg-5">
                <canvas id="chart1"></canvas>
           </div>
      </div>
@@ -84,9 +86,12 @@
           // Configurations
           // Chart.register.apply(null, Object.values(CHART).filter((chartClass) => (chartClass.id)));
           Chart.defaults.font.size = 16;
-          Chart.defaults.font.family = 'Helvetica';
+          Chart.defaults.font.family = 'Titillium Web';
+          Chart.defaults.color = '#184885'
 
           const chart_data = {{ chart_data|safe }}
+          let color_baseline_in = 'rgba(212, 232, 247, 0.8)'
+          let color_baseline_out = 'rgba(212, 232, 247, 1)'
 
           // Chart 1
           const ctx1 = document.getElementById('chart1').getContext('2d');
@@ -98,14 +103,19 @@
                  label: "Baseline",
                  data: chart_data,
                  fill: true,
-                backgroundColor: 'rgba(255, 235, 59, 0.4)',
-                borderColor: 'rgb(255, 235, 59)',
-                pointBackgroundColor: 'rgb(255, 235, 59)',
-                pointBorderColor: 'rgb(255, 235, 59)',
+                backgroundColor: color_baseline_in,
+                borderColor: color_baseline_out,
+                pointBackgroundColor: color_baseline_in,
+                pointBorderColor: color_baseline_out,
                  borderWidth: 1,
              }]
               },
               options: {
+               plugins: {
+                    legend: {
+                         display: false //This will do the task
+                      }   
+                    },
                 elements: {
                        line: {
                           borderWidth: 3
